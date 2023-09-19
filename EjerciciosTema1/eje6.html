@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ejercicio 6 Mensaje en idiomas salida por alertas</h1>
+
+   <p id="mensaje"></p>
+    
+
+    <!--  <button type="button" onclick="document.getElementById('mensaje').innerHTML='Hello Word',ingles()">Ingles</button>  -->
+    <button type="button" onclick="ingles()">Ingles</button>
+    <button type="button" onclick=" español()">Español</button>
+    <button type="button" onclick=" ruso()">Ruso</button>
+
+    <script>
+
+        function ingles() {
+            var i = document.getElementById('mensaje');
+               window.alert('hello word');
+            i.style.color="red";
+        }
+
+        function español() {
+            var i = document.getElementById('mensaje');
+               window.alert('Hola mundo');
+            i.style.color="blue";
+        }
+
+        function ruso() {
+            var i = document.getElementById('mensaje');
+               window.alert('Привет, мир');
+            i.style.color="orange";
+        }
+
+    </script>
+
+</body>
+</html>
