@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secuencia de imagenes</title>
+</head>
+<body>
+    <h1>Secuencia de imagenes</h1>
+    <img id="myFPImage" onclick="cambiaPic()" src="https://i0.wp.com/www.labrarte.com/wp-content/uploads/2021/02/numero-1-en-ayagaure-mediano.png?fit=666%2C375&ssl=1"
+    width="100" height="180">
+<script>
+
+function cambiaPic() {
+
+var image = document.getElementById('myFPImage');
+if (image.src.match("numero-1")) {
+
+    image.src = "https://www.labrarte.com/wp-content/uploads/2014/05/1228-Numero-2-suelto.jpg";
+
+} else if (image.src.match('Numero-2')) {
+
+    image.src = "https://i0.wp.com/www.labrarte.com/wp-content/uploads/2014/05/1171-Numero-3-suelto.jpg?fit=800%2C699&ssl=1";
+
+}
+
+}
+
+
+</script>
+
+</body>
+</html>
