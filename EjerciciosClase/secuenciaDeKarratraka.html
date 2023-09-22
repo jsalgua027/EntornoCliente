@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SECUENCIA DE KARRATRAKA</h1>
+    <p>1 1 3 5 9 15 25 41 67 109.....</p>
+    <p>los dos anteriores +1</p>
+  <p id="secuencia"> </p>
+    <script>
+
+        let num=2;
+
+        function karratraka(posicion){
+                if (posicion<3){
+                    return 1
+
+                }else{
+
+                    return karratraka(posicion-1)+karratraka(posicion-2)+1;
+                }
+
+                         
+        }
+        for (let i = 1; i < 7; i++) {
+                   let x = document.getElementById("secuencia")
+                   x.innerHTML= x.innerHTML+"  " + karratraka(i);
+                    
+                }
+
+        console.log(karratraka(8));
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sumatorio de un array recursivo</h1>
+<!-- Escriba una función recursiva que calcule y devuelva la suma de todos los elementos de un array
+sumatorio (tamaño) -->
+<script>
+
+    let array=[7,8,9,10,11];
+
+       function sumaArray(posicion){
+          
+           
+            if(posicion===0){
+               
+               return 0;
+            } else{
+
+                return array[posicion-1]+ sumaArray(posicion-1);
+            }
+
+        }
+        console.log("el sumatorio es:" +sumaArray(array.length));
+
+
+</script>
+    
+</body>
+</html>
