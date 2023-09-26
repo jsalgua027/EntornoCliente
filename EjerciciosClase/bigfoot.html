@@ -32,35 +32,82 @@
         let arr =
             ["O", "F", "O", "O", "S", "T", "O", "F", "O", "O", "O", "T", "O", "F", "O", "O", "O", "O", "O", "T"];
         // ESCRIBE TU CÓDIGO AQUÍ
-
-        function contadorLetras(posicion) {
-            let contador = 1;
-            if (arr[posicion] === "F") {
-                contador++;
-            }else if (arr[posicion] === "0") {
-                    contador++;
-              } else if (arr[posicion] === "T") {
+        /*function contadorLetras(posicion) {
+                    let contador = 1;
+                    if (arr[posicion] === "F") {
                         contador++;
-
+                    }else if (arr[posicion] === "0") {
+                            contador++;
+                      } else if (arr[posicion] === "T") {
+                                contador++;
+        
+                            }
+                        
+                    if (contador>3) {
+                      return  console.log("La palabra es de:" + contador);
+                       
                     }
-                
-            if (contador>3) {
-              return  console.log("La palabra es de:" + contador);
-               
+        
+                }
+                for(i=0; i> arr.length;i++){
+                  if (arr.length>4){
+                    contadorLetras(i);
+                    
+                  }  else {
+                    return console.log("no encuentra la palabra");
+                    }
+        
+                }
+               // document.getElementById("resultado").innerHTML= contador;
+               */
+
+        // solución JC
+        function buscaFoot(num, arr) {
+            if (num === 3) return 0; //condicion de parada
+            // busco bigfoot de tamaño num
+            // console.log("Buscando un bigfoot de tamaño ".num);
+
+            for (let i = 0; i < arr.length - num + 1; i++) {
+                //tengo los dos punteros
+                let posi = i;
+                let posj = i;
+                // compruebo la F
+                if (arr[i] == "F") {
+                    // condiciones: no salirme && si es una o // posicion +1 porque la primea es una F y queremos ver la siguiente
+                    while (posj < arr.length && arr[posj + 1] === "O") {
+                        posj++;
+                        // miro si es una T y si el tamaño me gusta
+                        if (arr[posj + 1] == "T") {
+                           // posj++;
+
+                            if ((posj - posi + 2) == num) {
+                                return num;
+                            }
+                        }
+                    }
+
+                }
+
+
             }
+            //no lo encuentro -> busco bigfoot num-1
+            return ( buscaFoot(num - 1, arr));
 
         }
-        for(i=0; i> arr.length;i++){
-          if (arr.length>4){
-            contadorLetras(i);
-            
-          }  else {
-            return console.log("no encuentra la palabra");
-            }
 
-        }
-       // document.getElementById("resultado").innerHTML= contador;
+
+
+
+
+
+
+        console.log("La cadena más larga tiene un tamaño: " +buscaFoot(arr.length, arr));
+
+
+
+
     </script>
+
 </body>
 
 </html>
