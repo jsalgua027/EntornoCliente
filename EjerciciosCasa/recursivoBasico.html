@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Recursividad Básica</h1>
+    <script>
+  /*
+  
+        var lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let i = 0;
+  */
+        //recursivo
+        function recorrer(i) {
+            if (i >= lista.length) {
+                console.log("No se encontró el 5 en la lista.");
+                return; // Salir de la función si hemos llegado al final del arreglo
+            }
+
+            if (lista[i] == 5) {
+                console.log("Has encontrado el 5, felicidades");
+            } else {
+                recorrer(i + 1); // Llamar recursivamente con el siguiente índice
+            }
+        }
+
+        // Ejemplo de uso:
+        const lista = [1, 2, 3, 4, 5, 6];
+        recorrer(0); // Iniciar la búsqueda desde el índice 0
+
+        console.log(recorrer(5));
+        /*
+         //iteractivo
+      for (let i = 0; i < lista.length; i++) {
+        if (lista[i] == 5) {
+         console.log("Has encontrado el 5, felicidades");
+        }
+
+        */
+
+
+
+    </script>
+
+</body>
+
+</html>
