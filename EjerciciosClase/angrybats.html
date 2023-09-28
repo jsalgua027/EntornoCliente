@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="txt">
+    <p>
+
+        <script>
+            let biocenosis = [['P', 'P', 'G', 'H', 'H', 'R'],
+            ['P', 'P', 'G', 'H', 'H', 'G'],
+            ['P', 'G', 'R', 'H', 'H', 'G'],
+            ['G', 'R', 'R', 'H', 'G', 'G'],
+            ['R', 'R', 'H', 'H', 'G', 'P']];
+
+            let biocenosisM = [['M', 'M', 'G', 'H', 'H', 'R'],
+            ['M', 'M', 'G', 'H', 'H', 'G'],
+            ['P', 'G', 'M', 'H', 'H', 'G'],
+            ['G', 'R', 'M ', 'H', 'G', 'G'],
+            ['R', 'R', 'H', 'H', 'G', 'P']];
+            function pandemic(x, y, arr) {
+                let posicion_fila = x-1 ;
+                let posicion_columna = y-1 ;
+                
+                function vecinas(arr) {
+                    let tamanio_fila = arr.length;
+                    let tamanio_Columna = arr[i].length;
+
+                    //La función Math.max()  se utiliza para encontrar el valor más grande entre dos o más números. 
+                    const minFila = Math.max(0, tamanio_fila - 1);
+                    const maxFila = Math.min(tamaniofila - 1, posicion_fila + 1);
+                    const minColum = Math.max(0, tamanio_Columna - 1);
+                    const maxColum = Math.min(tamanio_Columna - 1, posicion_columna + 1);
+                    // recorro las vecinas
+                    for (let r = minFila; r < maxFila; r++) {
+                        for (let c = minColum; c < maxColum; c++) {
+                            //para saltar la celda dada
+                            if (r === posicion_fila && posicion_columna) {
+                                continue;
+
+                            }
+                           return console.log(arr[r][c]);
+                        }
+
+                    }
+
+
+                }
+
+
+            }
+
+
+
+            // Recorre cada fila
+            for (let i = 0; i < biocenosis.length; i++) {
+                // Inicializa una cadena vacía para cada fila
+                let row = '';
+
+                // Recorre cada columna en la fila actual
+                for (let j = 0; j < biocenosis[i].length; j++) {
+                    // Agrega el elemento actual al final de la cadena
+                    row += biocenosis[i][j] + ' ';
+                }
+
+                // Imprime la fila en la consola
+                console.log(row);
+            }
+
+           console.log( pandemic(2, 2, biocenosisM));
+        </script>
+</body>
+
+</html>
