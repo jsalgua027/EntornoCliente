@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>OSO</title>
+</head>
+
+<body>
+
+  <p id="txt">
+  <p>
+
+    <script>
+      let tablero = new Array();
+      let maxx = 9;
+      let maxy = 9;
+
+      function aleatorio(min, max) {
+        var horquilla = max - min;
+        return Math.round(Math.random() * horquilla + min);
+      }
+
+      function rellena() {
+        // aquí tendrás que rellenar la matriz.
+
+        for (let i = 0; i < maxx; i++) {
+          // dentro de este array creame por cada posicion otros arrays
+
+          tablero[i] = [];
+          for (let j = 0; j < maxy; j++) {
+            let numero = aleatorio(0, 3);
+
+            if (numero == 1 || numero == 0) {
+
+              tablero[i][j] = "0"
+            } else {
+
+              tablero[i][j] = "s"
+
+            }
+
+          }
+
+
+        };
+
+
+      }
+
+
+      function resuelve() {
+        //función que resuelve el juego
+        for (let i = 0; i < tablero.length; i++) {
+          for (let j = 0; j < tablero[i].length; j++) {
+            
+            
+          }
+          
+        }
+
+
+
+      }
+
+      console.log(aleatorio(0, 2));
+      console.log(aleatorio(0, 2));
+      console.log(aleatorio(0, 2));
+
+      console.log(aleatorio(0, 2));
+
+      console.log(aleatorio(0, 2));
+
+
+      rellena(tablero);
+      console.log(JSON.parse(JSON.stringify(tablero)));
+      resuelve();
+      console.log(tablero);
+
+    </script>
+
+</body>
+
+</html>

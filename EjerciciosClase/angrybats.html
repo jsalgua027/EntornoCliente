@@ -25,31 +25,31 @@
             ['G', 'R', 'M ', 'H', 'G', 'G'],
             ['R', 'R', 'H', 'H', 'G', 'P']];
             function pandemic(x, y, arr) {
-                let posicion_fila = x-1 ;
-                let posicion_columna = y-1 ;
-                
-                function vecinas(arr) {
-                    let tamanio_fila = arr.length;
-                    let tamanio_Columna = arr[i].length;
+                let posicion_fila = x - 1;
+                let posicion_columna = y - 1;
 
-                    //La función Math.max()  se utiliza para encontrar el valor más grande entre dos o más números. 
-                    const minFila = Math.max(0, tamanio_fila - 1);
-                    const maxFila = Math.min(tamaniofila - 1, posicion_fila + 1);
-                    const minColum = Math.max(0, tamanio_Columna - 1);
-                    const maxColum = Math.min(tamanio_Columna - 1, posicion_columna + 1);
-                    // recorro las vecinas
-                    for (let r = minFila; r < maxFila; r++) {
-                        for (let c = minColum; c < maxColum; c++) {
-                            //para saltar la celda dada
-                            if (r === posicion_fila && posicion_columna) {
-                                continue;
 
-                            }
-                           return console.log(arr[r][c]);
+
+            }
+            function vecinas(arr) {
+                let tamanio_fila = arr.length;
+                let tamanio_Columna = arr[i].length;
+
+                //La función Math.max()  se utiliza para encontrar el valor más grande entre dos o más números. 
+                const minFila = Math.max(0, tamanio_fila - 1);
+                const maxFila = Math.min(tamaniofila - 1, posicion_fila + 1);
+                const minColum = Math.max(0, tamanio_Columna - 1);
+                const maxColum = Math.min(tamanio_Columna - 1, posicion_columna + 1);
+                // recorro las vecinas
+                for (let r = minFila; r < maxFila; r++) {
+                    for (let c = minColum; c < maxColum; c++) {
+                        //para saltar la celda dada
+                        if (r === posicion_fila && posicion_columna) {
+                            continue;
+
                         }
-
+                        return console.log(arr[r][c]);
                     }
-
 
                 }
 
@@ -73,7 +73,7 @@
                 console.log(row);
             }
 
-           console.log( pandemic(2, 2, biocenosisM));
+            console.log(pandemic(2, 2, biocenosisM));
         </script>
 </body>
 
