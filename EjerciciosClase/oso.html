@@ -32,10 +32,10 @@
 
             if (numero == 1 || numero == 0) {
 
-              tablero[i][j] = "0"
+              tablero[i][j] = "O"
             } else {
 
-              tablero[i][j] = "s"
+              tablero[i][j] = "S"
 
             }
 
@@ -52,24 +52,55 @@
         //función que resuelve el juego
         for (let i = 0; i < tablero.length; i++) {
           for (let j = 0; j < tablero[i].length; j++) {
-            
-            
+            if (tablero[i][j] == "S") {
+              //Miro arriba y abajo. 
+              // controlo que no se salga de la matriz
+              if (i > 0 && i < tablero.length - 1) {
+                if (tablero[i - 1][j] == "O" && tablero[i + 1][j] == "O") {
+                  tablero[i][j] = " ";
+                  tablero[i - 1][j] = " ";
+                  tablero[i + 1][j] = " ";
+                  console.log(tablero[i][j])
+                }
+              }
+              //miro Izquierda y derecha
+              else if (j > 0 && j < tablero.length - 1) {
+                if (tablero[i][j - 1] == "O" && tablero[i][j + 1] == "O") {
+                  tablero[i][j] = " ";
+                  tablero[i][j - 1] = " ";
+                  tablero[i][j + 1] = " ";
+                  console.log(tablero[i][j])
+
+                }
+              }
+              //miro la diagonale comprobando que no se salga
+              else if (i >= 0 && i < tablero.length - 1 && j >= 0 && j < tablero.length - 1) {
+                if (tablero[i + 1][j - 1] == "O" && tablero[i - 1][j + 1] == "O") {
+                  tablero[i][j] = " ";
+                  tablero[i][j - 1] = " ";
+                  tablero[i][j + 1] = " ";
+                  console.log(tablero[i][j])
+                  //compruebo la otra diagonal 
+                } else if (tablero[i - 1][j - 1] == "O" && tablero[i + 1][j + 1] == "O") {
+                  tablero[i][j] = " ";
+                  tablero[i][j - 1] = " ";
+                  tablero[i][j + 1] = " ";
+                  console.log(tablero[i][j])
+
+                }
+              }
+
+            }
+
           }
-          
+
         }
 
 
 
       }
 
-      console.log(aleatorio(0, 2));
-      console.log(aleatorio(0, 2));
-      console.log(aleatorio(0, 2));
-
-      console.log(aleatorio(0, 2));
-
-      console.log(aleatorio(0, 2));
-
+      
 
       rellena(tablero);
       console.log(JSON.parse(JSON.stringify(tablero)));
