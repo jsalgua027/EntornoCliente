@@ -22,39 +22,61 @@
             let biocenosisM = [['M', 'M', 'G', 'H', 'H', 'R'],
             ['M', 'M', 'G', 'H', 'H', 'G'],
             ['P', 'G', 'M', 'H', 'H', 'G'],
-            ['G', 'R', 'M ', 'H', 'G', 'G'],
+            ['G', 'R', 'M', 'H', 'G', 'G'],
             ['R', 'R', 'H', 'H', 'G', 'P']];
-            function pandemic(x, y, arr) {
-                let posicion_fila = x - 1;
-                let posicion_columna = y - 1;
+            function pandemic(f, c) {
 
 
+                let posicion_seleccionada = biocenosisM[f][c]
+                biocenosisM[f][c] = " "
+                if (posicion_seleccionada == "M" || posicion_seleccionada == "H") {
 
-            }
-            function vecinas() {
-               
+                    //izquierda
+                    if (c > 0 && biocenosisM[f][c - 1] == posicion_seleccionada && (biocenosisM[f][c - 1] == "H" || biocenosisM[f][c - 1] == "M")) pandemic(f, c - 1);
+                    //derecha
+                    if (c < biocenosisM[f].length - 1 && biocenosisM[f][c + 1] == posicion_seleccionada && (biocenosisM[f][c + 1] == "H" || biocenosisM[f][c + 1] == "M")) pandemic(f, c + 1);
+                    //abajo
+                    if (f < biocenosisM.length - 1 && biocenosisM[f + 1][c] == posicion_seleccionada && (biocenosisM[f + 1][c] == "H" || biocenosisM[f + 1][c] == "M")) pandemic(f + 1, c);
+                    //arriba
+                    if (f > 0 && biocenosisM[f - 1][c] == posicion_seleccionada && (biocenosisM[f - 1][c] == "H" || biocenosisM[f - 1][c] == "M")) pandemic(f - 1, c);
 
 
-            }
-
-
-
-            // Recorre cada fila
-            for (let i = 0; i < biocenosis.length; i++) {
-                // Inicializa una cadena vacía para cada fila
-                let row = '';
-
-                // Recorre cada columna en la fila actual
-                for (let j = 0; j < biocenosis[i].length; j++) {
-                    // Agrega el elemento actual al final de la cadena
-                    row += biocenosis[i][j] + ' ';
                 }
 
-                // Imprime la fila en la consola
-                console.log(row);
+
             }
 
-            //console.log();
+
+
+
+
+            function imprimirMatriz(arr) {
+                // Recorre cada fila
+                for (let i = 0; i < arr.length; i++) {
+                    // Inicializa una cadena vacía para cada fila
+                    let row = '';
+
+                    // Recorre cada columna en la fila actual
+                    for (let j = 0; j < arr[i].length; j++) {
+                        // Agrega el elemento actual al final de la cadena
+                        row += arr[i][j] + ' ';
+                    }
+
+                    // Imprime la fila en la consola
+                    console.log(row);
+                }
+
+
+            }
+
+
+
+            imprimirMatriz(biocenosisM)
+            // Imprime un separador
+            console.log("-".repeat(10)); // Puedes ajustar el número de guiones según tus preferencias
+
+            pandemic(4, 2);
+            imprimirMatriz(biocenosisM)
         </script>
 </body>
 
