@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CAPICUA</title>
+</head>
+
+<body>
+    <p id="txt"></p>
+    <br><br>
+    <p>Crea un programa con una función recursiva que muestre todos los
+        números/letras capicúas encontrados en un array. Se entiende por capicúa
+        cuando tiene al menos 3 posiciones del array.</p>
+    <p>Por ejemplo con el array: 5 4 6 5 6 4 3 O S O</p>
+    <p>mostrará:</p>
+    <br>
+    <p id="result"></p>
+
+    <script>
+        function esCapicua(arr) {
+            if (arr.length < 3) {
+                return false;
+            }
+            for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+                if (arr[i] !== arr[arr.length - 1 - i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function encontrarCapicuas(arr, start, end, resultado) {
+            if (end <= arr.length) {
+                const subarray = arr.slice(start, end);
+                if (esCapicua(subarray)) {
+                    resultado.push(subarray.join(''));
+                }
+                encontrarCapicuas(arr, start + 1, end + 1, resultado);
+            }
+        }
