@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>JavaScript Arrays</h2>
+    <p> Tenemos tres arrays arr1 arr2 y arr3 y queremos insertarlos de forma
+        ordenada en un cuarto array arr4.
+        Importante: hay que insertarlo de forma ordenada.
+        Solo puedes utilizar el método de arrays push() y length().
+        No puedes modificar los arrays arr1 arr2 o arr3.
+        Muestra el resultado en el campo demo.
+        No puedes crear más variables que las que se te ofrecen.
+    </p>
+    <p id="demo"></p>
+    <script>
+        const arr1 = [1, 2, 3, 7, 9];
+        const arr2 = [4, 5, 6, 9, 9];
+        const arr3 = [7, 9, 15, 19, 25, 38, 49];
+        var arr4 = []
+        let i = 0;
+        let j = 0;
+        let k = 0;
+        /*AQUÍ VA TU CÓDIGO*/
+
+        /*
+                    comprobaciones
+        
+                    for (let m = 0; m< arr1.length; m++) {    
+                  console.log(arr1[m]);
+                        arr4.push(arr1[m]);
+                    }
+        
+        
+                    for(let z=0; z<arr4.length;z++){
+        
+                            console.log(arr4[z]);
+                    }
+        */
+
+
+        for (let i = 0; i < arr1.length; i++) {
+            // meto todos los valores del arr1 al 4
+            arr4.push(arr1[i]);
+
+        }
+
+        for (let j = 0; j < arr2.length; j++) {
+            for (let i = 0; i < arra4.length; i++) {
+                if (arra2[j] >= arr4[i]) {
+                    arr4.push(arra2[j]);
+                   
+                } else {
+                    j++;
+                }
+
+            }
+
+                for (let i = 0; i < arr4.length; i++) {
+                    for (let k = 0; k < arr3.length; k++) {
+                if (arr3[k] >= arr4[i]) {
+                    arr4.push(arr3[k]);
+
+                } else {
+                    k++;
+                }
+
+            }
+                    
+                }
+
+           
+
+        }
+
+
+
+
+
+
+        document.getElementById("demo").innerHTML = arr4;
+    </script>
+</body>
+
+</html>
