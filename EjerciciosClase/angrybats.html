@@ -28,49 +28,35 @@
 
 
                 let posicion_seleccionada = biocenosisM[f][c]
-                biocenosisM[f][c] = " "
-                /*
-                 if (posicion_seleccionada == "M" || posicion_seleccionada == "H") {
 
-                    //izquierda
-                    if (c > 0 && biocenosisM[f][c - 1] == posicion_seleccionada && (biocenosisM[f][c - 1] == "H" || biocenosisM[f][c - 1] == "M")) pandemic(f, c - 1);
-                    //derecha
-                    if (c < biocenosisM[f].length - 1 && biocenosisM[f][c + 1] == posicion_seleccionada && (biocenosisM[f][c + 1] == "H" || biocenosisM[f][c + 1] == "M")) pandemic(f, c + 1);
-                    //abajo
-                    if (f < biocenosisM.length - 1 && biocenosisM[f + 1][c] == posicion_seleccionada && (biocenosisM[f + 1][c] == "H" || biocenosisM[f + 1][c] == "M")) pandemic(f + 1, c);
-                    //arriba
-                    if (f > 0 && biocenosisM[f - 1][c] == posicion_seleccionada && (biocenosisM[f - 1][c] == "H" || biocenosisM[f - 1][c] == "M")) pandemic(f - 1, c);
-
-
-                }
-                */
 
                 //filtramos
-                if ( posicion_seleccionada == "H") {
+                if (posicion_seleccionada == "H") {
+                    biocenosisM[f][c] = " "
                     // miramos.............................H
                     //IZQUIERDA
-                    if (c > 0 && biocenosisM[f][c - 1] == posicion_seleccionada && biocenosisM[f][c - 1] == "H") pandemic(f, c - 1);
+                    if (c > 0 && biocenosisM[f][c - 1] == "H") pandemic(f, c - 1);
                     //DERECHA
-                    if (c < biocenosisM[f].length - 1 && biocenosisM[f][c + 1] == posicion_seleccionada && biocenosisM[f][c + 1] == "H") pandemic(f, c + 1);
+                    if (c < biocenosisM[f].length - 1 && biocenosisM[f][c + 1] == "H") pandemic(f, c + 1);
                     //ABAJO
-                    if (f > biocenosisM.length - 1 && biocenosisM[f + 1][c] == posicion_seleccionada && biocenosisM[f + 1][c] == "H") pandemic(f + 1, c);
+                    if (f > biocenosisM.length - 1 && biocenosisM[f + 1][c] == "H") pandemic(f + 1, c);
                     //ARRIBA
-                    if (f > 0 && biocenosisM[f - 1][c] == posicion_seleccionada && biocenosisM[f - 1][c] == "H") pandemic(f - 1, c);
+                    if (f > 0 && biocenosisM[f - 1][c] == "H") pandemic(f - 1, c);
 
-                    
+
                 }
-                if(posicion_seleccionada=="M"){
+                if (posicion_seleccionada == "M") {
 
-
+                    biocenosisM[f][c] = "m"
                     // miramos.............................M
                     //IZQUIERDA
-                    if (c > 0 && biocenosisM[f][c - 1] == posicion_seleccionada && biocenosisM[f][c - 1] == "M") pandemic(f, c - 1);
+                    if (c > 0 && (biocenosisM[f][c - 1] == "M" || biocenosisM[f][c - 1] == "H")) pandemic(f, c - 1);
                     //DERECHA
-                    if (c < biocenosisM[f].length - 1 && biocenosisM[f][c + 1] == posicion_seleccionada && biocenosisM[f][c + 1] == "M") pandemic(f, c + 1);
+                    if (c < biocenosisM[f].length - 1 && (biocenosisM[f][c + 1] == "M"|| biocenosisM[f][c + 1] == "H")) pandemic(f, c + 1);
                     //ABAJO
-                    if (f > biocenosisM.length - 1 && biocenosisM[f + 1][c] == posicion_seleccionada && biocenosisM[f + 1][c] == "M") pandemic(f + 1, c);
+                    if (f > biocenosisM.length - 1 && (biocenosisM[f + 1][c] == "M"|| biocenosisM[f + 1][c] == "H")) pandemic(f + 1, c);
                     //ARRIBA
-                    if (f > 0 && biocenosisM[f - 1][c] == posicion_seleccionada && biocenosisM[f - 1][c] == "M") pandemic(f - 1, c);
+                    if (f > 0 && (biocenosisM[f - 1][c] == "M"|| biocenosisM[f - 1][c] == "H")) pandemic(f - 1, c);
 
 
 
@@ -93,7 +79,7 @@
                     // Recorre cada columna en la fila actual
                     for (let j = 0; j < arr[i].length; j++) {
                         // Agrega el elemento actual al final de la cadena
-                        row += arr[i][j] +" ";
+                        row += arr[i][j] + " ";
                     }
 
                     // Imprime la fila en la consola
@@ -109,7 +95,7 @@
             // Imprime un separador
             console.log("-".repeat(10)); // Puedes ajustar el número de guiones según tus preferencias
 
-            pandemic(3, 3);
+            pandemic(2, 2);
             imprimirMatriz(biocenosisM)
         </script>
 </body>
