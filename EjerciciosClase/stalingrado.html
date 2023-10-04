@@ -1,56 +1,90 @@
 <!DOCTYPE html>
 <html>
+
 <body>
 
-<h1>STALINGRADO</h1>
-<p id="matriz"></p>
-<h2 id="ganador"></h2>
+    <h1>STALINGRADO</h1>
+    <p id="matriz"></p>
+    <h2 id="ganador"></h2>
 
-<script>
-let battlefield = [
-["A","A","","","R","","","",""],
-["A","A","","","R","","","",""],
-["","","","","R","","","",""],
-["","","","","R","","","",""],
-["","","","","R","","","",""],
-["","","","","R","","","",""],
-["","","","","R","","","",""],
-["","","","","R","","","A","A"],
-["","","","","R","","","A","A"]
-];
+    <script>
+        let battlefield = [
+            ["A", "A", "", "", "R", "", "", "", ""],
+            ["A", "A", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "R", "", "", "A", "A"],
+            ["", "", "", "", "R", "", "", "A", "A"]
+        ];
 
-function mostrarMatriz(array) {
-    let texto ="";
+        function mostrarMatriz(array) {
+            let texto = "";
 
-    for (let i = 0; i < array.length; i++) {
-       
-        for (let j = 0; j < array[i].length; j++) {
-            if(array[i][j]=="")array[i][j]= "- ";
-            texto+= array[i][j]
+            for (let i = 0; i < array.length; i++) {
+
+                for (let j = 0; j < array[i].length; j++) {
+                    if (array[i][j] == "") array[i][j] = "- ";
+                    texto += array[i][j]
+                }
+                texto += "<br/>"
+            }
+            let m = document.getElementById("matriz").innerHTML = texto;
         }
-        texto += "<br/>"
-    }
-    let m= document.getElementById("matriz").innerHTML=texto;
-}
 
-function localizarRusos(array){
-    if(array[i][j]=="R"){
-        //miro arriba
-        //miro abajo
-        //miro izquierda
-        // miro a la derecha
+        function localizarRusos(f, c) {
+            let soldado =  battlefield[f][c]
+            let bien = true;
 
+            for (let i = 0; i < battlefield.length; i++) {
+               for (let j = 0; j < battlefield[i].length; j++) {
+                if (soldado == "R") {
+               // console.log("R en pos[ " + fila + " ][ " + col  +" ]");
+                if (battlefield[f][c] == "R") {
+                    battlefield[f][c] = "X";
+                    // miramos.............................H
+                    //IZQUIERDA
+                    if (c > 0 && battlefield[f][c - 1] == "R") {
+                       return console.log(bien);
+                        localizarRusos(f, c - 1);
+                    }
+                    //DERECHA
+                    if (c < battlefield[f].length - 1 && battlefield[f][c + 1] == "R") {
+                        bien = true; localizarRusos(f, c + 1);
+                    } else {
+                        bien = false;
 
-    }
+                    }
+                    //ABAJO
+                    if (f > battlefield.length - 1 && battlefield[f + 1][c] == "R") {
+                        bien = true; localizarRusos(f, c + 1);
+                    } else {
+                        bien = false;
+                        //ARRIBA
+                        if (f > 0 && battlefield[f - 1][c] == "R") {
+                            bien = true; localizarRusos(f, c + 1);
+                        } else {
+                            bien = false;
 
+                        }
+                    }
+                }
+            }
+                
+               }
+                
+            }
+            
+        }
 
+      console.log(localizarRusos(0,4))  ;
+       
+        mostrarMatriz(battlefield);
 
-}
-
-
-mostrarMatriz(battlefield);
-
-</script>
+    </script>
 
 </body>
+
 </html>
