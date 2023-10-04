@@ -25,12 +25,70 @@ Escribe una función recursiva para resolver el problema de encontrar todas las 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <h1>Calcula el factorial de un número de manera recursiva. </h1>
+
+    <script>
+        // el factorial de 4   4! = 4 × 3 × 2 × 1 = 24.
+
+      /*
+      
+      */  function cfactorial(numero) {
+            if (numero === 1 || numero === 0) {
+                return 1;
+
+            }
+
+            else {
+                return numero * cfactorial(numero - 1);
+
+            }
+
+        }
+        let num = 15;
+        let nfactorial = cfactorial(num);
+        //console.log(cfactorial(15))
+        console.log(`El factorial de ${num} es ${nfactorial}`)
+
+        //        Implementa una función recursiva para calcular la suma de los números naturales desde 1 hasta n.
+
+       function cSuma(numero) {
+            if(numero=== 1){
+                return 1
+            }else{
+
+                return 1+ cSuma(numero-1)
+            }
+       }
+       let n=5;
+       let suma =cSuma(5);
+      // console.log("la suma de los numero naturales es: " +cSuma(4));
+       console.log("La suma de los números naturales desde 1 hasta " + n + " es " + suma);
+
+       //Crea una función recursiva para invertir una cadena de caracteres.
+
+       function inversa(texto) {
+            let palabraInversa="";
+            if(texto.lenght===0){
+                re
+
+            }
+
+
+       }
+
+
+
+
+    </script>
+
 </body>
+
 </html>
