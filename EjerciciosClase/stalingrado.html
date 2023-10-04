@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>STALINGRADO</h1>
+<p id="matriz"></p>
+<h2 id="ganador"></h2>
+
+<script>
+let battlefield = [
+["A","A","","","R","","","",""],
+["A","A","","","R","","","",""],
+["","","","","R","","","",""],
+["","","","","R","","","",""],
+["","","","","R","","","",""],
+["","","","","R","","","",""],
+["","","","","R","","","",""],
+["","","","","R","","","A","A"],
+["","","","","R","","","A","A"]
+];
+
+function mostrarMatriz(array) {
+    let texto ="";
+
+    for (let i = 0; i < array.length; i++) {
+       
+        for (let j = 0; j < array[i].length; j++) {
+            if(array[i][j]=="")array[i][j]= "- ";
+            texto+= array[i][j]
+        }
+        texto += "<br/>"
+    }
+    let m= document.getElementById("matriz").innerHTML=texto;
+}
+
+function localizarRusos(array){
+    if(array[i][j]=="R"){
+        //miro arriba
+        //miro abajo
+        //miro izquierda
+        // miro a la derecha
+
+
+    }
+
+
+
+}
+
+
+mostrarMatriz(battlefield);
+
+</script>
+
+</body>
+</html>

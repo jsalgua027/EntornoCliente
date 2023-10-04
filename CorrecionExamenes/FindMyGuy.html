@@ -11,7 +11,8 @@ let people = ["perico", "juanico",
 console.log(people)
 let numero =0;
 // ESCRIBE TU CÓDIGO AQUÍ
-    function FindMyGuy(nombre, posicion) {
+/*
+ function FindMyGuy(nombre, posicion) {
         
         if(nombre!=people[posicion]||posicion>=people.lenght){ // caso base
             return numero++;
@@ -22,8 +23,25 @@ let numero =0;
         }
 
     }
+*/
+   
 
-  console.log(FindMyGuy("perico",0)); 
+    const FindMyGuy=(array,pos,nombre)=>{
+        let contador=0;
+        // si llega al final devulve 0
+        if(array.length=== pos) return 0;
+        // si lo encuentra le suma uno a contador
+        if(array[pos]=== nombre) contador++;
+
+        // en todo caso ve al siguinte
+        return contador + FindMyGuy(array, pos+1,nombre);
+
+
+    }
+
+  console.log(FindMyGuy( people,0,"dimas")); 
+  console.log(FindMyGuy( people,0,"gestas")); 
+  console.log(FindMyGuy( people,0,"leonidas")); 
    
 </script>
 </body>

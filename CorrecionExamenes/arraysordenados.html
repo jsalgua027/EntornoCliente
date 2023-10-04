@@ -37,57 +37,115 @@
                     }
         */
 
-/*          
-            realizado en el examen
-
-        for (let i = 0; i < arr1.length; i++) {
-            // meto todos los valores del arr1 al 4
-            arr4.push(arr1[i]);
-
-        }
-
-        for (let j = 0; j < arr2.length; j++) {
-            for (let i = 0; i < arra4.length; i++) {
-                if (arra2[j] >= arr4[i]) {
-                    arr4.push(arra2[j]);
+        /*          
+                    realizado en el examen
+        
+                for (let i = 0; i < arr1.length; i++) {
+                    // meto todos los valores del arr1 al 4
+                    arr4.push(arr1[i]);
+        
+                }
+        
+                for (let j = 0; j < arr2.length; j++) {
+                    for (let i = 0; i < arra4.length; i++) {
+                        if (arra2[j] >= arr4[i]) {
+                            arr4.push(arra2[j]);
+                           
+                        } else {
+                            j++;
+                        }
+        
+                    }
+        
+                        for (let i = 0; i < arr4.length; i++) {
+                            for (let k = 0; k < arr3.length; k++) {
+                        if (arr3[k] >= arr4[i]) {
+                            arr4.push(arr3[k]);
+        
+                        } else {
+                            k++;
+                        }
+        
+                    }
+                            
+                        }
+        
                    
-                } else {
-                    j++;
+        
                 }
-
-            }
-
-                for (let i = 0; i < arr4.length; i++) {
-                    for (let k = 0; k < arr3.length; k++) {
-                if (arr3[k] >= arr4[i]) {
-                    arr4.push(arr3[k]);
-
-                } else {
-                    k++;
-                }
-
-            }
-                    
-                }
-
-           
-
-        }
-
-*/
-
-        do {
-            if (arr1[i]<arr2[j]&& (i<arr1.length)&& (j<arr2.length)){
+        
+        */
+        while (i < arr1.length && j < arr2.length && k < arr3.length) {
+            if (arr1[i] <= arr2[j] && arr1[i] <= arr3[k]) { //el menor está en el arr1
                 arr4.push(arr1[i]);
                 i++;
-            }else{
+            } else {
+                if (arr2[j] <= arr1[i] && arr2[j] <= arr3[k]) { //el menor está en el arr2
+                    arr4.push(arr2[j]);
+                    j++;
+                } else { //el menor está en el arr3
+                    arr4.push(arr3[k]);
+                    k++;
+                }
+            }
+        }
+        // ahora termino el par de arrays restantes
+        if (i == arr3.length) {//termino 1 y 2
+            while (i < arr1.length && j < arr2.length) {
+                console.log("termino 1 y 2")
+                if (arr1[i] > arr2[j]) {
+                    arr4.push(arr2[j]);
+                    j++;
+                } else {
+                    arr4.push(arr1[i]);
+                    i++;
+                }
+            }
+        } else {
+            if (j == arr2.length) {//termino 1 y 3
+                console.log("termino 1 y 3")
+                while (i < arr1.length && k < arr3.length) {
+                    if (arr1[i] > arr3[k]) {
+                        arr4.push(arr3[k]);
+                        k++;
+                    } else {
+                        arr4.push(arr1[i]);
+                        i++;
+                    }
+                }
+            } else {//termino 2 y 3
+                while (j < arr2.length && k < arr3.length) {
+                    if (arr2[j] > arr3[k]) {
+                        arr4.push(arr3[k]);
+                        k++;
+                    } else {
+                        arr4.push(arr2[j]);
+                        j++;
+                    }
+                }
+            }
+        }
+
+
+        // ahora inserto el final del array que queda
+        if (i < arr1.length) {
+            while (i < arr1.length) {
+                arr4.push(arr1[i]);
+                i++;
+            }
+        }
+        if (j < arr2.length) {
+            while (j < arr2.length) {
                 arr4.push(arr2[j]);
                 j++;
             }
-
-            
-        } while (i>arr1.length || j>arr2.length );
-
+        }
+        if (k < arr3.length) {
+            while (k < arr3.length) {
+                arr4.push(arr3[k]);
+                k++;
+            }
+        }
 
 
 
