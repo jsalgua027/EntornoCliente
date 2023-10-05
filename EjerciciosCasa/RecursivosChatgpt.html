@@ -59,33 +59,85 @@ Escribe una función recursiva para resolver el problema de encontrar todas las 
 
         //        Implementa una función recursiva para calcular la suma de los números naturales desde 1 hasta n.
 
-       function cSuma(numero) {
-            if(numero=== 1){
+        function cSuma(numero) {
+            if (numero === 1) {
                 return 1
-            }else{
+            } else {
 
-                return 1+ cSuma(numero-1)
+                return 1 + cSuma(numero - 1)
             }
-       }
-       let n=5;
-       let suma =cSuma(5);
-      // console.log("la suma de los numero naturales es: " +cSuma(4));
-       console.log("La suma de los números naturales desde 1 hasta " + n + " es " + suma);
+        }
+        let n = 5;
+        let suma = cSuma(5);
+        // console.log("la suma de los numero naturales es: " +cSuma(4));
+        console.log("La suma de los números naturales desde 1 hasta " + n + " es " + suma);
 
-       //Crea una función recursiva para invertir una cadena de caracteres.
+        //Crea una función recursiva para invertir una cadena de caracteres.
 
-       function inversa(texto) {
-            let palabraInversa="";
-            if(texto.lenght===0){
-                re
+        function inversa(palabra) {
+            var palabraInversa = "";
+            var tamanio = palabra.length;
+            var posicion = 0;
+
+            if (posicion === 0) {
+                return palabraInversa += texto[0];
+
+            } else {
+                return palabraInversa += inversa(texto[posicion - 1]);
 
             }
 
 
-       }
+        }
+
+        function invertirCadena(cadena, index = 0) {
+            if (index === cadena.length - 1) {
+                // Caso base: hemos llegado al último carácter de la cadena
+                return cadena[index];
+            } else {
+                // Llamada recursiva: obtenemos el carácter actual y lo colocamos al final
+                var caracterActual = cadena[index];
+                var cadenaRestante = invertirCadena(cadena, index + 1);
+                return cadenaRestante + caracterActual;
+            }
+        }
+        // Ejemplo de uso:
+        var cadenaOriginal = "Hola, mundo!";
+        var cadenaInvertida = invertirCadena(cadenaOriginal);
+
+        console.log("Cadena original: " + cadenaOriginal);
+        console.log("Cadena invertida: " + cadenaInvertida);
 
 
+        // Desarrolla una función recursiva para encontrar el máximo común divisor (MCD) de dos números.
+        function MCD(a, b) {
+            // Caso base: Si b es igual a 0, entonces a es el MCD.
+            if (b === 0) {
+                return a;
+            } else {
+                // Llamada recursiva: Calculamos el MCD de b y el residuo de a/b.
+                return MCD(b, a % b);
+            }
 
+
+        }
+        console.log(MCD(48, 18));
+
+
+        //Escribe una función recursiva para resolver el problema de las Torres de Hanoi.
+        function torresDeHanoi(n, origen, auxiliar, destino) {
+            if (n === 1) {
+                console.log(`Mover disco ${n} de ${origen} a ${destino}`);
+            } else {
+                torresDeHanoi(n - 1, origen, destino, auxiliar);
+                console.log(`Mover disco ${n} de ${origen} a ${destino}`);
+                torresDeHanoi(n - 1, auxiliar, origen, destino);
+            }
+        }
+
+        // Ejemplo de uso
+        var numDiscos = 3;
+        torresDeHanoi(numDiscos, 'A', 'B', 'C');
 
     </script>
 
