@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h2>Eje1.Iterar por todos los elementos dentro de un array utilizando while y mostrarlos en pantalla.</h2>
+     <p id="eje1">while</p>
+     <h2>Iterar por todos los elementos dentro de un array utilizando for y mostrarlos en pantalla..</h2>
+     <p id="eje2">for</p>
+     <h2>Iterar por todos los elementos dentro de un array utilizando .forEach y mostrarlos en pantalla.</h2>
+     <p id="eje3">forEach</p>
+     <h2>Mostrar todos los elementos dentro de un array sumándole uno a cada uno.</h2>
+     <p id="eje4">forEach</p>
+     <h2>Generar una copia de un array pero con todos los elementos incrementado en 1.</h2>
+     <p id="eje5">forEach</p>
+    <script>
+      let  numeros = [1,2,3,4,5,6]
+        //Iterar por todos los elementos dentro de un array utilizando while y mostrarlos en pantalla.
+     let i=0;
+        while (numeros[i]<=numeros.length) {
+            console.log(numeros[i]);
+            i++;
+        }
+        document.getElementById("eje1").innerHTML = numeros;
+        console.log("-------------------------------");
+        //Iterar por todos los elementos dentro de un array utilizando for y mostrarlos en pantalla.
+        for (let i = 0; i < numeros.length; i++) {
+            console.log(numeros[i]);
+            
+        }
+        
+        document.getElementById("eje2").innerHTML = numeros;
+        console.log("-------------------------------");
+
+       //Iterar por todos los elementos dentro de un array utilizando .forEach y mostrarlos en pantalla.
+       
+       numeros.forEach(element => {
+        console.log(element);
+       });
+
+       document.getElementById("eje3").innerHTML = numeros;
+
+       console.log("-------------------------------");
+       //Mostrar todos los elementos dentro de un array sumándole uno a cada uno.
+
+       for (let i = 0; i < numeros.length; i++) {
+          let num=1
+            numeros[i]= numeros[i]+num;
+            console.log(numeros[i]);
+        
+       }
+       document.getElementById("eje4").innerHTML = numeros;
+
+
+       //Generar una copia de un array pero con todos los elementos incrementado en 1.
+       console.log("-------------------------------");
+       let  numeros2 = [1,2,3,4,5,6]
+       let copiaArr=[];
+
+       for (let i = 0; i < numeros2.length; i++) {
+          let num1=1
+            numeros2[i]= numeros2[i]+num1;
+          
+            copiaArr.push(numeros2[i])
+            console.log(copiaArr[i]);
+        
+       }
+       document.getElementById("eje5").innerHTML =copiaArr;
+
+    </script>
+</body>
+</html>
