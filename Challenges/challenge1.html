@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Serías capaz en un array de nombres de localizar la persona más popular?</title>
+</head>
+
+<body>
+    <script>
+
+        let nombre = ["nacho", "pedro", "antonio", "nacho", "maria", "antonio", "nacho", "maria", "antonio", "nacho", "lucas", "irene"];
+        let elementoMasRepetido;
+        let cantidadRepeticiones = 0
+
+        for (let i = 0; i < nombre.length; i++) {
+            let contador = 0;
+            let elementoActual = nombre[i];
+            for (let j = 0; j < nombre.length; j++) {
+
+                if (elementoActual === nombre[j]) {
+                    contador++;
+                }
+
+            }
+            if (contador > cantidadRepeticiones) {
+                cantidadRepeticiones = contador;
+                elementoMasRepetido = elementoActual;
+            }
+        }
+
+
+        console.log("El elemento que más se repite es '" + elementoMasRepetido + "' con " + cantidadRepeticiones + " repeticiones.");
+    </script>
+</body>
+
+</html>

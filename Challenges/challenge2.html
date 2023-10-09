@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Serías capaz en un array de nombres de localizar las TRES personas más populares?</title>
+</head>
+
+<body>
+
+    <script>
+        let nombre = ["pedro", "antonio", "nacho", "maria", "antonio", "nacho", "maria", "antonio", "nacho", "lucas", "irene"];
+
+        let cantidadRepeticiones = 0;
+        let elementoMasRepetido;
+        let losPopulares = [];
+
+        for (let i = 0; i < nombre.length; i++) {
+            let contador = 0;
+            let elementoActual = nombre[i];
+          
+            for (let j = 0; j < nombre.length; j++) {
+                if (elementoActual === nombre[j]) {
+                    contador++;
+
+                }
+            }
+
+            if (contador > cantidadRepeticiones) {
+                cantidadRepeticiones = contador;
+                elementoMasRepetido = elementoActual;
+
+            } else if (contador > 0 && contador == cantidadRepeticiones) {
+
+                losPopulares.push(elementoActual);
+            }
+
+        }
+        console.log("El elemento que más se repite es '" + elementoMasRepetido + "' con " + cantidadRepeticiones + " repeticiones.");
+        for (let v = 0; v < losPopulares.length; v++) {
+            console.log(losPopulares[v]);
+
+        }
+
+    </script>
+
+</body>
+
+</html>

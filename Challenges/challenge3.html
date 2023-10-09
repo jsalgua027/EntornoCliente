@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea un array que contenga 100 números aleatorios del uno al 1000, pero que no se repita ninguno.</title>
+</head>
+
+<body>
+    <script>
+    
+
+
+        // Función para generar un número aleatorio en un rango específico
+        function generarNumeroAleatorio(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Array para almacenar los números aleatorios
+        const numerosAleatorios = [];
+        const cantidadNumeros = 100;
+
+        for (let i = 0; i < cantidadNumeros; i++) {
+            let numeroAleatorio;
+            do {
+                numeroAleatorio = generarNumeroAleatorio(1, 1000);
+            } while (numerosAleatorios.includes(numeroAleatorio));
+
+            numerosAleatorios.push(numeroAleatorio);
+        }
+
+        console.log(numerosAleatorios);
+
+
+    </script>
+
+
+</body>
+
+</html>
