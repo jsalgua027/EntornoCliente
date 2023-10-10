@@ -1,0 +1,32 @@
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Cuenta elemento no repetidos de un array</title>
+ </head>
+ <body>
+   <h1>Cuenta elemento no repetidos de un array</h1>
+   <script>
+     let arr1 = [9,9,8,1,2,3,3,4,5,6,7,8,9]
+     let arr2 = [2,3,4,5,6]
+     let arrSinrepetidos=[];
+   /*Tienes que contar cuantos elementos del array 1 no están en el array 2. Muestra el resultado por consola*/
+        let contador=0;
+    for (let i = 0; i < arr1.length; i++) {
+            
+        for (let j = 0; j < arr1.length; j++) {
+            if(arr1[i]!=arr1[j] ){
+               contador++;
+
+            }
+            
+        }
+        
+    }
+    console.log(contador)
+    for (let m = 0; m < arrSinrepetidos.length; m++) {
+        console.log(arrSinrepetidos[m]);
+        
+    }
+   </script>
+ </body>
+</html>
