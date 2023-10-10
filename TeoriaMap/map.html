@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="resultado">Tenemos el array definido de la siguiente manera:
+        let numeros = [1, 2, 3, 4, 5, 6, 7]; cuando pulses el botón aquí
+        aparecerán los mismos números incrementados en uno</p>
+    <button onclick="dale()">ejecuta</button>
+    <script>
+        let numeros = [1, 2, 3, 4, 5, 6, 7];
+        let dias = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'viernes', 'sabado', 'domingo'];
+        let dias2 = ['Lunes', 'Martes', 'Miercoles', ['Jueves', 'viernes'], 'sabado', 'domingo'];
+        function dale() {
+            let obj = document.getElementById("resultado")
+
+            obj.innerHTML = numeros.map((v, i) => v + i);
+            obj.innerHTML = numeros.map((v, i) => { return (v + i) });
+
+            /* map irá ejecutando la función incluida como parámetro la cual no
+            tiene nombre porque no es necesario. Esta función tomará como parámetro
+            valor (el valor de esa posición del array) y devolverá dicho valor
+            aumentado en uno. La función map devuelve otro array con el resultado
+            de aplicar la función anterior a los elementos de todo el array */
+        }
+        console.log(numeros.map((v, i) => v + i));// v es el elemento del array y en este caso le sumamos el inidice
+        console.log(numeros.map((v, i) => { return (v + i) }));
+
+
+        console.log(numeros.filter((v, i) => v > 5));// dame todos los que son mayores que 5
+        console.log(numeros.filter((v, i) => { return (v > 5) }));
+
+        console.log(numeros.find((v, i) => v > 5));// dame el primero que cumpla la condición
+        console.log(numeros.find((v, i) => { return (v > 5) }));
+
+        // necesito todos los dias de las semana que su longitud es mayor que seis
+        console.log(dias.filter((v) => v.length > 6));
+        console.log(dias.filter((v) => { return (v.length > 6) }));
+        console.log("----------------------------usado flat pq hay un array dentro de otra array")
+        // lo mismo pero usando flat para que sea con dos arrays
+        console.log(dias2.flat().filter((v) => v.length > 6));
+        console.log(dias2.flat().filter((v) => { return (v.length > 6) }));
+
+    </script>
+</body>
+
+</html>
