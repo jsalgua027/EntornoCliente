@@ -22,6 +22,8 @@ for (let i = 0; i < arr1.length; i++) {
 }
 
 console.log("Número de elementos en arr1 que no están en arr2: " + elementosNoEncontrados);
+ //find(sin son iguales o undefined)
+ console.log(arr1.filter((n) =>arr2.find((v)=>n==v)==undefined).length);
 
 
 

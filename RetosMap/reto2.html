@@ -15,7 +15,7 @@
     carrakos = carrakos.flat(Infinity);
     //Alguien sabe hacer una lista única de coches con los dos arrays y (sin repeticiones)?
     let coches = [];
-    coches = cars.filter((v) => carrakos.find((c) => v == c));
+    coches = cars.filter((v) => !carrakos.find((c) => v == c));
 
     console.log(coches);
 

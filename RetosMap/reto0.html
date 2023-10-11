@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <!--Tenemos un array muy grande con elementos de la siguiente estructura:
 [{28924:"Estepona"},....,{29601:"Marbella"}]
   Lo que queremos es crear un texto y un botón que ponga buscar que lo que haga sea mostrar el CP y
  el nombre de la ciudad que coincida o contenga el texto del campo creado. No importan las mayúsculas y minúsculas en la búsqueda.-->
-      
-            <input type="text" id="cp">
-        <button onclick="buscar()">Buscar</button>
-        <p  id="solucion"></p>
 
- <script>
+    <input type="text" id="cp">
+    <button onclick="buscar()">Buscar</button>
+    <p id="solucion"></p>
 
-    let ciudades=[{cp:28924,ciudad:"Estepona"},{cp:29601,ciudad:"Marbella"},]
-   
-    function buscar(){
-        let numero=document.getElementById("cp").value;
-        let resultado= ciudades.find((v)=>v.cp==numero);
-            
-        document.getElementById("solucion").innerHTML=resultado.ciudad;
-        console.log(resultado.ciudad);
-    }
+    <script>
 
- </script>
- 
-    
+        let ciudades = [{ cp: 28924, ciudad: "Estepona" }, { cp: 29601, ciudad: "Marbella" },]
+
+        function buscar() {
+            let numero = document.getElementById("cp").value;
+            let resultado = ciudades.find((v) => v.cp == numero);
+            let objeto = document.getElementById("solucion")
+            // si el resultado es distinto de undefine devuelvo resultado (sino): devuelvo objeto= "no existe"
+            resultado != undefined ? objeto.innerHTML = resultado.ciudad : objeto.innerHTML = "No existe";
+
+
+            document.getElementById("solucion").innerHTML = resultado.ciudad;
+            console.log(resultado.ciudad);
+        }
+
+    </script>
+
+
 </body>
+
 </html>
