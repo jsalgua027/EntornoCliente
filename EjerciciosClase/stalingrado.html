@@ -1,5 +1,13 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"></head><head></head><body>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<head></head>
+
+<body>
 
     <h1>STALINGRADO</h1>
     <p id="matriz"></p>
@@ -12,11 +20,12 @@
             ["", "", "", "", "R", "", "", "", ""],
             ["", "", "", "", "R", "", "", "", ""],
             ["", "", "", "", "R", "", "", "", ""],
-            ["", "", "", "", "R", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", ""],
             ["", "", "", "", "R", "", "", "", ""],
             ["", "", "", "", "R", "", "", "A", "A"],
             ["", "", "", "", "R", "", "", "A", "A"]
         ];
+
 
         function mostrarMatriz(array) {
             let texto = "";
@@ -32,57 +41,82 @@
             let m = document.getElementById("matriz").innerHTML = texto;
         }
 
-        function localizarRusos(f, c) {
-            let soldado =  battlefield[f][c]
-            let bien = true;
 
-            for (let i = 0; i < battlefield.length; i++) {
-               for (let j = 0; j < battlefield[i].length; j++) {
-                if (soldado == "R") {
-               // console.log("R en pos[ " + fila + " ][ " + col  +" ]");
-                if (battlefield[f][c] == "R") {
-                    battlefield[f][c] = "X";
-                    // miramos.............................H
-                    //IZQUIERDA
-                    if (c > 0 && battlefield[f][c - 1] == "R") {
-                       return console.log(bien);
-                        localizarRusos(f, c - 1);
-                    }
-                    //DERECHA
-                    if (c < battlefield[f].length - 1 && battlefield[f][c + 1] == "R") {
-                        bien = true; localizarRusos(f, c + 1);
-                    } else {
-                        bien = false;
+        function localizar(f, c) {
+            let soldado = battlefield[f][c]
+            let bien = "X";
 
-                    }
-                    //ABAJO
-                    if (f > battlefield.length - 1 && battlefield[f + 1][c] == "R") {
-                        bien = true; localizarRusos(f, c + 1);
-                    } else {
-                        bien = false;
-                        //ARRIBA
-                        if (f > 0 && battlefield[f - 1][c] == "R") {
-                            bien = true; localizarRusos(f, c + 1);
-                        } else {
-                            bien = false;
 
-                        }
-                    }
-                }
+
+            if (battlefield[f][c] == "A" || battlefield[f][c] == "") {
+
+                battlefield[f][c] = bien;
+
+
             }
-                
-               }
-                
+            // izquierda
+            if (c > 0 && (battlefield[f][c - 1] == "A" || battlefield[f][c - 1] == "")) {
+                battlefield[f][c - 1] = bien;
+                localizar(f, c - 1);
             }
-            
+            //derecha
+            if (c < battlefield[f].length - 1 && (battlefield[f][c + 1] == "A" || battlefield[f][c + 1] == "")) {
+                battlefield[f][c + 1] = bien;
+                localizar(f, c + 1);
+            }
+            //arriba
+            if (f > 0 && (battlefield[f - 1][c] == "A" || battlefield[f - 1][c] == "")) {
+                battlefield[f - 1][c] = bien;
+                localizar(f - 1, c);
+            }
+            // abajo
+            if (f < battlefield.length - 1 && (battlefield[f + 1][c] == "A" || battlefield[f + 1][c] == "")) {
+                battlefield[f + 1][c] = bien;
+                localizar(f + 1, c);
+            }
+
+
+
+
         }
 
-      console.log(localizarRusos(0,4))  ;
+
+        let ganador = false;
+        for (let i = 0; i < battlefield.length; i++) {
+            for (let j = 0; j < battlefield[i].length; j++) {
+                if (battlefield[i][j] == "A") {
+                    ganador = true;
+
+                    break;
+
+                } 
+                break;
+            }
+
+
+        }
+       if(ganador){
+        document.getElementById("ganador").innerHTML = "ganan los rusos";
+       }else{
+
+
+        document.getElementById("ganador").innerHTML = "ganan los alemanes";
+       }
        
+
+
+
+
+
+        console.log(localizar(0, 0));
+        // console.log(ganador(localizar(0, 0)))
+
         mostrarMatriz(battlefield);
 
     </script>
 
 
 
-</body></html>
+</body>
+
+</html>
