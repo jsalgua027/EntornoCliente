@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head><meta charset="utf-8"></head><head></head><body>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<head></head>
+
+<body>
     <h2>JavaScript Arrays</h2>
     <p> Tenemos tres arrays arr1 arr2 y arr3 y queremos insertarlos de forma
         ordenada en un cuarto array arr4.
@@ -20,49 +27,51 @@
         let j = 0;
         let k = 0;
         /*AQUÍ VA TU CÓDIGO*/
-
-       
         while (i < arr1.length && j < arr2.length && k < arr3.length) {
-            if (arr1[i] <= arr2[j] && arr1[i] <= arr3[k]) { //el menor está en el arr1
+
+            if (arr1[i] <= arr2[j] && arr1[i] <= arr3[k]) {
                 arr4.push(arr1[i]);
                 i++;
+
             } else {
-                if (arr2[j] <= arr1[i] && arr2[j] <= arr3[k]) { //el menor está en el arr2
-                    arr4.push(arr2[j]);
-                    j++;
-                } else { //el menor está en el arr3
-                    arr4.push(arr3[k]);
-                    k++;
-                }
-            }
-        }
-        console.log(arr4+"   primer paso");
-    
-        // ahora termino el par de arrays restantes
-        if (i == arr3.length) {//termino 1 y 2
-            while (i < arr1.length && j < arr2.length) {
-                console.log("termino 1 y 2")
-                if (arr1[i] > arr2[j]) {
+                if (arr2[j] <= arr1[i] && arr2[j] <= arr3[k]) {
                     arr4.push(arr2[j]);
                     j++;
                 } else {
-                    arr4.push(arr1[i]);
+
+                    arr4.push(arr3[k]);
+                    k++;
+                }
+
+            }
+
+        }
+        console.log(arr4 + " paso 1")
+        if (i == arr3.length) {
+            while (i < arr1.length && j < arr2.length) {
+                if (arr1[i] > arr2[j]) {
+                    arr4.push[arr1[i]]
                     i++;
+                } else {
+                    arr4.push[arr2[j]]
+                    j++
                 }
             }
-    
+
+
+
         } else {
-            if (j == arr2.length) {//termino 1 y 3
-                console.log("termino 1 y 3")
+            if (j == arr2.length) {
                 while (i < arr1.length && k < arr3.length) {
                     if (arr1[i] > arr3[k]) {
                         arr4.push(arr3[k]);
                         k++;
                     } else {
-                        arr4.push(arr1[i]);
-                        i++;
+                        arr4.push(arr1[i])
                     }
+
                 }
+
             } else {//termino 2 y 3
                 while (j < arr2.length && k < arr3.length) {
                     if (arr2[j] > arr3[k]) {
@@ -75,8 +84,7 @@
                 }
             }
         }
-
-        console.log(arr4+ " segundo paso");
+        console.log(arr4 + " paso 2");
         // ahora inserto el final del array que queda
         if (i < arr1.length) {
             while (i < arr1.length) {
@@ -89,7 +97,7 @@
                 arr4.push(arr2[j]);
                 j++;
             }
-        }
+        } console.log(arr4 + " paso 3");
         if (k < arr3.length) {
             while (k < arr3.length) {
                 arr4.push(arr3[k]);
@@ -99,8 +107,11 @@
 
         console.log(arr4);
 
+
         document.getElementById("demo").innerHTML = arr4;
     </script>
 
 
-</body></html>
+</body>
+
+</html>
