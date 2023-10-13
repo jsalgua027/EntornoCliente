@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Se pide la suma y la media de las notas de DWEC en tres líneas.
+
+        var valumnos = {
+            "alumnos": [{
+                "nombre": "Fulanito",
+                "notas": {
+                    "DWEC": 8,
+                    "DWESE": 0.71,
+                    "ED": 7.04,
+                    "SSOO": 3.37,
+                    "BBDD": 0.22,
+                    "PROG": 1.09,
+                    "EINEM": 6.17
+                }
+            },
+            {
+            "nombre": "Menganito",
+            "notas": {
+            "DWEC": 7,
+            "DWESE": 0.71,
+            "ED": 7.04,
+            "SSOO": 3.37,
+            "BBDD": 0.22,
+            "PROG": 1.09,
+            "EINEM": 6.17
+            }
+            }
+                ,
+            {
+                "nombre": "Cetanito",
+                "notas": {
+                    "DWEC": 6,
+                    "DWESE": 0.71,
+                    "ED": 7.04,
+                    "SSOO": 3.37,
+                    "BBDD": 0.22,
+                    "PROG": 1.09,
+                    "EINEM": 6.17
+                }
+            }
+            ]
+           
+        };
+// reduce-----acumula o sumatorio  reduce((totalsuma, valoresaSumar)= totalsuma+valoresAsumar, valorInicial)
+let suma= valumnos.alumnos.reduce((t,n)=>t+n.notas.DWEC,0);
+let media= suma/valumnos.alumnos.length;
+console.log("La suma de los valores es: "+suma+ " y su media es: "+media);
+
+    </script>
+</body>
+
+</html>

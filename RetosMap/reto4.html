@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Se pide que hagas un programa que muestre la media de TODAS las notas de los 3 alumnos que tenemos en nuestro JSON.
+        Mi script solo tiene 3 líneas (aparte del JSON por supuesto)
+
+        */
+        var valumnos = {
+            "alumnos": [{
+                "nombre": "Fulanito",
+                "notas": {
+                    "DWEC": 8,
+                    "DWESE": 0.71,
+                    "ED": 7.04,
+                    "SSOO": 3.37,
+                    "BBDD": 0.22,
+                    "PROG": 1.09,
+                    "EINEM": 6.17
+                }
+            },
+            {
+                "nombre": "Menganito",
+                "notas": {
+                    "DWEC": 7,
+                    "DWESE": 0.71,
+                    "ED": 7.04,
+                    "SSOO": 3.37,
+                    "BBDD": 0.22,
+                    "PROG": 1.09,
+                    "EINEM": 6.17
+                }
+            }
+                ,
+            {
+                "nombre": "Cetanito",
+                "notas": {
+                    "DWEC": 6,
+                    "DWESE": 0.71,
+                    "ED": 7.04,
+                    "SSOO": 3.37,
+                    "BBDD": 0.22,
+                    "PROG": 1.09,
+                    "EINEM": 6.17
+                }
+            }
+            ]
+        };
+        let media = 0;
+        let mediaNotas = valumnos.alumnos.map((a) => {
+            console.log(a.notas);
+            let acumulativo = Object.values(a.notas);
+            media += acumulativo.reduce((t, v) => { t += v; return t }) / acumulativo.length;
+            return media
+        })
+
+        console.log(mediaNotas + "----media de cada alumno");
+        console.log(media / valumnos.alumnos.length)
+
+        /*
+        //Creamos una variable la cual va a tener las medias individuales
+        let media = 0;
+        //Mapeamos la lista
+         valumnos.alumnos.map((x) => {
+        //Hacemos una lista con todas las notas
+        let listaNotas = Object.values(x.notas);
+        //Vamos sumando(acumulando) todos los valores que se encuentran en las variables notas
+        media += listaNotas.reduce((acumulador, valor)=>{
+          acumulador+=valor;
+          return acumulador;
+          //Una vez acabado lo dividimos entre el número de signaturas que hay
+        })/listaNotas.length;
+         });
+
+      //Una vez lo hemos sumado las 3 medias, lo dividimos entre la cantidad de alumnos que hay y lo mostramos por consola
+      console.log(media/valumnos.alumnos.length);
+        */
+    </script>
+</body>
+
+</html>
