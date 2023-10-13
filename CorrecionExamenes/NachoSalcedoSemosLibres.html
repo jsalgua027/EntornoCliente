@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let mapa = [['*', '', '', '', '', ''],
+        ['*', '', '', '', '', ''],
+        ['*', '', '', '', '', ''],
+        ['*', '', '', '', '', ''],
+        ['*', '', '*', '*', '*', '*']];
+
+
+        /*let mapa = [['*', '', '', '', '', ''],
+                         ['*', '', '', '', '', ''],
+                        ['', '', '', '', '', ''],
+                        ['', '', '', '', '', ''],
+                        ['', '*', '*', '*', '*', '*']];
+        */
+
+
+
+        function heaven(f, c) {
+            let casilla = mapa[f][c];
+            let nuevaCasilla = "X";
+
+            if (mapa[f][c] == "") {
+
+                mapa[f][c] = nuevaCasilla;
+            }
+            //arriba
+            if (f > 0 && f < mapa.length && mapa[f - 1][c] == "") {
+                heaven(f - 1, c)
+            }
+            //abajo
+            if (f < mapa.length - 1 && mapa[f + 1][c] == "") {
+                heaven(f + 1, c)
+            }
+            //izquierda
+            if (c > 0 && c < mapa[f].length && mapa[f][c - 1] == "") {
+                heaven(f, c - 1)
+            }
+            //derecha
+            if (c < mapa[f].length && mapa[f][c + 1] == "") {
+                heaven(f, c + 1)
+            }
+
+
+
+        }
+        function ganador(array) {
+            if (mapa[0][0] == "*" && mapa[4][5] == "*") {
+                console.log("semos libres")
+
+            }
+        }
+
+        console.log(mapa);
+
+        console.log("----------------------------------------------------");
+
+        heaven(0, 0);
+        console.log(mapa);
+
+
+        console.log(ganador(mapa));
+        
+
+
+    </script>
+
+</body>
+
+</html>
