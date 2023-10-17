@@ -14,15 +14,27 @@
     cars = cars.flat(Infinity);
     carrakos = carrakos.flat(Infinity);
     //Alguien sabe hacer una lista única de coches con los dos arrays y (sin repeticiones)?
+    // version Jc
+    let todoCoches = cars.flat(2).concat(carrakos.flat(2)).sort();
+    todoCoches = todoCoches.map((valor,indice,arr)=>{
+      if(indice===0) return valor;
+      if(indice>0 && valor != arr[indice-1]) return valor;
+      if(indice>0 && valor ==arr[indice-1]) return undefined;
+    }).filter(valor=> valor != undefined)
+    console.log(todoCoches);
+
+    /*    MI version
     let coches = [];
-    coches=cars.concat(carrakos).filter((item, index, array) => array.indexOf(item) === index);
-    console.log(coches+ "----------dos no repetidos");
+        coches=cars.concat(carrakos).filter((item, index, array) => array.indexOf(item) === index);
+        console.log(coches+ "----------dos no repetidos");
+    */
+
     //Alguien sabría decirme los coches de carrakos que no estén en cars?
     let coches2 = [];
     //filtrame en carracos los que sean distintos a cars
     coches2 = carrakos.filter((v) => !cars.find((c) => v == c));
 
-    console.log(coches2 +"   carracos distintos de cars");
+    console.log(coches2 + "   carracos distintos de cars");
 
 
 
@@ -41,20 +53,20 @@
     console.log(coches4);
     //-Marcas no utilizadas por los buddies.
     cars = cars.flat(Infinity);
-    let listaMarcasNoBuddies = cars.filter(x =>!buddies.find((y) => x == y.car));
-    console.log(listaMarcasNoBuddies +" -------- no buddies");
+    let listaMarcasNoBuddies = cars.filter(x => !buddies.find((y) => x == y.car));
+    console.log(listaMarcasNoBuddies + " -------- no buddies");
 
     //-Cuantas marcas han sido utilizadas
 
 
     let marcasUtilizadas = cars.filter((v) => buddies.find((c) => v == c.car)).length;
-    console.log(marcasUtilizadas +"  ------marcas utilizadas" )
+    console.log(marcasUtilizadas + "  ------marcas utilizadas")
 
 
 
     //-Cuantas marcas no han sido utilizadas
     let marcasNoUtilizadas = cars.filter((v) => !buddies.find((c) => v == c.car)).length;
-    console.log(marcasNoUtilizadas+ " --------marcas no utlilizadas")
+    console.log(marcasNoUtilizadas + " --------marcas no utlilizadas")
 
   </script>
 </body>

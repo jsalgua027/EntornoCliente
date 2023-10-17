@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minevanic</title>
+</head>
+
+<body>
+
+    <script>
+        let minas = [
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ];
+
+        function color(arr) {
+            for (let f = 0; f < arr.length; f++) {
+                for (let c = 0; c < arr[f].length; c++) {
+
+                    if (arr[f][c] == 1) {
+
+                        //arriba
+                        if (f > 0 && arr[f - 1][c] == 0) {arr[f - 1][c] = 2;}
+                        //abajo
+                        if (f < arr.lenght - 1 && arr[f + 1][c] == 0) {arr[f + 1][c] = 2;}
+                        //derecha
+                        if ( c < arr[f].lenght - 1 && arr[f][c + 1] == 0) {arr[f][c + 1] = 2;}
+                        //izquierda
+                        if (c > 0 && arr[f][c - 1] == 0) {arr[f][c - 1] = 2;}
+                        //arriba-Izquierda
+                        //arriba-derecha
+                        //abajo-Izquierda
+                        //abajo-derecha
+
+                    }
+
+                }
+
+            }
+            
+
+
+        }
+
+        color(minas)
+            console.log(minas);
+
+    </script>
+
+
+
+
+</body>
+
+</html>
