@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ejercicio 1</h1>
+    <p>Ejercicio 1 (uso de map):
+
+        Enunciado: Dado un array de números,
+        utiliza la función map para crear un nuevo array
+        que contenga el doble de cada número.</p>
+
+
+    <p>Ejercicio 2 (uso de filter):
+
+        Enunciado: Dado un array de números,
+        utiliza la función filter para crear un nuevo array que contenga solo los números pares.</p>
+
+    <p>Ejercicio 3 (uso de find):
+
+        Enunciado: Dado un array de objetos que representan libros,
+        cada objeto tiene propiedades como "título" y "autor".
+        Utiliza la función find para encontrar el primer libro escrito por un autor específico.</p>
+
+    <p>Ejercicio 4 (combinando map y filter):
+
+        Enunciado: Dado un array de personas, cada persona es un objeto con propiedades como "nombre" y "edad".
+        Utiliza map para crear un nuevo array que contenga solo los nombres de las personas mayores de 30 años.</p>
+
+    <script>
+        const numeros = [1, 2, 3, 4, 5];
+        // Tu código aquí
+        let dobleNumeros = numeros.map(v => v * 2);
+        console.log(dobleNumeros);
+
+        console.log("*********************Ejercicio2**************");
+        const numeros2 = [10, 15, 20, 25, 30];
+        // Tu código aquí
+        let numerosPares = numeros2.filter(v => v % 2 == 0);
+        console.log(numerosPares);
+
+        console.log("*********************Ejercicio3**************");
+        const libros = [
+            { titulo: "El Gran Gatsby", autor: "F. Scott Fitzgerald" },
+            { titulo: "Matar a un ruiseñor", autor: "Harper Lee" },
+            { titulo: "1984", autor: "George Orwell" },
+            { titulo: "Don Quijote", autor: "Miguel de Cervantes" }
+        ];
+
+        // Tu código aquí
+        const autorBuscado = "George Orwell";
+        let autor = libros.find((a) => a.autor == "Miguel de Cervantes");
+        console.log(autor);
+
+
+        console.log("*********************Ejercicio4**************");
+        /*Ejercicio 4 (combinando map y filter):
+
+      Enunciado: Dado un array de personas, cada persona es un objeto con propiedades como "nombre" y "edad". 
+    Utiliza map para crear un nuevo array que contenga solo los nombres de las personas mayores de 30 años.
+        
+        
+        */
+        const personas = [
+            { nombre: "Ana", edad: 25 },
+            { nombre: "Juan", edad: 35 },
+            { nombre: "Luis", edad: 40 },
+            { nombre: "María", edad: 28 }
+        ];
+
+        // Tu código aquí
+        // let mayores30= personas.map(a=>personas.filter(b=>b.edad>30));
+        let mayores30 = personas.filter(persona => persona.edad > 30).map(persona => persona.nombre);
+        console.log(mayores30);
+
+        console.log("*********************Ejercicio5**************");
+
+
+        // Tu código aquí
+        /*
+        Ejercicio 5 (combinando filter y find):
+        
+        Enunciado: Dado un array de objetos que representan productos, cada objeto tiene propiedades como "nombre"
+         y "precio". Utiliza filter para encontrar todos los productos que cuesten menos de $50 y luego utiliza find para encontrar el producto más barato de ese subconjunto.
+                
+        */
+        const productos = [
+            { nombre: "Camisa", precio: 30 },
+            { nombre: "Pantalón", precio: 40 },
+            { nombre: "Zapatos", precio: 60 },
+            { nombre: "Bufanda", precio: 15 }
+        ];
+
+        const productosBaratos = productos.filter(producto => producto.precio < 50);
+
+        const productoMasBarato = productosBaratos.find(producto => producto.precio === Math.min(...productosBaratos.map(p => p.precio)));
+
+        console.log("Productos baratos:", productosBaratos);
+        console.log("Producto más barato:", productoMasBarato);
+
+    </script>
+</body>
+
+</html>
