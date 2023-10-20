@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>retos JavaScript</title>
+</head>
+
+<body>
+
+  
+    <h1>retos JavaScript</h1>
+    <ul id="frutas">   </ul>
+
+    <script>
+
+
+        let frutas = ["aguacate", "pera", "manzana", "naranja", "tomate", "granada", "mango", "litchi", "nispero"];
+        // muestra las frutas como elementos li y su nodo padre será el ul frutas
+       
+        // creo un elemeto
+        //let nodoPadreHtml= document.getElementById("frutas");// para saber a quien VERISON FOR    
+       
+           /*
+           for (let i = 0; i < frutas.length; i++) {
+                let lista = document.createElement("li"); // que tipo de nodo 
+                let textoNodo=document.createTextNode(frutas[i]);// que valor tiene el nodo
+               
+                lista.appendChild(textoNodo);// meto cada elemento a los li
+                nodoPadreHtml.appendChild(lista);
+                
+            }
+           */
+            
+           let padre= document.getElementById("frutas");// para saber a quien
+
+            frutas.map((f) => {
+            //creamos un li por cada elemento
+            let hijo = document.createElement("li");
+            //creamos el contenedor del contenido a cada li
+            let texto = document.createTextNode(f);
+            //guardamos cada contenido en su contenedor
+            hijo.appendChild(texto);
+            //guardamos cada hijo dentro de su padre
+            padre.appendChild(hijo);
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
