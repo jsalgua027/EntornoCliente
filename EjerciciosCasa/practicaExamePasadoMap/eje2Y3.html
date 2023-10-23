@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>retos JavaScript 2</title>
+</head>
+<body>
+    <script>
+/**Se pide:	
+Ejercicio 1:¿Cuántas veces aparece la palabra Volvo en newcars en una línea?	
+"( 1,5 PUNTOS)"	
+Ejercicio 2:Ver siuna marca es trendy. Una marca es trendy siesta es utilizada por más de	
+un buddy.Crea en este mismo ejercicio un array trendy con dichas marcas. Muestra el array trendy por consola. 
+Se pide quelo realices en 3-4 llneas de código. (3 PUNTOS)	
+"Ejercicio 3: Muestra por consola las marcas del array newcars que usen los buddies,que"	
+están obviamente en newcars pero que no estén en el array xungas.Muestra elresultado  por consola. Puede aparecer 
+alguna marca repetida (no Importa). Realiza este programa en una linea de código.	
+(3 PUNTOS)	
+Ejercicio 4: Se quiere conocer la marca más trendy de todas usada por los buddies (la más	
+"preler da).Realiza este programa en 2 lineas de código. (2,5 PUNTOS)"	
+Importante.No puedes utlllzar en ningún ejercicio elmétodo lncludes() ni utilizar sets. No puedes utilizar for.	
+Se valorará de tu programa:	
+•  El programa realizala funcionalidad requerida.	
+• Que no haya errores de consola .	
+•  a ellclencla.	
+"•  a modularidad (alta cohesión y bajo acoplamiento),"	
+"• Que el código sea limpio,'ílexible,reutilizable y mantenible."	
+• Sigue los principios SOLIO.	
+• Otros cr ter os.	
+ * 
+ * 
+ * */
+ var cars = ["Saab", "Volvo", "BMW",["Honda", "Toyota",["Lexus", "Mercedes", "Lada"], "Hyunday"]];
+var carrakos = ["Chevrolet", "Tesla", "BMW",["Honda", "Infiniti",["Lexus", "Mercedes", "Kia"], "Hyunday"],["Mazda", "Mercedes", "Jeep",["KTM", "Nissan", "Isuzu"]]];
+
+var newcars= ["Saab", "Volvo", "BMW", ["Honda", "Toyota", ["Lexus", "Volvo", "Lada"], "Hyunday", "Volvo"]];
+
+var buddies = [{firstName:"Jonny", lastName:"Rambo", car:"BMW"},
+{firstName:"Arnold", lastName:"Suarchenager", car:"Honda"},
+{firstName:"Chuck", lastName:"Norris", car:"Honda"},
+{firstName:"Yakie", lastName:"Chang", car:"BMW"},
+{firstName:"Bruce", lastName:"Lee", car:"Honda"},
+{firstName:"Steven", lastName:"Seagal", car:"Lada"}];
+
+let xungas=["Honda", "Lada"];
+/*
+Ejercicio 1:¿Cuántas veces aparece la palabra Volvo en newcars en una línea?	
+"( 1,5 PUNTOS)"	
+*/
+let eje1= newcars.flat(Infinity).filter(p=>p=="Volvo").length
+console.log(eje1);
+
+/*
+Ejercicio 2:Ver si una marca es trendy. Una marca es trendy si esta es utilizada por más de	
+un buddy.Crea en este mismo ejercicio un array trendy con dichas marcas. Muestra el array trendy por consola. 
+Se pide quelo realices en 3-4 llneas de código. (3 PUNTOS)	
+*/
+
+let trendyBrands2 = buddies.map((buddy) => buddy.car);
+
+let uniqueTrendyBrands = trendyBrands2.filter((brand, index) => 
+  trendyBrands2.indexOf(brand) !== index
+).filter((brand, index, arr) =>
+  arr.indexOf(brand) === index
+);
+
+console.log("Las marcas trendy son:", uniqueTrendyBrands);
+
+
+/*
+"Ejercicio 3: Muestra por consola las marcas del array newcars que usen los buddies,que"	
+están obviamente en newcars pero que no estén en el array xungas.Muestra elresultado  por consola. Puede aparecer 
+alguna marca repetida (no Importa). Realiza este programa en una linea de código.	
+(3 PUNTOS)	*/
+ newcars= newcars.flat(Infinity);
+//let unaLinea =newcars.filter((v)=>buddies.find((c)=>c.car==v));
+//let no= unaLinea.filter((v)=>!xungas.find((c)=>c==v));
+let final=newcars.flat(Infinity).filter((v)=>buddies.find((c)=>c.car==v)).filter((v)=>!xungas.find((c)=>c==v));
+//console.log(unaLinea);
+//console.log(no);
+console.log(final)
+
+
+/*
+Ejercicio 4: Se quiere conocer la marca más trendy de todas usada por los buddies (la más	
+"preler da).Realiza este programa en 2 lineas de código. (2,5 PUNTOS)"	
+
+*/
+console.log("Encontrar la marca más repetida");
+/*
+// Paso 1: Crear un nuevo array con las marcas de automóviles de los buddies.
+let carBrands = buddies.map((buddy) => buddy.car);
+
+// Paso 2: Filtrar las marcas que se repiten en el array de marcas.
+let repeatedBrands = carBrands.filter((brand, index, arr) => {
+  // Verificamos si la marca se encuentra más adelante en el array.
+  // Si se encuentra más adelante, entonces es una marca repetida.
+  return arr.indexOf(brand) !== index;
+});
+
+// Paso 3: Encontrar la primera marca repetida utilizando el método "find".
+let mostRepeatedBrand = repeatedBrands.find((brand, index, arr) => {
+  // Verificamos si la marca aparece por primera vez en el array de marcas repetidas.
+  // Si es la primera aparición, encontramos la marca más repetida.
+  return arr.indexOf(brand) === index;
+});
+*/
+let carBrands = buddies.map((buddy) => buddy.car).filter((brand, index, arr) => { return arr.indexOf(brand) !== index;});
+let mostRepeatedBrand = carBrands.find((brand, index, arr) => {return arr.indexOf(brand) === index;});
+console.log("La marca más repetida es:", mostRepeatedBrand)
+
+
+</script>
+</body>
+</html>
