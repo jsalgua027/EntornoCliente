@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var clientaUno = ""
+        var clientaDos = ""
+        var clientaTres = ""
+        var numclientaUno = 0;
+        var numclientaDos = 0;
+        var numclientaTres = 0;
+        const TORTAS =
+            ["Rodica", "Emma", "Sofia", "Marina", "Valia", "Valia", "Valia", "Valia", "Valia", "Valia", "Emma", "Emma", "Maria", "Marina", "Emma"]
+        // ESCRIBE AQUÍ TU CÓDIGO
+
+        // numclientaUno = TORTAS.filter((p) => p === "Valia").length;
+        // numclientaDos = TORTAS.filter((p) => p === "Emma").length;
+        //   numclientaTres = TORTAS.filter((p) => p === "Marina").length;
+
+        //  console.log(numclientaUno);
+        //  console.log(numclientaDos);
+        //  console.log(numclientaTres);
+        /*
+        
+                TORTAS.map((p, i) => {
+        
+                    if (TORTAS.filter((p) => p === "Valia")) {
+                        if (p != "Valia") {
+                            i++;
+        
+                        }
+                        else {
+                            clientaUno = p;
+                            numclientaUno++;
+                        }
+        
+                    }
+        
+                    if (TORTAS.filter((p) => p === "Emma")) {
+                        if (p != "Emma") {
+                            i++;
+        
+                        }
+                        else {
+                            clientaDos = p;
+                            numclientaDos++;
+        
+                        }
+        
+                    }
+                    if (TORTAS.filter((p) => p === "Marina")) {
+                        if (p != "Marina") {
+                            i++;
+        
+                        }
+                        else {
+                            clientaTres = p;
+                            numclientaTres++;
+        
+                        }
+        
+                    }
+        
+                });
+        
+        */
+        // solucion JC
+        const coloca = (nombre, cuantos) => {
+            if (cuantos > numclientaUno) {
+                numclientaTres = numclientaDos
+                numclientaDos = numclientaUno
+                clientaTres = clientaDos
+                clientaDos = clientaUno
+                clientaUno = nombre
+                numclientaUno = cuantos
+
+            } if (cuantos > numclientaDos && cuantos<numclientaUno) {
+                numclientaTres=numclientaDos
+                clientaTres=clientaDos
+                numclientaDos=cuantos
+                clientaDos=nombre
+                
+
+
+
+            } if(cuantos>numclientaTres&& cuantos<numclientaDos){
+                numclientaTres=cuantos
+                clientaTres=nombre
+
+            }
+
+
+        };
+
+
+        TORTAS.map(t => {
+            // cuantos  let c = TORTAS.filter(f => f === t).length;
+
+            coloca(t, TORTAS.filter(f => f === t).length);
+        }
+        )
+
+
+
+
+
+        console.log(clientaUno + ":" + numclientaUno)
+        console.log(clientaDos + ":" + numclientaDos)
+        console.log(clientaTres + ":" + numclientaTres)
+    </script>
+</body>
+
+</html>
