@@ -14,51 +14,62 @@
   <script>
     //Se pide que muestres los datos del array en forma arborescente como en la imagen suministrada.
     var carrakos = ["Chevrolet", "Tesla", "BMW", ["Honda", "Infiniti", ["Lexus", "Mercedes", "Kia"], "Hyunday"], ["Mazda", "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]]];
-   // let padre = document.getElementById("carrakos");
-    /*
-     function generador(nodo, arr) {
-      arr.map((a) => {
-        let hijo = document.createElement("li");
-       // let texto = document.createTextNode(a);
-        if (Array.isArray(a)) {
+
+    let padre = document.getElementById('carrakos');
+    function crearLi(padre, arr) {
+      arr.map((x) => {
+        let hijo = document.createElement('li');
+        if (Array.isArray(x)) {
+          //creo ul y engacho al padre, llamada recursiova
           padre.appendChild(hijo);
-          let nieto = document.createElement("ul");
-        //  nieto.appendChild(hijo);
+          let nieto = document.createElement('ul');
           hijo.appendChild(nieto);
-       
-          generador(nieto, a);
+          crearLi(nieto, x);
         } else {
-          let texto = document.createTextNode(a);
+          //solamente engancho
+          let texto = document.createTextNode(x);
           hijo.appendChild(texto);
           padre.appendChild(hijo);
 
         }
 
+
       })
     }
-    generador(padre,carrakos);
-    
-    */
-    let padre = document.getElementById('carrakos');
-        function crearLi(padre, arr) {
-            arr.map((x) => {
-                let hijo = document.createElement('li');
-                if (Array.isArray(x)) {
-                    padre.appendChild(hijo);
-                    let nieto = document.createElement('ul');
-                    hijo.appendChild(nieto);
-                    crearLi(nieto, x);
-                } else {
-                    let texto = document.createTextNode(x);
-                    hijo.appendChild(texto);
-                    padre.appendChild(hijo);
+    crearLi(padre, carrakos);
+/*
+let padre2 = document.getElementById("carrakos");
 
-                }
+    function arboreo(nodo, arr) {
+      arr.map(a => {
 
+        if (Array.isArray(a)) {
 
-            })
+          let nodo2 = document.createElement("ul");
+          nodo.appendChild(nodo2)
+
+          arboreo(nodo2, a);
+        } else {
+          let hijo = document.createElement("li");
+          let texto = document.createTextNode(a);
+
+          hijo.appendChild(texto);
+          nodo.appendChild(hijo);
         }
-        crearLi(padre, carrakos);
+
+
+      });
+
+
+    }
+     arboreo(padre, carrakos);
+*/
+    
+   
+
+
+
+
   </script>
 </body>
 
