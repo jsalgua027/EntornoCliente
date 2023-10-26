@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Igual que el reto 10 pero cambia el JSON
+        var vikings = {
+            "vikingos":
+                [{
+                    "reino": "Noruega",
+                    "reyes": ["Hakon", "Harald", ["Ivar", ["Olaf", "Lars", "Lasse"], "Bjorn"], "Ragnar"]
+                },
+                {
+                    "reino": "Dinamarca",
+                    "reyes": ["Frodo", "Hamming", ["Angantyr", "Sarunas"], "Horik"]
+                }]
+        };
+
+
+        const busqueda = (nombre) => {
+
+            let encontrado = vikings.vikingos.find((v) => v.reyes.flat(Infinity).find(n => n === nombre));
+
+            //  devuelvo encontrado 
+            if (encontrado) {
+                return nombre + " fue un rey vikingo en el reino de " + encontrado.reino;
+            } else {
+                return nombre + " no fue un rey vikingo.";
+            }
+
+        }
+
+        console.log(busqueda("Olaf"));
+
+
+    </script>
+</body>
+
+</html>
