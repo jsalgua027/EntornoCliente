@@ -10,7 +10,7 @@
 <body>
     <script>
         //Igual que el reto 10 pero cambia el JSON
-        var vikings = {
+        var vikings2 = {
             "vikingos":
                 [{
                     "reino": "Noruega",
@@ -22,10 +22,13 @@
                 }]
         };
 
+        var vikings = '{"vikingos":[{"reino":"Noruega","reyes":["Hakon","Harald",["Ivar",["Olaf","Lars","Lasse"],"Bjorn"],"Ragnar"]},{"reino":"Dinamarca","reyes":["Frodo","Hamming",["Angantyr","Sarunas"],"Horik"]}]}';
+
+
 
         const busqueda = (nombre) => {
 
-            let encontrado = vikings.vikingos.find((v) => v.reyes.flat(Infinity).find(n => n === nombre));
+            let encontrado = vikings2.vikingos.find((v) => v.reyes.flat(Infinity).find(n => n === nombre));
 
             //  devuelvo encontrado 
             if (encontrado) {
@@ -37,6 +40,33 @@
         }
 
         console.log(busqueda("Olaf"));
+
+        // otra formas de hacerlo, recursivo y contado la cantidad e reyes
+
+        vikings = JSON.parse(vikings); //pasrseo el objeto json recojo el string y lo transformo a json
+
+        let arr = ["Hakon", "Harald", ["Ivar", ["Olaf", "Lars", "Lasse"], "Bjorn"], "Ragnar"];
+
+        const buscaMan = (arr, nombre) => {
+            let cuantos = 0
+            if (Array.isArray(arr)) {
+                arr.map(x => cuantos += buscaMan(x, nombre))
+            } else {
+                if (arr == nombre) cuantos++
+            }
+            return cuantos;
+        }
+        console.log(buscaMan(arr, "Lars") + " otra forma de hacerlo recursivo");
+
+
+
+        const esrey = (rey) => {
+            vikings.vikingos.find(e => e.reyes.find(r => buscaMan(r, rey))) === undefined ? console.log(rey + " NO ES") : console.log(rey + " SI ES")
+        }
+
+        esrey("Hakon");
+        esrey("NAcho");
+
 
 
     </script>

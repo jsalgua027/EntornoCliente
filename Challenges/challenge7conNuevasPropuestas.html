@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio7</title>
+</head>
+
+<body>
+    <script>
+
+        /*
+         Me sabrías decir de este array cual es la última generación:
+
+        Se supone que si un elemento es un subarray es la siguiente generación. Por ejemplo [A,[B]]
+            A es de primera generación
+            B es de segunda generación
+
+            El resultado sería 2
+        */
+        const REYES = ["Chindatore", ["Chindasvinto", "Rencesvinto", "Lautaro"], ["Lauro", "Sisebuto", ["Fracisbuto", "Vigafredo", ["Leovigildo", "Recaredo"]]], "Amalarico II"];
+        
+        const MALOS =["Fracisbuto","Vigafredo","Lauro"]
+
+        const ultiGen = (arr, nivel) => {
+            let nivelret = nivel;
+            //recorro el array
+            arr.map(a => {
+                if (Array.isArray(a)) {
+                    //si es un subarray vuelvo a llamar a ultiGen
+                    let aux = ultiGen(a, nivel + 1);
+                    if (aux > nivelret) {
+                        //si lo que devuleve es mayor que nivel ret lo sustituyo
+                        nivelret = aux
+                    }
+                }
+            })
+            return nivelret
+        }
+
+        console.log(ultiGen(REYES, 1))
+
+     //busca que reyes son los malos
+
+     console.log(REYES.flat(Infinity).filter(r=>MALOS.find(a=>a===r)));
+
+
+     const REYES2 = ["Fracisbuto","Vigafredo","Lauro","Lauro","Lauro",
+     "Chindatore",["Lauro","Sisebuto",["Fracisbuto","Vigafredo",["Leovigildo","Recaredo"]]],["Chindasvinto","Rencesvinto","Lautaro"],"Amalarico II"];
+
+        let reyesFlat=REYES2.flat(Infinity);
+      let cuantosmayor=0
+      let famoso="";
+        console.log(reyesFlat.map(e=>{ 
+             let cuantos = reyesFlat.filter(f=>f===e).length 
+                if(cuantos>cuantosmayor){
+                    cuantosmayor=cuantos
+                    famoso=e
+                }    
+            
+            }
+               
+        ));
+
+        console.log(famoso +" "+cuantosmayor);
+    </script>
+</body>
+
+</html>
