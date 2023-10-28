@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Retos II</h1>
+    <script>
+        var cars = ["Saab", "Volvo", "BMW", ["Honda", "Toyota", ["Lexus", "Mercedes", "Lada"], "Hyunday"]];
+        var carrakos = ["Chevrolet", "Tesla", "BMW", ["Honda", "Infiniti", ["Lexus", "Mercedes", "Kia"], "Hyunday"], ["Mazda", "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]]];
+        //Alguien sabe hacer una lista única de coches con los dos arrays (sin repeticiones)?
+        cars = cars.flat(Infinity);
+        carrakos = carrakos.flat(Infinity);
+        let listanueva = cars.concat(carrakos).sort();
+
+        listanueva = listanueva.map((valor, index, arr) => {
+            if (index === 0) return valor;
+            if (index > 0 && valor != arr[index - 1]) return valor;
+            if (index > 0 && valor == arr[index - 1]) return undefined;
+
+        }).filter(valor => valor != undefined)
+
+
+
+        console.log(listanueva + "-------------todos sin repeticones");
+
+        //Alguien sabría decirme los coches de carrakos que no estén en cars?
+        console.log(carrakos.filter(c => !cars.find(v => c == v)) + "---------los coches de carrakos que no estén en cars");
+
+        var cars = ["Saab", "Volvo", "BMW", ["Honda", "Toyota", ["Lexus", "Mercedes", "Lada"], "Hyunday"]];
+        var buddies = [{ firstName: "Chuck", lastName: "Norris", car: "Honda" }, { firstName: "Yakie", lastName: "Chang", car: "BMW" }, { firstName: "Bruce", lastName: "Lee", car: "Honda" }, { firstName: "Steven", lastName: "Seagal", car: "Lada" }];
+        cars = cars.flat(Infinity);
+        //-Nombre y apellidos de los buddies que usan un Honda
+        console.log(buddies.filter(v => v.car == "Honda").map(v => v.firstName + " " + v.lastName) + "--------Nombre y apellidos de los buddies que usan un Honda");
+        //-Marcas utilizadas por los buddies
+        let marcasUsadas = cars.filter(c => buddies.find(v => c == v.car))
+        console.log(marcasUsadas + " ---------------de la lista de cars marcas usadas por los buddies");
+        //-Marcas no utilizadas por los buddies.
+        let marcasNoUsadas = cars.filter(c => !buddies.find(v => c == v.car));
+        console.log(marcasNoUsadas + " ---------------de la lista de cars marcas NO usadas por los buddies")
+        //-Cuantas marcas han sido utilizadas
+        console.log(cars.filter(c => buddies.find(v => c == v.car)).length + "-----------------cuantas marcas han sido usadas")
+        //-Cuantas marcas no han sido utilizadas
+        console.log(cars.filter(c => !buddies.find(v => c == v.car)).length + "-----------------cuantas marcas NO han sido usadas")
+
+    </script>
+</body>
+
+</html>
