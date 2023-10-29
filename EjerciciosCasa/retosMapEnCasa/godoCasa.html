@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const GODOS =
+        ["Ataulfo","Teudiselo","Sisenando","Sigérico","Valia","Valia","Valia","Valia","Valia","Valia"
+        ,"Teudiselo","Sisenando","Teodórico","Turismundo","Éurico","Alárico","Gesalérico","Amalárico","Teudis","Teudiselo","Sise","nando","Quintila","Ágila","Atanagildo","Liuva","Leovigildo","Recaredo",
+        "Vitérico","Sisebuto","Suintila","Sisenando","Quintila","Chindasvinto",
+        "Recesvinto","Vamba","Ervigio","Égica","Vitiza","Rodrigo"]
+        var uno = ""
+        var numuno=0;
+        var dos = ""
+        var numdos=0;
+        var tres = ""
+        var numtres=0;
+       
+            const colocar=(nombre,cuantos)=>{
+
+                if(cuantos>numuno){
+                    numtres=numdos
+                    numdos=numuno
+                    numuno=cuantos
+
+                    uno=nombre
+                    dos=tres;
+                    tre=dos;
+
+                }if(cuantos>numdos&& cuantos<numuno){
+                    numtres=numdos
+                    tres=dos
+                    numdos=cuantos
+                    dos=nombre
+
+
+                } if(cuantos>numtres&&cuantos<numdos){
+                    tres=nombre
+                    numtres=cuantos
+
+                }
+
+            }
+
+            GODOS.map(p=>{
+                colocar(p,GODOS.filter(v=>v==p).length);
+
+            })
+
+            console.log( uno+" con : " +numuno);
+            console.log( dos +" con : " +numdos);
+            console.log( tres+" con : " +numtres);
+
+
+
+        </script>
+</body>
+</html>

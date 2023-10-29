@@ -48,6 +48,7 @@
                 "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]]];
         var newcars = ["Saab", "Volvo", "BMW", ["Honda", "Toyota", ["Lexus",
             "Volvo", "Lada"], "Hyunday", "Volvo"]];
+
         buddies = [{
             firstName: "Jonny", lastName: "Rambo",
             car: "BMW"
@@ -75,10 +76,41 @@
           Ejercicio 2: Ver si una marca es trendy. Una marca es trendy si esta es utilizada por más de
                 un buddy. Crea en este mismo ejercicio un array trendy con dichas marcas. Muestra el array
                 trendy por consola. Se pide que lo realices en 3-4 líneas de código. (3 PUNTOS)
-        */
+
+                pista:Pista para el segundo ejercicio.
+                    Recorrer los buddies y para cada elemento mirar cuantas veces aparece ese coche en el mismo array (buddies).
+                     Si es mayor que 1 lo muestras o lo insertas a otro array para mostrarlo entero al final.
+*/
+                            //    console.log("trendy2")
+                            /*
+                               let trendy2=buddies.map((buddy)=>buddy.car).filter((car, index, array)=> 
+                        array.filter((c,i)=> c=== car && i<index).length>0)
+                        console.log(trendy2);
+
+                        console.log("Encontrar las marcas trendy");
+
+                            */
+                     
+                        let trendyBrands = buddies.map((buddy) => buddy.car);
+
+                        console.log(trendyBrands);
+
+                        let uniqueTrendyBrands=trendyBrands.filter((marca, index)=>
+                        trendyBrands.indexOf(marca) !== index
+                        ).filter((marca, index, arr)=>
+                        arr.indexOf(marca) ===index
+                        );
+
+
+                        console.log("Las marcas trendy son:", uniqueTrendyBrands);
+
+
+                        let trendy=buddies.map((b)=>b.car).filter((car,index,arr)=>
+                        arr.filter((c,i)=> c=== car && i<index).length>0);
+                        console.log(trendy);
+
         
-
-
+            
 
         //EJERCICIO 3
         //EJERCICIO 4
