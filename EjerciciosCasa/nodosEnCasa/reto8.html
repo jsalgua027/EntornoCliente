@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>retos VIII</h1>
+  <ul id="carrakos"> </ul>
+
+  <script>
+    //Se pide que muestres los datos del array en forma arborescente como en la imagen suministrada.
+    var carrakos = ["Chevrolet", "Tesla", "BMW", ["Honda", "Infiniti", ["Lexus", "Mercedes", "Kia"], "Hyunday"], ["Mazda", "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]]];
+        let padre=document.getElementById("carrakos");
+
+        function createLi(padre,arr) {
+
+            arr.map((a)=>{
+                let nodoHijo=document.createElement("li")
+                if(Array.isArray(a)){
+                    //aqui añado el li al ul padre
+                    padre.appendChild(nodoHijo);
+                    //como es un array necesito crear otra lista
+                    let nuevoUlnieto=document.createElement("ul")
+                    nodoHijo.appendChild(nuevoUlnieto);
+                    //como es un array hago la llamada recursiva
+                    createLi(nuevoUlnieto,a)
+
+                }else{
+                    let textoNodo=document.createTextNode(a);
+                    nodoHijo.appendChild(textoNodo);
+                    padre.appendChild(nodoHijo)
+
+                }
+
+            })
+            
+        }
+
+        createLi(padre,carrakos);
+
+
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>retos JavaScript</h1>
+    <ul id="frutas"> </ul>
+    <script>
+
+        let frutas = ["aguacate", "pera", "manzana", "naranja", "tomate", "granada", "mango", "litchi", "nispero"];
+        // muestra las frutas como elementos li y su nodo padre será el ul frutas
+
+        //creo el enlace entre los nodos y el elemento del html
+
+        let padre=document.getElementById("frutas");
+        // recorro el array de frutas cada fruta lo voy a meter en un li
+        frutas.map((a)=>{
+
+            let nodoHijo= document.createElement("li");
+            let textoNodo=document.createTextNode(a);
+            nodoHijo.appendChild(textoNodo);
+            padre.appendChild(nodoHijo);
+
+
+        })
+
+
+    </script>
+</body>
+
+</html>
