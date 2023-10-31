@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    PRIMERA LISTA:
+    <ul id="lista1">
+        <li>manzana</li>
+        <li>pera</li>
+        <ul>
+            <li>conferencia</li>
+            <ul>
+                <li>conferenciaverde</li>
+                <li>conferenciaamarilla</li>
+                <li>conferenciaroja</li>
+            </ul>
+            <li>peradeagua</li>
+            <li>peritadulce</li>
+            <ul>
+                <li>Dimas</li>
+                <li>Gestas</li>
+                <li>Malakatos</li>
+                <li>Jose</li>
+            </ul>
+        </ul>
+        <li>limon</li>
+        <li>limon</li>
+        <li>LIMON</li>
+    </ul>
+    Segunda lista:
+    <ul id="lista2">
+        <li>manzana</li>
+        <li>manzana</li>
+        <li>manzana</li>
+        <li>manzana</li>
+        <li>pera</li>
+        <li>limon</li>
+    </ul>
+    <script>
+
+        // declaro las listas
+        let lista1=[];
+        let lista2=[];
+        let newlista=[];
+
+        const inserta=(desde,hasta)=>{
+            if(desde.nodeName == "LI"){
+
+                hasta.push(desde.innerHTML.toUpperCase())
+
+            }else{
+
+                for (let i = 0; i < desde.children.length; i++) {
+                    inserta(desde.children[i],hasta)
+                    
+                }
+               
+
+            }
+
+
+        }
+
+     
+
+        // inserto las listas del DOM en 2 arrys diferentes;
+        inserta(document.getElementById("lista1"),lista1);
+        inserta(document.getElementById("lista2"),lista2);
+
+        console.log(lista1);
+        console.log(lista2);
+        
+               
+        //ordena las dos lista y eliminar duplicados
+        lista1.sort();
+        //borro duplicados (para que sean unicos)
+        lista1=lista1.filter((f,i,arr) => i==0||arr[i]!=arr[i-1]);
+
+        console.log(lista1);
+        lista2.sort();
+        lista2=lista2.filter((f,i,arr) => i==0||arr[i]!=arr[i-1]);
+
+        //crea una nueva lista concatenando el resultado de las dos anteriores
+        newlista=lista1.concat(lista2);
+
+        //ordeno la nueva lista
+         newlista.sort();
+
+        // quito duplicados (para que sean repetidos)
+        newlista=newlista.filter((f,i,arr) => i>0 && arr[i]==arr[i-1]);
+        console.log(newlista);
+        
+       // buscarDuplicados(lista1,newlista);
+    </script>
+
+</body>
+
+</html>
