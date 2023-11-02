@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    PRIMERA LISTA:
+    <ul id="lista1">
+        <li>manzana</li>
+        <li>pera</li>
+        <ul>
+            <li>conferencia</li>
+            <ul>
+                <li>conferenciaverde</li>
+                <li>conferenciaamarilla</li>
+                <li>conferenciaroja</li>
+            </ul>
+            <li>peradeagua</li>
+            <li>peritadulce</li>
+            <ul>
+                <li>Dimas</li>
+                <li>Gestas</li>
+                <li>Malakatos</li>
+                <li>Jose</li>
+            </ul>
+        </ul>
+        <li>limon</li>
+        <li>limon</li>
+        <li>LIMON</li>
+    </ul>
+    Segunda lista:
+    <ul id="lista2">
+        <li>manzana</li>
+        <li>manzana</li>
+        <li>manzana</li>
+        <li>manzana</li>
+        <li>pera</li>
+        <li>limon</li>
+    </ul>
+    <script>
+     
+
+        //metodo que inserte la lista del dom en un array
+     
+      const insertar = (listaHtml,arrlistaDestino)=>{
+           
+            if(listaHtml.nodeName=="LI"){
+               
+
+                arrlistaDestino.push(listaHtml.innerHTML.toUpperCase());
+            }else{
+                for (let i = 0; i < listaHtml.children.length; i++) {
+                     insertar(listaHtml.children[i],arrlistaDestino);
+            
+                }
+
+
+            }
+
+        }
+    
+
+       
+            let arrayLista1=[];
+            let arrayLista2=[];            
+
+            insertar(document.getElementById("lista1"), arrayLista1)
+            insertar(document.getElementById("lista2"), arrayLista2)
+
+
+
+            console.log(arrayLista1);
+            console.log(arrayLista2);
+           
+
+
+
+
+
+        
+
+
+
+
+    </script>
+
+</body>
+</html>
