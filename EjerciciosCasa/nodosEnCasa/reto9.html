@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+        <h1>retos JavaScript</h1>
+        <ul id="carrakos"> </ul>
+    
+        <script>
+             /*
+        Se pide que saques los coches del array pero si tienen dueño lo especifiques.
+         Se muestra imagen con la solución.
+
+        */
+    
+    let carrakos = ["Chevrolet", "Tesla", "BMW",["Honda", "Infiniti",["Lexus", "Mercedes", "Kia"], "Hyunday"],["Mazda", "Mercedes", "Jeep",["KTM", "Nissan", "Isuzu"]]];
+    let xungos = [{nombre:"Bruce Lee",carros:["Chevrolet", "Tesla", "BMW"]},{nombre:"YakiChan",carros:["Lexus", "Mercedes", "Kia"]}]
+    
+            //necesio un metodo que busque la marca y se la encuentra que muestre el nombre
+
+            const busca=(marca, arr)=>{
+            
+                let encontrado=arr.find(c=>c.carros.find(m=>m===marca))
+                if(encontrado==undefined){
+                    return ""
+                }else{
+                    return encontrado.nombre
+                }
+
+
+
+            }
+
+
+            console.log(busca("Tesla",xungos));
+
+            // voy a hacer el metodo que me dado un nodo padre y un array me cre las listas el primer elemeno sin nombre me genera nueva lista
+
+            let padre= document.getElementById("carrakos");
+
+
+            function arbol(pad,arr){
+
+                arr.map(e => {
+                    
+                if(Array.isArray(e)) {
+                    let nieto=document.createElement("ul");
+                    pad.appendChild(nieto);
+                    arbol(nieto,e);
+
+                } else {
+                    let hijo =document.createElement("li");
+                    let texto= document.createTextNode(e+" de "+ busca(e,xungos));
+                    
+                    hijo.appendChild(texto);
+                   pad.appendChild(hijo);
+
+                }                    
+                  
+
+               });
+                                                                    
+             }
+
+
+
+             arbol(padre,carrakos);
+
+
+    
+        </script>
+</body>
+</html>
