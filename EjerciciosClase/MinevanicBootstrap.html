@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Minevanic</title>
+</head>
+
+<body>
+    <h2>Matriz de botones con Bootstrap</h2>
+    <div id="contenedorNormal"></div>
+    <div id="contenedorBootstrap"></div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Tu propio archivo de script JavaScript -->
+    <script>
+        let minas = [
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ];
+
+        function color(arr) {
+            for (let f = 0; f < arr.length; f++) {
+                for (let c = 0; c < arr[f].length; c++) {
+                    //compruebo uno
+                    if (arr[f][c] == 1) {
+                        //arriba
+                        if (f > 0 && arr[f - 1][c] == 0) { arr[f - 1][c] = 2; }
+                        //izquierda
+                        if (c > 0 && arr[f][c - 1] == 0) { arr[f][c - 1] = 2; }
+                        //abajo
+                        if (f < arr.length - 1 && arr[f + 1][c] == 0) { arr[f + 1][c] = 2; }
+                        //derecha
+                        if (c < arr[f].length - 1 && arr[f][c + 1] == 0) { arr[f][c + 1] = 2; }
+
+                        //arriba-Izquierda
+                        if (f > 0 && c > 0 && arr[f - 1][c - 1] == 0) { arr[f - 1][c - 1] = 2 }
+                        //arriba-derecha
+                        if (f > 0 && c > 0 && arr[f - 1][c + 1] == 0) { arr[f - 1][c + 1] = 2 }
+                        //abajo-Izquierda
+                        if (f < arr.length - 1 && c > 0 && arr[f + 1][c - 1] == 0) { arr[f + 1][c - 1] = 2 }
+                        //abajo-derecha
+                        if (f < arr.length - 1 && c < arr[f].length - 1 && arr[f + 1][c + 1] == 0) { arr[f + 1][c + 1] = 2 }
+                    }
+                }
+            }
+            for (let f = 0; f < arr.length; f++) {
+                for (let c = 0; c < arr[f].length; c++) {
+                    //compruebo 2
+                    if (arr[f][c] == 2) {
+                        //arriba
+                        if (f > 0 && arr[f - 1][c] == 0) { arr[f - 1][c] = 3; }
+                        //izquierda
+                        if (c > 0 && arr[f][c - 1] == 0) { arr[f][c - 1] = 3; }
+                        //abajo
+                        if (f < arr.length - 1 && arr[f + 1][c] == 0) { arr[f + 1][c] = 3; }
+                        //derecha
+                        if (c < arr[f].length - 1 && arr[f][c + 1] == 0) { arr[f][c + 1] = 3; }
+
+                        //arriba-Izquierda
+                        if (f > 0 && c > 0 && arr[f - 1][c - 1] == 0) { arr[f - 1][c - 1] = 3 }
+                        //arriba-derecha
+                        if (f > 0 && c > 0 && arr[f - 1][c + 1] == 0) { arr[f - 1][c + 1] = 3 }
+                        //abajo-Izquierda
+                        if (f < arr.length - 1 && c > 0 && arr[f + 1][c - 1] == 0) { arr[f + 1][c - 1] = 3 }
+                        //abajo-derecha
+                        if (f < arr.length - 1 && c < arr[f].length - 1 && arr[f + 1][c + 1] == 0) { arr[f + 1][c + 1] = 3 }
+                    }
+                }
+            }
+            for (let f = 0; f < arr.length; f++) {
+                for (let c = 0; c < arr[f].length; c++) {
+                    //compruebo 3
+                    if (arr[f][c] == 3) {
+                        //arriba
+                        if (f > 0 && arr[f - 1][c] == 0) { arr[f - 1][c] = 4; }
+                        //izquierda
+                        if (c > 0 && arr[f][c - 1] == 0) { arr[f][c - 1] = 4; }
+                        //abajo
+                        if (f < arr.length - 1 && arr[f + 1][c] == 0) { arr[f + 1][c] = 4; }
+                        //derecha
+                        if (c < arr[f].length - 1 && arr[f][c + 1] == 0) { arr[f][c + 1] = 4; }
+
+                        //arriba-Izquierda
+                        if (f > 0 && c > 0 && arr[f - 1][c - 1] == 0) { arr[f - 1][c - 1] = 4 }
+                        //arriba-derecha
+                        if (f > 0 && c > 0 && arr[f - 1][c + 1] == 0) { arr[f - 1][c + 1] = 4 }
+                        //abajo-Izquierda
+                        if (f < arr.length - 1 && c > 0 && arr[f + 1][c - 1] == 0) { arr[f + 1][c - 1] = 4 }
+                        //abajo-derecha
+                        if (f < arr.length - 1 && c < arr[f].length - 1 && arr[f + 1][c + 1] == 0) { arr[f + 1][c + 1] = 4 }
+                    }
+                }
+            }
+            for (let f = 0; f < arr.length; f++) {
+                for (let c = 0; c < arr[f].length; c++) {
+                    //compruebo 4
+                    if (arr[f][c] == 4) {
+                        //arriba
+                        if (f > 0 && arr[f - 1][c] == 0) { arr[f - 1][c] = 5; }
+                        //izquierda
+                        if (c > 0 && arr[f][c - 1] == 0) { arr[f][c - 1] = 5; }
+                        //abajo
+                        if (f < arr.length - 1 && arr[f + 1][c] == 0) { arr[f + 1][c] = 5; }
+                        //derecha
+                        if (c < arr[f].length - 1 && arr[f][c + 1] == 0) { arr[f][c + 1] = 5; }
+
+                        //arriba-Izquierda
+                        if (f > 0 && c > 0 && arr[f - 1][c - 1] == 0) { arr[f - 1][c - 1] = 5 }
+                        //arriba-derecha
+                        if (f > 0 && c > 0 && arr[f - 1][c + 1] == 0) { arr[f - 1][c + 1] = 5 }
+                        //abajo-Izquierda
+                        if (f < arr.length - 1 && c > 0 && arr[f + 1][c - 1] == 0) { arr[f + 1][c - 1] = 5 }
+                        //abajo-derecha
+                        if (f < arr.length - 1 && c < arr[f].length - 1 && arr[f + 1][c + 1] == 0) { arr[f + 1][c + 1] = 5 }
+                    }
+                }
+            }
+        }
+        color(minas)
+        console.log(minas);
+
+        // Obtener el contenedor donde se mostrará la matriz
+        const matrizContainer = document.getElementById("contenedorNormal");
+        function imprimirMatrizEnHTML(matriz,contenedor) {
+            // Obtener el contenedor donde se mostrará la matriz
+         
+
+            // Crear el contenido de la tabla
+            let tablaHTML = '<table>';
+
+            for (let i = 0; i < matriz.length; i++) {
+                tablaHTML += '<tr>';
+                for (let j = 0; j < matriz[i].length; j++) {
+                    tablaHTML += `<td>${matriz[i][j]}</td>`;
+                }
+                tablaHTML += '</tr>';
+            }
+
+            tablaHTML += '</table>';
+
+            // Mostrar la tabla en el contenedor
+            contenedor.innerHTML = tablaHTML;
+        }
+
+        imprimirMatrizEnHTML(minas,matrizContainer);
+
+    </script>
+</body>
+
+</html>
