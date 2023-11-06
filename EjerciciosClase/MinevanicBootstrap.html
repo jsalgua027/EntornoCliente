@@ -127,31 +127,53 @@
         console.log(minas);
 
         // Obtener el contenedor donde se mostrará la matriz
-        const matrizContainer = document.getElementById("contenedorNormal");
-        function imprimirMatrizEnHTML(matriz,contenedor) {
-            // Obtener el contenedor donde se mostrará la matriz
-         
-
-            // Crear el contenido de la tabla
-            let tablaHTML = '<table>';
-
-            for (let i = 0; i < matriz.length; i++) {
-                tablaHTML += '<tr>';
-                for (let j = 0; j < matriz[i].length; j++) {
-                    tablaHTML += `<td>${matriz[i][j]}</td>`;
-                }
-                tablaHTML += '</tr>';
+        const matrizContainer = document.getElementById("contenedorBootstrap");
+        const imprimirMatrizDOM = (matriz, elementoDom) => {
+        //creo una cadena en HTML para representar la tabla
+        let tableHTML = "<table>";
+        //con for OF imprimo cada fila de la matriz
+        for (const fila of matriz) {
+          tableHTML += "<tr>";
+          //en cada fila el valor
+          for (const valor of fila) {
+            if (valor == 1) {
+              // tableHTML += "<td>" + valor + "</td>";
+              // <button type="button" class="btn btn-primary">1</button>
+              tableHTML += "<td><button type='button' class='btn btn-danger'>" + valor + "</button></td>";
             }
 
-            tablaHTML += '</table>';
+            else if (valor == 2) {
+              tableHTML += "<td><button type='button' class='btn btn-primary'>" + valor + "</button></td>";
+            }
+            else if (valor == 3) {
+              tableHTML += "<td><button type='button' class='btn btn-secondary'>" + valor + "</button></td>";
+            } else if (valor == 4) {
+              tableHTML += "<td><button type='button' class='btn btn-success'>" + valor + "</button></td>";
 
-            // Mostrar la tabla en el contenedor
-            contenedor.innerHTML = tablaHTML;
+            } else {
+              tableHTML += "<td><button type='button' class='btn btn-info'>" + valor + "</button></td>";
+
+            }
+
+          }
+          tableHTML += "</tr>";
+
         }
 
-        imprimirMatrizEnHTML(minas,matrizContainer);
+        tableHTML += "</table>";
+        //Establezco el contenido del HTML al elemento DOM
+        elementoDom.innerHTML = tableHTML;
+      };
+
+      imprimirMatrizDOM(minas,matrizContainer);
+
+        
+       
+
+
 
     </script>
+
 </body>
 
 </html>
