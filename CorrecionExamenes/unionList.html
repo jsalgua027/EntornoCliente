@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    PRIMERA LISTA:
+    <ul id="lista1">
+        <li>manzana</li>
+        <li>pera</li>
+        <ul>
+            <li>conferencia</li>
+            <ul>
+                <li>conferenciaverde</li>
+                <li>conferenciaamarilla</li>
+                <li>conferenciaroja</li>
+            </ul>
+            <li>peradeagua</li>
+            <li>peritadulce</li>
+            <ul>
+                <li>Dimas</li>
+                <li>Gestas</li>
+                <li>Malakatos</li>
+                <li>Jose</li>
+            </ul>
+        </ul>
+        <li>limon</li>
+        <li>limon</li>
+        <li>LIMON</li>
+    </ul>
+    Segunda lista:
+    <ul id="lista2">
+        <li>manzana</li>
+        <li>manzana</li>
+        <ul>
+            <li>manzana</li>
+            <li>manzana</li>
+        </ul>
+        <li>pera</li>
+        <li>limon</li>
+    </ul>
+    <ol id="lista3">
+    </ol>
+
+    <script>
+
+        // dos array  que despues vou a usar 
+
+        let arrayList1 = [];
+        let arrayList2 = [];
+
+        // metodo para insertar el html en los arrays
+
+        const insertar = (listaHtml, arraylis) => {
+           
+
+            if (listaHtml.nodeName == "LI") {
+                
+                arraylis.push(listaHtml.innerHTML);
+
+
+
+            } else {
+                console.log(listaHtml.children)
+                for (let i = 0; i < listaHtml.children.length; i++) {
+                   
+                    insertar(listaHtml.children[i], arraylis)
+                }
+                   
+                   
+
+            }
+
+
+        }
+
+        insertar(document.getElementById("lista1"), arrayList1);
+        insertar(document.getElementById("lista2"), arrayList2 );
+
+        //ordeno las listas 
+        arrayList1.sort();
+        arrayList2.sort();
+
+        console.log(arrayList1);
+        console.log(arrayList2);
+
+        // quito duplicados
+
+        let sinDupli1=arrayList1.filter((elem,pos,arr)=>
+             arr[pos]===elem && arr[pos-1]!=elem);
+
+    
+         let sinDupli2=arrayList2.filter((elem,pos,arr)=>
+         arr[pos]===elem && arr[pos-1]!=elem);
+
+
+
+        console.log(sinDupli1);
+        console.log(sinDupli2);
+        
+        //lista unica
+
+        let listaUnica=[];
+
+       sinDupli1.map(a=>listaUnica.push(a));
+       sinDupli2.map(a=>listaUnica.push(a));
+        
+       console.log(listaUnica);
+
+       // ordeno la lista
+       listaUnica.sort();
+
+       // quito duplicados
+
+       let listaUnicaSin =listaUnica.filter((elem,pos,arr)=>
+             arr[pos]===elem && arr[pos-1]!=elem);
+
+        console.log(listaUnicaSin);
+
+        // meto todo en el html lista 3
+
+        let padre= document.getElementById("lista3");
+
+        
+
+
+    </script>
+</body>
+
+</html>
