@@ -1,114 +1,111 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>OSO</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-
 <body>
-
   <p id="txt">
-  <p>
-
-    <script>
-      let tablero = new Array();
-      let maxx = 9;
-      let maxy = 9;
-
-      function aleatorio(min, max) {
-        var horquilla = max - min;
-        return Math.round(Math.random() * horquilla + min);
-      }
-
-      function rellena() {
-        // aquí tendrás que rellenar la matriz.
-
-        for (let i = 0; i < maxx; i++) {
-          // dentro de este array creame por cada posicion otros arrays
-
-          tablero[i] = [];
-          for (let j = 0; j < maxy; j++) {
-            let numero = aleatorio(0, 3);
-
-            if (numero == 1 || numero == 0) {
-
-              tablero[i][j] = "O"
-            } else {
-
-              tablero[i][j] = "S"
-
-            }
-
-          }
-
-
-        };
-
-
-      }
-
-
-      function resuelve() {
-        //función que resuelve el juego
-        for (let i = 0; i < tablero.length; i++) {
-          for (let j = 0; j < tablero[i].length; j++) {
-            if (tablero[i][j] == "S") {
-              //Miro arriba y abajo. 
-              // controlo que no se salga de la matriz
-              if (i > 0 && i < tablero.length - 1) {
-                if (tablero[i - 1][j] == "O" && tablero[i + 1][j] == "O") {
-                  tablero[i][j] = " ";
-                  tablero[i - 1][j] = " ";
-                  tablero[i + 1][j] = " ";
-                  console.log(tablero[i][j])
-                }
-              }
-              //miro Izquierda y derecha
-              else if (j > 0 && j < tablero.length - 1) {
-                if (tablero[i][j - 1] == "O" && tablero[i][j + 1] == "O") {
-                  tablero[i][j] = " ";
-                  tablero[i][j - 1] = " ";
-                  tablero[i][j + 1] = " ";
-                  console.log(tablero[i][j])
-
-                }
-              }
-              //miro la diagonale comprobando que no se salga
-              else if (i >= 0 && i < tablero.length - 1 && j >= 0 && j < tablero.length - 1) {
-                if (tablero[i + 1][j - 1] == "O" && tablero[i - 1][j + 1] == "O") {
-                  tablero[i][j] = " ";
-                  tablero[i][j - 1] = " ";
-                  tablero[i][j + 1] = " ";
-                  console.log(tablero[i][j])
-                  //compruebo la otra diagonal 
-                } else if (tablero[i - 1][j - 1] == "O" && tablero[i + 1][j + 1] == "O") {
-                  tablero[i][j] = " ";
-                  tablero[i][j - 1] = " ";
-                  tablero[i][j + 1] = " ";
-                  console.log(tablero[i][j])
-
-                }
-              }
-
-            }
-
-          }
-
+    <p>
+  
+      <script>
+        let tablero = new Array();
+        let maxx = 9;
+        let maxy = 9;
+  
+        function aleatorio(min, max) {
+          var horquilla = max - min;
+          return Math.round(Math.random() * horquilla + min);
         }
-
-
-
-      }
-
-      
-
-      rellena(tablero);
-      console.log(JSON.parse(JSON.stringify(tablero)));
-      resuelve();
-      console.log(tablero);
-
-    </script>
-
+  
+        function rellena() {
+          // aquí tendrás que rellenar la matriz.
+  
+          for (let i = 0; i < maxx; i++) {
+            // dentro de este array creame por cada posicion otros arrays
+  
+            tablero[i] = [];
+            for (let j = 0; j < maxy; j++) {
+              let numero = aleatorio(0, 3);
+  
+              if (numero == 1 || numero == 0) {
+  
+                tablero[i][j] = "O"
+              } else {
+  
+                tablero[i][j] = "S"
+  
+              }
+  
+            }
+  
+  
+          };
+  
+  
+        }
+  
+  
+        function resuelve() {
+          //función que resuelve el juego
+          for (let i = 0; i < tablero.length; i++) {
+            for (let j = 0; j < tablero[i].length; j++) {
+              if (tablero[i][j] == "S") {
+                //Miro arriba y abajo. 
+                // controlo que no se salga de la matriz
+                if (i > 0 && i < tablero.length - 1) {
+                  if (tablero[i - 1][j] == "O" && tablero[i + 1][j] == "O") {
+                    tablero[i][j] = " ";
+                    tablero[i - 1][j] = " ";
+                    tablero[i + 1][j] = " ";
+                    console.log(tablero[i][j])
+                  }
+                }
+                //miro Izquierda y derecha
+                else if (j > 0 && j < tablero.length - 1) {
+                  if (tablero[i][j - 1] == "O" && tablero[i][j + 1] == "O") {
+                    tablero[i][j] = " ";
+                    tablero[i][j - 1] = " ";
+                    tablero[i][j + 1] = " ";
+                    console.log(tablero[i][j])
+  
+                  }
+                }
+                //miro la diagonale comprobando que no se salga
+                else if (i >= 0 && i < tablero.length - 1 && j >= 0 && j < tablero.length - 1) {
+                  if (tablero[i + 1][j - 1] == "O" && tablero[i - 1][j + 1] == "O") {
+                    tablero[i][j] = " ";
+                    tablero[i][j - 1] = " ";
+                    tablero[i][j + 1] = " ";
+                    console.log(tablero[i][j])
+                    //compruebo la otra diagonal 
+                  } else if (tablero[i - 1][j - 1] == "O" && tablero[i + 1][j + 1] == "O") {
+                    tablero[i][j] = " ";
+                    tablero[i][j - 1] = " ";
+                    tablero[i][j + 1] = " ";
+                    console.log(tablero[i][j])
+  
+                  }
+                }
+  
+              }
+  
+            }
+  
+          }
+  
+  
+  
+        }
+  
+        
+  
+        rellena(tablero);
+        console.log(JSON.parse(JSON.stringify(tablero)));
+        resuelve();
+        console.log(tablero);
+  
+      </script>
 </body>
-
 </html>
