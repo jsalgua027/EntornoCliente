@@ -80,7 +80,13 @@
     </p>
     <script>
         /*CREA UNA FUNCIÓN QUE DADO UN NODO CUENTE CUÁNTAS PERSONAS CON UN NOMBRE HAY
+     
         POR DEBAJO DE ÉL (INCLUIDO)*/
+
+        /*
+        /*
+        
+                
 let padre1=document.getElementById("lista1")
         const cuentaElementos=(padre)=> {
             let contador=0;
@@ -101,8 +107,44 @@ let padre1=document.getElementById("lista1")
             
         }
             
-          
-        
+
+        */
+
+
+        const cuentaMan = (obj, man) => {
+            let cuantos = 0;
+
+            if (obj.tagName == 'LI') {
+                if (obj.innerHTML.toUpperCase() == man.toUpperCase()) cuantos++;
+
+            } else {
+                for (let i = 0; i < obj.children.length; i++) {
+                    cuantos += cuentaMan(obj.children[i], man);
+
+                }
+
+            }
+
+            return cuantos;
+        }
+
+        let padre1 = document.getElementById("lista1");
+        console.log(cuentaMan(padre1, "Nispero"));
+
+
+        const recorreYcuenta = (obj) => {
+            if (obj.tagName == 'LI') {
+                obj.innerHTML = obj.innerHTML + " - " + cuentaMan(document.getElementById("lista1"), obj.innerHTML)
+            } else {
+                for (let i = 0; i < obj.children.length; i++) {
+                    recorreYcuenta(obj.children[i])
+                }
+            }
+        }
+        recorreYcuenta(document.getElementById("lista2"))
+
+
+
         /*CREA OTRA FUNCIÓN QUE RECORRE LA SEGUNDA LISTA Y LLAME A LA FUNCIÓN
         ANTERIOR PARA QUE BUSQUE
 
@@ -112,9 +154,9 @@ let padre1=document.getElementById("lista1")
         PRIMERA*/
         //LLAMA A ESTA SEGUNDA FUNCIÓN
 
-        
 
-        cuentaElementos(padre1);
+
+
     </script>
 </body>
 
