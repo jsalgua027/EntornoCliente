@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Mi Lista de Compras</h2>
+    <ul id="compras-lista">
+  
+    <ul id="frutas">
+        <li>Manzana</li>
+        <li>Plátano</li>
+        <li>Naranja</li>
+    </ul>
+
+
+    <ul id="Verduras">
+        <li>Lechuga</li>
+        <li>Zanahoria</li>
+        <li>Pimiento</li>
+    </ul>
+
+
+    <ul id="Lacteos">
+        <li>Leche</li>
+        <li>Queso</li>
+        <li>Yogur</li>
+    </ul>
+</ul>
+        <h1>Lista final</h1>
+    <ul id="listaFinal"></ul>
+    <script>
+        let listaF = [];
+        let listaV = [];
+        let listaL = [];
+
+        let listaTotal=[];
+        
+        const añadir = (nodo, lista) => {
+            if(nodo.nodeName=="LI"){
+
+                lista.push(nodo.innerHTML) 
+            }else{
+                for (let i = 0; i < nodo.children.length; i++) {
+                   
+                    añadir(nodo.children[i],lista);
+                }
+
+            }
+
+
+        }
+        añadir(document.getElementById("frutas"),listaF);
+        añadir(document.getElementById("Verduras"),listaV);
+        añadir(document.getElementById("Lacteos"),listaL);
+        añadir(document.getElementById("compras-lista"),listaTotal);
+
+
+        console.log(listaF);
+        console.log(listaV);
+        console.log(listaL);
+        console.log(listaTotal);
+
+        let padre=document.getElementById("listaFinal");
+        listaTotal.map((e)=>{
+            let nodoHijo=document.createElement("li");
+            let texto = document.createTextNode(e);
+
+            nodoHijo.appendChild(texto);
+            padre.appendChild(nodoHijo)
+
+        });
+        
+
+        
+
+    </script>
+</body>
+
+</html>
