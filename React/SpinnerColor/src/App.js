@@ -39,7 +39,7 @@ this.setState({letrero:this.state.color})
 render() {
 return (
 <div className="App">
-<h1>{this.state.letrero}</h1>
+<h1>{this.state.color}</h1>
 <Circulo color={this.state.color} cambia={()=>this.cambiaLetrero()}/>
 <Boton color="secondary" cambia={()=>this.cambiaSecondary()}/>
 <Boton color="danger" cambia={()=>this.cambiaDanger()}/>
