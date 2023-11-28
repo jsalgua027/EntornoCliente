@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Sino from "./componentes/sino";
 import Flashcard from "./componentes/flashcardComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { GODOS  } from './shared/datos';
 
 
 
