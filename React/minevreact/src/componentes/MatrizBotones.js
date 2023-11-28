@@ -1,15 +1,22 @@
-import Botoncito from "./Botoncito";
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Botoncito from './Botoncito';
 
 
-const MatrizBotones =()=>{
-  const botones= ['boton 1','boton 2', 'boton3'];
+const MatrizBotones =({matrizAux})=>{
+
   return(
-    <Botoncito ></Botoncito>
-
-
+    <div>
+      {matrizAux.map((fila, indexFila) => (
+        <div key={indexFila} style={{ display: 'flex' }}>
+          {fila.map((elemento, indexElemento) => (
+            <Botoncito key={indexElemento} />
+          ))}
+        </div>
+      ))}
+    </div>
   );
+};
 
 
-}
-
-export default MatrizBotones
+export default MatrizBotones;

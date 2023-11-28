@@ -6,9 +6,19 @@ import MatrizBotones from "./componentes/MatrizBotones";
 
 
 function App() {
+  let minas = [
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 0, 0, 0, 0, 0],
+    [0, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0],
+    [0, 0, 0, 0, 0, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0]
+];
+
+
   return (
     <div className="App">
-     <MatrizBotones></MatrizBotones>
+     <MatrizBotones matrizAux={minas}></MatrizBotones>
     </div>
   );
 }
