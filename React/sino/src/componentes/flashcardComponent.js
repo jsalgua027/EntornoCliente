@@ -17,7 +17,7 @@ const Flashcard = (props) => {
             <CardBody></CardBody>
             <CardTitle tag5="h5">{props.Titulo}</CardTitle>
             <div class="cold-md8 col-lg-4">
-              <CardImg src={props.imagen}></CardImg>
+              <CardImg src={props.imagen}style={{ width: '60%', height: 'auto' }} ></CardImg>
             </div>
             <CardText>{props.texto}</CardText>
           </Card>
