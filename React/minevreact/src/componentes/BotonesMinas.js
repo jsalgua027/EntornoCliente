@@ -1,7 +1,8 @@
-import React from "react";
+import React , { useState }from "react";
 import { Button } from "reactstrap";
 
 const SelectorMinas = (props) => {
+  const [numeroMinas, setNumeroMinas] = useState(10);
   const estilos = {
     border: "1px solid black",
     backgroundColor: "rgb(210, 207, 204)",
@@ -25,12 +26,24 @@ const SelectorMinas = (props) => {
   };
   const estiloBB = {};
 
+  
+
+  const sumar = () => {
+    setNumeroMinas(numeroMinas + 1);
+  };
+
+  const restar = () => {
+    if (numeroMinas > 0) {
+      setNumeroMinas(numeroMinas - 1);
+    }
+  };
+
   return (
     <div style={estilos}>
-      <p>Número Minas</p>
+        <p>Número Minas: {numeroMinas}</p>
       <div style={estiloB}>
-        <Button style={estiloBA}>+</Button>
-        <Button style={estiloBB}>-</Button>
+        <Button style={estiloBA}onClick={sumar}>+</Button>
+        <Button style={estiloBB}onClick={restar}>-</Button>
       </div>
     </div>
   );
