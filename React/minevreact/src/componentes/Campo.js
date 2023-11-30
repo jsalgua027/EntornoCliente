@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button,Row,Col } from "reactstrap";
 
 const Campo = (props) => {
   let tablero = [];
-  
+  const [mina, setmina] = useState(0);
+
+  function ponerMina(num){
+    const m=mina+num;
+    setmina(m);
+  }
   props.campo.map((f) => {
     let fila = [];
     f.map((c) => {
