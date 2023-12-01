@@ -13,7 +13,7 @@ const Campo = (props) => {
         fila.push(<Button />);
       }      
     }
-    tablero.push(<Row><Col>{fila}</Col></Row>);
+    tablero.push(<Row ><Col xs="auto">{fila}</Col></Row>);
   }
   console.log(tablero);
   return <>{tablero}</>;
