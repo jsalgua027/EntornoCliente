@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Campo from "./componentes/Campo";
 import Botonera from "./componentes/Botonera";
-import SelectorMinas from "./componentes/BotonesMinas";
+import SelectorMinas from "./componentes/SelectorMinas";
 import Jugar from "./componentes/Jugar";
 import "./App.css";
 
@@ -19,21 +19,84 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      campo: minas,
+      filas:10,
+      columnas:10,
+      numeMinas:10,
+      robot: { f: 0, c: 0 },
+      campo: [],
+      finalizado:false
     };
   }
+  //jugar
+  jugar(){
+    let tabla=[]
+    for (let i=0;i<this.state.filas;i++){
+      let fila=[]
+      for (let j=0;j<this.state.columnas;j++){
+        fila.push(999)
+      }
+      tabla.push(fila)
+    }
+    console.log(tabla)
+    this.setState({campo:tabla})
+  }
+//gestiono la cantidad de minas
+  sumMina(){
+    let p=document.getElementById("numeroMinas");
+     let num= p.innerHTML
+      num++;
+      p.innerHTML=num;
+      
+    console.log(num);
+  }
+  resMina(){
+    let p=document.getElementById("numeroMinas");
+    let num= p.innerHTML
+     num--;
+     p.innerHTML=num;
+
+  }
+// gestiono el movimiento 
+
+arriba(){
+  console.log("arriba")
+  let r = this.state.robot
+  r.f=r.f-1
+  this.setState({robot:r})
+}
+abajo(){
+  console.log("abajo")
+  let a =this.state.robot
+  a.f=a.f+1
+  this.setState({robot:a})
+}
+izquierda(){
+  console.log("izquierda")
+  let i =this.state.robot
+  i.c=i.c-1
+  this.setState({robot:i})
+}
+derecha(){
+  console.log("derecha")
+  let d= this.state.robot
+  d.c=d.c+1
+  this.setState({robot:d})
+}
+
 
   render() {
     return (
       <div className="App">
         <h1>MineVancic</h1>
+        <p>{this.state.robot.f}</p>
+        <p>{this.state.robot.c}</p>
         <div className="confJuego"> 
-        <SelectorMinas></SelectorMinas>
-        <Jugar></Jugar>
+        <SelectorMinas clickSubir={()=>this.sumMina()} clickBajar={()=>this.resMina()}></SelectorMinas>
+        <Jugar jugar={()=>this.jugar()}/>
         </div>
        
-        <Campo campo={this.state.campo}></Campo>
-        <Botonera></Botonera>
+        <Campo robot={this.state.robot} campo={this.state.campo} filas={this.state.filas} columnas={this.state.columnas}></Campo>
+        <Botonera clickArriba={()=>this.arriba()} clickAbajo={()=>this.abajo()} clickIzquierda={()=>this.izquierda()} clickDerecha={()=>this.derecha()} ></Botonera>
       </div>
     );
   }

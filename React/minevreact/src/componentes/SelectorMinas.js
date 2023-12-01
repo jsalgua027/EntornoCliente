@@ -28,22 +28,14 @@ const SelectorMinas = (props) => {
 
   
 
-  const sumar = () => {
-    setNumeroMinas(numeroMinas + 1);
-  };
-
-  const restar = () => {
-    if (numeroMinas > 0) {
-      setNumeroMinas(numeroMinas - 1);
-    }
-  };
 
   return (
     <div style={estilos}>
-        <p>Número Minas: {numeroMinas}</p>
+        <p >Número Minas: </p>
+        <p id="numeroMinas">0</p>
       <div style={estiloB}>
-        <Button style={estiloBA}onClick={sumar}>+</Button>
-        <Button style={estiloBB}onClick={restar}>-</Button>
+        <Button style={estiloBA}onClick={props.clickSubir}>+</Button>
+        <Button style={estiloBB}onClick={props.clickBajar}>-</Button>
       </div>
     </div>
   );

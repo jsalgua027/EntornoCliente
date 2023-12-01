@@ -27,12 +27,12 @@ const Botonera=(props)=>{
 
     return(
         <div style={estilos}>
-            <div style={Bestilos} ><Button>W</Button></div>
+            <div style={Bestilos} ><Button onClick={props.clickArriba}> W</Button></div>
             <div style={Bestilos} > 
-                <Button style={estiloB}>A</Button>
-                <Button>D</Button>
+                <Button style={estiloB} onClick={props.clickIzquierda}>A</Button>
+                <Button onClick={props.clickDerecha}>D</Button>
             </div>
-            <div style={Bestilos}><Button>S</Button></div>
+            <div style={Bestilos}onClick={props.clickAbajo}><Button>S</Button></div>
         </div>
 
     )
