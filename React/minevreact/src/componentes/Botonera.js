@@ -13,11 +13,13 @@ const Botonera=(props)=>{
         alignItems:"center",
         width: "150px",
         margin:"10px",
-        borderRadius:"10%"
+        borderRadius:"10%",
+        paddingTop:"0.5rem"
         
     };
     const Bestilos = {
         marginBottom: "8px", // Ajusta el valor según el espacio deseado
+        
       
       };
      const estiloB={
@@ -29,10 +31,12 @@ const Botonera=(props)=>{
         <div style={estilos}>
             <div style={Bestilos} ><Button onClick={props.clickArriba}> W</Button></div>
             <div style={Bestilos} > 
-                <Button style={estiloB} onClick={props.clickIzquierda}>A</Button>
+                <Button onClick={props.clickIzquierda}>A</Button>
+                <Button onClick={props.clickAbajo}>S</Button>
                 <Button onClick={props.clickDerecha}>D</Button>
+               
             </div>
-            <div style={Bestilos}onClick={props.clickAbajo}><Button>S</Button></div>
+            <div style={Bestilos}></div>
         </div>
 
     )

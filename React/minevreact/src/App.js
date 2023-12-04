@@ -37,6 +37,8 @@ class App extends Component {
       }
       tabla.push(fila)
     }
+    //funcion de las minas
+    // funcion distancia
     console.log(tabla)
     this.setState({campo:tabla})
   }
@@ -61,24 +63,28 @@ class App extends Component {
 arriba(){
   console.log("arriba")
   let r = this.state.robot
+  if(r.f>0) // controlo que no se salga del tablero
   r.f=r.f-1
   this.setState({robot:r})
 }
 abajo(){
   console.log("abajo")
   let a =this.state.robot
-  a.f=a.f+1
+  if(a.f<this.state.campo.length-1) 
+  a.f=a.f+1 //
   this.setState({robot:a})
 }
 izquierda(){
   console.log("izquierda")
   let i =this.state.robot
+  if(i.c>0)
   i.c=i.c-1
   this.setState({robot:i})
 }
 derecha(){
   console.log("derecha")
   let d= this.state.robot
+  if(d.c<this.state.campo[d.c].length-1)
   d.c=d.c+1
   this.setState({robot:d})
 }
