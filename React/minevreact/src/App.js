@@ -40,6 +40,7 @@ class App extends Component {
     //funcion de las minas
     // funcion distancia
     console.log(tabla)
+    this.generarMinas(tabla);
     this.setState({campo:tabla})
   }
 //gestiono la cantidad de minas
