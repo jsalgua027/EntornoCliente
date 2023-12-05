@@ -43,6 +43,25 @@ class App extends Component {
     this.setState({campo:tabla})
   }
 //gestiono la cantidad de minas
+  aleatorio(min,max){
+    var horquilla=max-min;
+    return Math.floor(Math.random()*horquilla+min)
+
+  }
+  generarMinas(campo){
+    let campito= JSON.parse(JSON.stringify(campo));
+    let m =this.state.minas;
+    while(m){
+      let f= this.aleatorio(0,this.state.filas-1);
+      let c= this.aleatorio(0,this.state.columnas-1)
+      if(!(f==0&&c==0) && !(f==this.state.filas-1 && c==this.state.columnas-1)&& campito[f][c]){
+        campito[f][c]=0;
+        m--;
+      }
+
+    }
+    
+  }
   sumMina(){
     let p=document.getElementById("numeroMinas");
      let num= p.innerHTML
