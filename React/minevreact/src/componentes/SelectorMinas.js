@@ -1,4 +1,4 @@
-import React , { useState }from "react";
+import React, { useState } from "react";
 import { Button } from "reactstrap";
 
 const SelectorMinas = (props) => {
@@ -26,16 +26,17 @@ const SelectorMinas = (props) => {
   };
   const estiloBB = {};
 
-  
-
-
   return (
     <div style={estilos}>
-        <p >Número Minas: </p>
-        <p id="numeroMinas">0</p>
+      <p>Número Minas: </p>
+      <p id="numeroMinas">{props.numero}</p>
       <div style={estiloB}>
-        <Button style={estiloBA}onClick={props.clickSubir}>+</Button>
-        <Button style={estiloBB}onClick={props.clickBajar}>-</Button>
+        <Button style={estiloBA} onClick={props.clickSubir}>
+          +
+        </Button>
+        <Button style={estiloBB} onClick={props.clickBajar}>
+          -
+        </Button>
       </div>
     </div>
   );
