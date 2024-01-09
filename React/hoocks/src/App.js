@@ -7,6 +7,7 @@ import {useState,useEffect,useContext,createContext} from 'react';
 
 
 const App=()=>{
+  // creo el hook con el nombre que quiera con su setter y lo igualo al useState. se puede poner un valos por defecto useState("Nacho salcedo")
   const[nombre,setNombre]=useState("Nacho Salcedo");
  
   return(
