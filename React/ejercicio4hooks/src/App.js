@@ -5,12 +5,11 @@ import User from './componentes/User';
 import UserForm from './componentes/UserForm';
 
 function App() {
-  const[nombre, setNombre]=useState([
+  const[users, setUsers]=useState([
     { id: 1, nombre: "perico", correo: "perico@myfpschool.com" },
     { id: 2, name: "juanico", email: "juanico@myfpschool.com" },
     { id: 3, name: "andrés", email: "andrés@myfpschool.com" },
   ]);
-  const[correo, setCorreo]=useState();
   
 
   return (
