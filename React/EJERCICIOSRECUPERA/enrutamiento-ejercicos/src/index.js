@@ -3,21 +3,19 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Reservas from "./Componentes/Reservas";
-import Administracion from "./Componentes/Administracion";
-import Usuario from "./Componentes/Usuario";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import Conversor from "./componentes/Conversor";
+import Mi_primera_App from "./componentes/Mi_primera_App";
+import ReyesGodos from "./componentes/ReyesGodos";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path="Reservas" element={<Reservas />} />
-        <Route path="Administracion" element={<Administracion />} />
-        <Route path="Usuario" element={<Usuario />} />
-        <Route path="*"  element={<h2>No hay nada aqui</h2>} />
+        <Route path="Conversor" element={<Conversor />} />
+        <Route path="ReyesGodos" element={<ReyesGodos />} />
+        <Route path="Mi_primera_App" element={<Mi_primera_App />} />
       </Route>
     </Routes>
   </BrowserRouter>
