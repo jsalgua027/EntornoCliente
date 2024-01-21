@@ -26,6 +26,8 @@ class Mi_primera_App extends React.Component {
   render() {
     return (
       <div className="App">
+          <br/>
+          <br/>
         <h1>Mi primera APP traductor</h1>
         <br/>
         <Button onClick={()=>this.mensajeIngles()} color="primary" outline >
