@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Conversor from "./componentes/Conversor";
 import Mi_primera_App from "./componentes/Mi_primera_App";
 import ReyesGodos from "./componentes/ReyesGodos";
+import SinoApp from "./componentes/SinoApp";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,6 +17,7 @@ root.render(
         <Route path="Conversor" element={<Conversor />} />
         <Route path="ReyesGodos" element={<ReyesGodos />} />
         <Route path="Mi_primera_App" element={<Mi_primera_App />} />
+        <Route path="SinoApp" element={<SinoApp />} />
       </Route>
     </Routes>
   </BrowserRouter>
