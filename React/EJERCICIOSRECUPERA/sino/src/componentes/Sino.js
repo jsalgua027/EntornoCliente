@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardImg, CarBody, Button } from "reactstrap";
+import { Card, CardImg, CardBody, Button } from "reactstrap";
 
 const Sino = (props) => {
   return (
@@ -12,9 +12,9 @@ const Sino = (props) => {
           </div>
         </div>
         <CardBody>
-         <Button>YES</Button>
+         <Button onClick={()=>props.onClickSi()}>{props.textobotonSi}</Button>
          &nbsp;
-         <Button>NO</Button>
+         <Button onClick={()=>props.onClickNo()}>{props.textobotonNo}</Button>
         </CardBody>
       </Card>
    
