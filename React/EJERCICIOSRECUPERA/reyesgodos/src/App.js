@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Flashcard from "./FlashComponent";
-import GODOS from "../datos/Reyes";
+import Flashcard from "./componentes/FlashComponent";
+import GODOS from "./datos/Reyes";
 
 function DisplayGodos(props) {
   const losreyes = props.reyes;
@@ -15,7 +15,7 @@ function DisplayGodos(props) {
   return <ul>{lista}</ul>;
 }
 
-class ReyesGodos extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,4 +38,4 @@ class ReyesGodos extends Component {
   }
 }
 
-export default ReyesGodos;
+export default App;
