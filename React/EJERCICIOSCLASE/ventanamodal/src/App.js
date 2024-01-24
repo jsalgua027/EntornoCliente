@@ -9,10 +9,19 @@ const VentanaModalDiccionario = (props) => {
   const {
     className
   } = props;
+  const [selec, setSelec]= useState();// hooks para recoger la seleccion
 
   const handleChange = (event) => {
     // COMPLETA ESTA FUNCION
-  }
+    // hook que recibe la seleccion
+    let farmaco=event.target.value;
+ 
+    setSelec(farmaco);
+    console.log(farmaco);
+  };
+  
+  const[listaSlec,setListaSelec]= useState(); // hook para mostrar en el imputo los elementos seleccionadps
+  
 
   return (
     <div>
@@ -45,7 +54,7 @@ const VentanaModalDiccionario = (props) => {
           </FormGroup>
         </ModalBody>
         <ModalFooter>
-          {"AQUÍ VA EL FÁRMACO ELEGIDO"}<Button color="primary" onClick={props.add}>{props.aceptar}</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {selec}<Button color="primary" onClick={props.add}>{props.aceptar}</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </ModalFooter>
       </Modal>
     </div>
@@ -68,6 +77,7 @@ class Filter extends Component {
 
   add(datos) {
     //aqui hacer algo con los datos
+  
     this.toggleModal();
   }
 
@@ -89,7 +99,7 @@ class Filter extends Component {
                 <Col>
                   <Alert color="info">
                     Incluir X Medicamentos:
-                    <Input type="textarea" name="rxseleccionar" />
+                    <Input type="textarea" name="medicaAzul" />
                     <Button color="info" onClick={()=>{this.toggleModal()}}>Add</Button>
                     {" "}<Button color="info" onClick={""}>Clear</Button>
                   </Alert>
@@ -97,7 +107,7 @@ class Filter extends Component {
                 <Col>
                   <Alert color="danger">
                     Excluir X Medicamentos:
-                    <Input type="textarea" name="rxenmascarar" />
+                    <Input type="textarea" name="medicaRojo" />
                     <Button color="danger" onClick={()=>{this.toggleModal()}}>Add</Button>
                     {" "}<Button color="danger" onClick={""}>Clear</Button>
                   </Alert>
