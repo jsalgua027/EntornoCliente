@@ -21,20 +21,20 @@ import { FARMACOS } from "./componentes/datos";
 
 const VentanaModalDiccionario = (props) => {
   const { className } = props;
-
+  /**hook para recojer los datos flitrados */
   const [filtro, setFiltro] = useState("");
+  /** Hook para mostrar la opción seccionada*/
   const [datossel, setDatossel] = useState(undefined);
-
+  /** */
   const handleChange = (event) => {
-    const target = event.target;
-    if (target.name == "filtro") {
-      setFiltro(target.value.toUpperCase());
+    if (event.target.name == "filtro") {
+      setFiltro(event.target.value.toUpperCase());
     }
-    if (target.name == "selectMulti") {
-      setDatossel(target.value);
+    if (event.target.name == "selectMulti") {
+      setDatossel(event.target.value);
     }
   };
-
+  /** getData lo usamos para realizar el filtro en la ventana modalDiccionario */
   const getData = () => {
     if (props.diccionario == "FARMACOS") {
       if (filtro != "") {
@@ -124,6 +124,7 @@ class Filter extends Component {
       rxenmascarar: "",
     };
   }
+  /* dependiendo de a quien lo clicke cambia el estado de seleccionar o mascarar*/
   handleChange = (event) => {
     const target = event.target;
     if (target.name == "rxseleccionar") {
@@ -133,6 +134,8 @@ class Filter extends Component {
       this.setRxenmascarar(target.value);
     }
   };
+  /**para saber de que ventana te llega, la azul o la roja */
+  /**me sirve para usarlo en el clear y saber de donde me llega el onclik() */
   setRxseleccionar(d) {
     if (d == undefined) return;
     this.setState({ rxseleccionar: d });
@@ -141,12 +144,14 @@ class Filter extends Component {
     if (d == undefined) return;
     this.setState({ rxenmascarar: d });
   }
+  /**para saber de que ventana te llega, la azul o la roja */
   setDonde(d) {
     if (d == undefined) return;
     this.setState({ donde: d });
   }
-
+  /**fincion que se pone en el onlcik del botton add  */
   add(datos) {
+    /*si lo que recibo viene de la ventana y no es undefine y no esta vacio*/
     if (
       this.state.donde == "RXSELECCIONAR" &&
       datos != undefined &&
