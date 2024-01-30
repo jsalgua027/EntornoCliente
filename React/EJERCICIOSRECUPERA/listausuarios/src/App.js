@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import UserList from "./componentes/UserList";
+import UserForm from "./componentes/UserForm";
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      users: [
+        { id: 1, name: "perico", email: "perico@gmail.com" },
+        { id: 2, name: "nacho", email: "nacho@gmail.com" },
+        { id: 1, name: "juan", email: "juan@gmail.com" },
+      ],
+    };
+  }
+  handleOnAddUser(event) {
+    event.preventDafult(); // evito que el navegador se refresque
+    console.log("entra");
+    let user = {
+      // creo un usuario y le paso los datos que recibe del formulario por el event
+      name: event.target.name.value,
+      email: event.target.email.value,
+    };
+    console.log(user);
+    // copio la lista de usuarios del estado
+    let tmp = this.state.users;
+    tmp.push(user); // le meto el nuevo usuario a la copia de la lista
+    // cambio el estado y le añado la nueva lista
+    this.setState({ users: tmp, });
+  }
+  render() {
+    return (
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Me mola Myfpschool</h2>
+        </div>
+        <div>
+          <p>
+            <strong>Añade usuarios</strong>
+            <UserList users={this.state.users} />
+            <UserForm onAddUser={(e) => this.handleOnAddUser(e)} />
+            {/** conecto el formulario con el metodo que recibe los datos*/}
+          </p>
+        </div>
+      </div>
+    );
+  }
 }
-
 export default App;
