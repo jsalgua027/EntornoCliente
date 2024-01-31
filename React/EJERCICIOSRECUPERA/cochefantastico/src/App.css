@@ -36,15 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.coche{
-  background-color: black;
-  height: 100px;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.fantastico{
-  color:white
-}

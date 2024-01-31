@@ -9,6 +9,7 @@ import Mi_primera_App from "./componentes/Mi_primera_App";
 import ReyesGodos from "./componentes/ReyesGodos";
 import SinoApp from "./componentes/SinoApp";
 import ListaDeseos from "./componentes/ListaDeseos";
+import CocheFantastico from "./componentes/CocheFantastico";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,6 +21,7 @@ root.render(
         <Route path="Mi_primera_App" element={<Mi_primera_App />} />
         <Route path="SinoApp" element={<SinoApp />} />
         <Route path="ListaDeseos" element={<ListaDeseos/>}/>
+        <Route path="CocheFantastico" element={<CocheFantastico/>}/>
       </Route>
     </Routes>
   </BrowserRouter>
