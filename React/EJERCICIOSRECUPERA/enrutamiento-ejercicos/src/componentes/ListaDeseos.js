@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import UserList from "./componentes/UserList";
-import UserForm from "./componentes/UserForm";
-class App extends React.Component {
+
+import UserList from "./UserList";
+import UserForm from "./UserForm";
+class ListaDeseos extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -33,7 +32,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+         
           <h2>Me mola Myfpschool</h2>
         </div>
         <div>
@@ -48,4 +47,4 @@ class App extends React.Component {
     );
   }
 }
-export default App;
+export default ListaDeseos;

@@ -12,9 +12,10 @@ function App() {
         <Link to="/ReyesGodos">Reyes Godos</Link> |{" "}
         <Link to="/Conversor">Conversor</Link> |{" "}
         <Link to="/Mi_primera_App">Mi primera APP</Link>|{" "}
-        <Link to="/SinoApp">Sino APP</Link>
+        <Link to="/SinoApp">Sino APP</Link>|{" "}
+        <Link to="/ListaDeseos">Lista Deseos</Link>
       </nav>
-      <Outlet/>
+        <Outlet/>
     </div>
   );
 }
