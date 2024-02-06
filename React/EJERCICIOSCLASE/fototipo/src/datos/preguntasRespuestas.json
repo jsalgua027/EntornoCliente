@@ -1,0 +1,43 @@
+{
+    "preguntas":[
+       {
+            "pregunta": "¿Cuál es el color natural de su piel cuando no está bronceada?",
+            "respuestas": ["Rojiza,blanca", "Blanca-beige", "Beige", "Marrón Clara", "Marrón", "Negro"],
+            "valorRespuesta": [0,2,4,8,12,16]
+          },
+         {
+            "pregunta": "¿De qué color natural es su pelo?",
+            "respuestas": ["pelirrojo,rubio claro","Rubio, Castaño claro", "Castaño", "Castaño oscuro", "Castaño oscuro-negro", "Negro"],
+            "valorRespuesta": [0,2,4,8,12,16]
+          },
+        
+        {
+            "pregunta": "¿De qué color tienen los ojos?",
+            "respuestas": ["Azul claro, verde claro, gris claro", "Azules, verdes, grises", "Grises, marrón claro", "Marrones", "Marrón oscuro"],
+            "valorRespuesta": []
+          },
+          {
+            "pregunta": "¿Cuántas pecas tiene de manera naturalen el cuerpo cuando no está bronceado?",
+            "respuestas": ["Muchas","Algunas","Unas cuantas","Ninguna"],
+            "valorRespuesta": [0,2,4,8]
+          },
+          {
+            "pregunta": "¿Qué categoría describe mejor su herencia genética?",
+            "respuestas": ["Raza blanca de piel muy blanca","Raza blanca de piel clara", "raza blanca piel morena(Mediterráneo)","Orienete, Medio, hindú,asiático, hispano-americano","Aboriguen, Africano,afroamericano"],
+            "valorRespuesta": [0,2,4,8,12]
+          },
+          {
+            "pregunta": "¿Qué categoría describe mejor su potencial  de QUEMADURA exponiéndose al sol una horaen verano?",
+            "respuestas": ["Siempre se quema y no se broncea nunca","Habitualmente se quema, pero puede broncearse ligeramente","Se quema ocasinalmente, pero se broncea moderadamente","Nunca se quema y se broncea con facilidad", "Raramente se quema y se broncea profundamente", "Nunca se quema"],
+            "valorRespuesta": [0,2,4,8,10,12]
+          },
+         {
+            "pregunta": "¿Qué categoría describe mejor su potencialde BRONCEADO?",
+            "respuestas": ["Nunca s e broncea", "Se puede broncear ligeramente","Se puede broncear moderadamente", "Se puede broncear profundamente"],
+            "valorRespuesta": [0,2,4,8]
+          }
+    ]
+        
+    
+  
+}
