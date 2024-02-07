@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .App-logo {
@@ -35,4 +38,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+.pregunta{
+
+  background-color: rgb(240, 124, 47);
+  margin: 0.6rem;
+}
+div.App>h1{
+
+  background-color: rgb(212, 31, 31);
+  height: 100px;
+  
 }
