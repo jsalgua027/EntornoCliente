@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+initial-scale=1.0"
+    />
+    <title>GODOS</title>
+    <style>
+      body {
+        display: flex;
+      }
+      div {
+        flex: 0 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>Pasar  GODOS a una lista mostrando los elementos</h2>
+
+      <ul id="lista"></ul>
+    </div>
+    <div>
+      <h2>Pasar carrakos a una lista mostrando los elementos</h2>
+      <ul id="coches"></ul>
+    </div>
+
+    <!-- <p>
+    PISTAS
+let array = ["perico","juanico","andres"]; <br/>
+Array.isArray(array); // true
+</p> -->
+
+    <script>
+      const GODOS =
+        '{"GODOS":[{"nombre":"Ataúlfo","anioIni":410,"aniofin":415},{"nombre":"Sigerico","anioIni":415},{"nombre":"Walia","anioIni":415,"aniofin":418},{"nombre":"Teodoredo","anioIni":418,"aniofin":451},{"nombre":"Turismundo","anioIni":451,"aniofin":453},{"nombre":"Teodorico II","anioIni":453,"aniofin":466},{"nombre":"Eurico","anioIni":466,"aniofin":484},{"nombre":"Alarico II","anioIni":484,"aniofin":507},{"nombre":"Gesaleico","anioIni":507,"aniofin":511},{"nombre":"Amalarico","anioIni":511,"aniofin":531},{"nombre":"Teudis","anioIni":531,"aniofin":548},{"nombre":"Teudiselo","anioIni":548,"aniofin":59},{"nombre":"Ágila I","anioIni":549,"aniofin":555},{"nombre":"Atanagildo","anioIni":551,"aniofin":567},{"nombre":"Liuva I","anioIni":567,"aniofin":572},{"nombre":"Leovigildo","anioIni":570,"aniofin":586},{"nombre":"Recaredo I","anioIni":586,"aniofin":601},{"nombre":"Luiva II","anioIni":601,"aniofin":603},{"nombre":"Witerico","anioIni":603,"aniofin":610},{"nombre":"Gundemaro","anioIni":610,"aniofin":612},{"nombre":"Sisebuto","anioIni":612,"aniofin":621},{"nombre":"Recaredo II","anioIni":621},{"nombre":"Suintila","anioIni":621,"aniofin":631},{"nombre":"Sisenando","anioIni":631,"aniofin":636},{"nombre":"Chintila","anioIni":636,"aniofin":639},{"nombre":"Tulga","anioIni":639,"aniofin":642},{"nombre":"Chindasvinto","anioIni":642,"aniofin":653},{"nombre":"Recesvinto","anioIni":649,"aniofin":672},{"nombre":"Wamba","anioIni":672,"aniofin":680},{"nombre":"Ervigio","anioIni":680,"aniofin":687},{"nombre":"Égica","anioIni":687,"aniofin":702},{"nombre":"Witiza","anioIni":702,"aniofin":709},{"nombre":"Rodrigo","anioIni":709,"aniofin":711}]}';
+
+      const SAJONES =
+        '{"SAJONES":[{"nombre":"Recaredo I"},{"nombre":"Gundemaro"}, {"nombre":"Sisebuto"},{"nombre":"Suintila"},{"nombre":"Chintila" },{"nombre":"Tulgarico" }]}';
+      // 1) cuantos (en número) godos reinaron entre el 600 y el 700
+      //pero no en años anteriores o posteriores
+      // 2)¿Existió un godo que reinó entre el 600 y 700 que se llamaba
+      //Gesaleico? Responde Sí o No
+      //Seguramente necesitarás usar el operador ternario
+      // 3) Cuántos godos eran sajones. Se quiere saber SOLO los nombres
+      //(en array si quieres)
+      // 4) El nombre de los 10 primeros reyes godos (en array si
+      //quieres)
+      // 5) El nombre de los 10 últimos reyes godos (en array si
+      //quieres)
+
+      let godos = JSON.parse(GODOS);
+      console.log(godos.GODOS);
+      let padre = document.getElementById("lista");
+      function representar(padre, obj) {
+        obj.GODOS.map((e) => {
+          let hijo = document.createElement("ul");
+
+          let nombre = document.createTextNode(e.nombre);
+          let fechaI = document.createTextNode(e.anioIni);
+          let fechaF;
+          let nieto1 = document.createElement("li");
+          let nieto2 = document.createElement("li");
+          let nieto3 = document.createElement("li");
+          let texto = "no hay fecha";
+          if (e.aniofin == undefined) {
+            fechaF = document.createTextNode(texto);
+          } else {
+            fechaF = document.createTextNode(e.aniofin);
+          }
+          nieto1.appendChild(nombre);
+          nieto2.appendChild(fechaI);
+          nieto3.appendChild(fechaF);
+          hijo.appendChild(nieto1);
+          hijo.appendChild(nieto2);
+          hijo.appendChild(nieto3);
+          padre.appendChild(hijo);
+        });
+      }
+      representar(padre, godos);
+
+      var carrakos = ["Chevrolet","Tesla","BMW",["Honda", "Infiniti", ["Lexus", "Mercedes", "Kia"], "Hyunday"],["Mazda", "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]]];
+
+      console.log("***********************************");
+
+      console.log(carrakos);
+
+      let padreC=document.getElementById("coches")
+
+      function mostarCoches(padre, arr) {
+        let hijo= document.createElement("li");
+        arr.map((v)=>{
+            if(Array.isArray(v)){
+                console.log("entra")
+                padreC.appendChild(hijo);
+                let nieto=document.createElement("ul")
+                hijo.appendChild(nieto);
+                mostarCoches(nieto,v)
+            } else{
+                console.log("normal")
+                let texto=document.createTextNode(v+"-")
+                hijo.appendChild(texto);
+                padreC.appendChild(hijo);
+            }
+
+        })
+
+      }
+      mostarCoches(coches, carrakos);
+
+ 
+    
+    
+    </script>
+  </body>
+</html>
