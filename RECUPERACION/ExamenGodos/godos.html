@@ -11,6 +11,7 @@ initial-scale=1.0"
     <style>
       body {
         display: flex;
+        flex-wrap: wrap;
       }
       div {
         flex: 0 50%;
@@ -19,13 +20,17 @@ initial-scale=1.0"
   </head>
   <body>
     <div>
-      <h3>Pasar  GODOS a una lista mostrando los elementos</h3>
+      <h3>Pasar GODOS a una lista mostrando los elementos</h3>
 
       <ul id="lista"></ul>
     </div>
     <div>
       <h3>Pasar carrakos a una lista mostrando los elementos</h3>
       <ul id="coches"></ul>
+    </div>
+    <div>
+      <h3>Pasar libros a una lista mostrando los elementos</h3>
+      <ul id="libros"></ul>
     </div>
 
     <!-- <p>
@@ -82,38 +87,101 @@ Array.isArray(array); // true
       }
       representar(padre, godos);
 
-      var carrakos = ["Chevrolet","Tesla","BMW",["Honda", "Infiniti", ["Lexus", "Mercedes", "Kia"], "Hyunday"],["Mazda", "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]]];
+      var carrakos = [
+        "Chevrolet",
+        "Tesla",
+        "BMW",
+        ["Honda", "Infiniti", ["Lexus", "Mercedes", "Kia"], "Hyunday"],
+        ["Mazda", "Mercedes", "Jeep", ["KTM", "Nissan", "Isuzu"]],
+      ];
 
       console.log("***********************************");
 
       console.log(carrakos);
 
-      let padreC=document.getElementById("coches")
+      let padreC = document.getElementById("coches");
 
       function mostarCoches(padre, arr) {
-        let hijo= document.createElement("li");
-        arr.map((v)=>{
-            if(Array.isArray(v)){
-                console.log("entra")
-                padreC.appendChild(hijo);
-                let nieto=document.createElement("ul")
-                hijo.appendChild(nieto);
-                mostarCoches(nieto,v)
-            } else{
-                console.log("normal")
-                let texto=document.createTextNode(v+"-")
-                hijo.appendChild(texto);
-                padreC.appendChild(hijo);
-            }
-
-        })
-
+        let hijo = document.createElement("li");
+        arr.map((v) => {
+          if (Array.isArray(v)) {
+            console.log("entra");
+            padreC.appendChild(hijo);
+            let nieto = document.createElement("ul");
+            hijo.appendChild(nieto);
+            mostarCoches(nieto, v);
+          } else {
+            console.log("normal");
+            let texto = document.createTextNode(v + "-");
+            hijo.appendChild(texto);
+            padreC.appendChild(hijo);
+          }
+        });
       }
       mostarCoches(coches, carrakos);
 
- 
+      console.log("*******************propuesta chatgp**************");
+
+      const libros = [
+        {
+          titulo: "Libro 1",
+          autores: ["Autor 1", "Autor 2"],
+          publicacion: {
+            anio: 2020,
+            editorial: "Editorial A",
+          },
+        },
+        {
+          titulo: "Libro 2",
+          autores: ["Autor 3"],
+          publicacion: {
+            anio: 2018,
+            editorial: "Editorial B",
+          },
+        },
+        {
+          titulo: "Libro 3",
+          autores: ["Autor 4", "Autor 5"],
+          publicacion: {
+            anio: 2022,
+            editorial: "Editorial C",
+          },
+        },
+      ];
+
+      console.log(libros);
+
     
-    
+     let padreL = document.getElementById("libros");
+
+
+      function mostrarLibros(padre, arr) {
+  arr.map((l) => {
+    let hijo = document.createElement("li");
+
+    if (Array.isArray(l)) {
+      console.log("libros---array");
+      padre.appendChild(hijo);
+      let nieto = document.createElement("ul");
+      hijo.appendChild(nieto);
+      mostrarLibros(nieto, l);
+    } else if (typeof l === 'object') {
+      console.log("libros---objeto");
+      let texto = document.createTextNode(JSON.stringify(l));
+      hijo.appendChild(texto);
+      padre.appendChild(hijo);
+      } else {
+      console.log("libros--normal");
+      console.log(l);
+      let texto = document.createTextNode(l + "-");
+      hijo.appendChild(texto);
+      padre.appendChild(hijo);
+    }
+  });
+}
+
+mostrarLibros(padreL, libros);
+
     </script>
   </body>
 </html>
