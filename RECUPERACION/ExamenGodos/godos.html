@@ -20,17 +20,20 @@ initial-scale=1.0"
   </head>
   <body>
     <div>
-      <h3>Pasar GODOS a una lista mostrando los elementos</h3>
+      <!--
+        <h3>Pasar GODOS a una lista mostrando los elementos</h3>
 
       <ul id="lista"></ul>
-    </div>
+    </div>-->
+        <!--<h3>Pasar libros a una lista mostrando los elementos</h3>
+      <ul id="libros"></ul>-->
+      
     <div>
       <h3>Pasar carrakos a una lista mostrando los elementos</h3>
       <ul id="coches"></ul>
     </div>
     <div>
-      <h3>Pasar libros a una lista mostrando los elementos</h3>
-      <ul id="libros"></ul>
+      
     </div>
 
     <!-- <p>
@@ -56,7 +59,7 @@ Array.isArray(array); // true
       //quieres)
       // 5) El nombre de los 10 últimos reyes godos (en array si
       //quieres)
-
+/* 
       let godos = JSON.parse(GODOS);
       console.log(godos.GODOS);
       let padre = document.getElementById("lista");
@@ -85,7 +88,7 @@ Array.isArray(array); // true
           padre.appendChild(hijo);
         });
       }
-      representar(padre, godos);
+      representar(padre, godos); */
 
       var carrakos = [
         "Chevrolet",
@@ -101,26 +104,38 @@ Array.isArray(array); // true
 
       let padreC = document.getElementById("coches");
 
-      function mostarCoches(padre, arr) {
-        let hijo = document.createElement("li");
-        arr.map((v) => {
-          if (Array.isArray(v)) {
-            console.log("entra");
-            padreC.appendChild(hijo);
-            let nieto = document.createElement("ul");
-            hijo.appendChild(nieto);
-            mostarCoches(nieto, v);
-          } else {
-            console.log("normal");
-            let texto = document.createTextNode(v + "-");
-            hijo.appendChild(texto);
-            padreC.appendChild(hijo);
-          }
-        });
-      }
-      mostarCoches(coches, carrakos);
+      function mostarCoches(nodo, arr) {
+      arr.map(a => {
 
-      console.log("*******************propuesta chatgp**************");
+        if (Array.isArray(a)) {
+
+          let nodo2 = document.createElement("ul");
+          let variosElemento=document.createElement("li");
+          let variosTexto=document.createTextNode("VARIOS");
+          variosElemento.appendChild(variosTexto);
+          nodo.appendChild(variosElemento)
+          nodo.appendChild(nodo2)
+          mostarCoches(nodo2, a);
+        } else {
+          let hijo = document.createElement("li");
+          let texto = document.createTextNode(a);
+          hijo.appendChild(texto);
+          nodo.appendChild(hijo);
+        }
+
+
+      });
+
+
+    }
+     mostarCoches(coches, carrakos);
+
+     
+
+    /*   console.log("*******************propuesta chatgp**************");
+
+ 
+
 
       const libros = [
         {
@@ -170,6 +185,7 @@ Array.isArray(array); // true
       let texto = document.createTextNode(JSON.stringify(l));
       hijo.appendChild(texto);
       padre.appendChild(hijo);
+      mostrarLibros(nieto, l);
       } else {
       console.log("libros--normal");
       console.log(l);
@@ -180,7 +196,7 @@ Array.isArray(array); // true
   });
 }
 
-mostrarLibros(padreL, libros);
+mostrarLibros(padreL, libros); */
 
     </script>
   </body>
