@@ -12,7 +12,7 @@ import {
   const Boton = (props) => {
     return (
       <>
-       <Button>hola Aqui estoy</Button>
+       <Button  color={props.color} size="lg" onClick={()=>props.cambia()} outline>{props.color}</Button>
       </>
     );
   };
