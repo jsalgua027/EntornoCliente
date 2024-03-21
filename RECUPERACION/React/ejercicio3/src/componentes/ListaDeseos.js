@@ -9,7 +9,7 @@ const ListaDeseos=(props)=>{
             return(
                 <li>
                    {d}&nbsp;
-                <Borrar deseo={d} quitar={(elemento)=> this.props.quitar(elemento)}/>
+                <Borrar deseo={d} quitar={(d)=> this.props.quitar(d)}/>
                 </li>
                 
             )
