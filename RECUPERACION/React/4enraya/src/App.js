@@ -4,34 +4,39 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'reactstrap';
 import React, { Component } from 'react'
 
-
-
-const Tablero=(props)=>{
-  const tablero=[];
-  for (let i = 0; i < props.filas; i++) {
-    const fila=[]
-    for (let c = 0; c < props.columnas; c++) {
-      fila.push(<Boton jugador={props.jugador}/>)
-      
-    }
-    tablero.push(<div>{fila}</div>);
+const Boton = (props) => {
+  const estilo={
+   border: '1px solid black' // Borde negro sólido
   }
-return(
-  <div>
-    {tablero}
-  </div>
-)
+   return (
+     <Button color={props.color} style={estilo}></Button>
+   );
+ }
+ 
 
+
+const Tablero = (props) => {
+  const tablero = [];
+  for (let i = 0; i < props.filas; i++) {
+    const fila = [];
+    for (let c = 0; c < props.columnas; c++) {
+      let color;
+      if (i === 0) {
+        color = props.jugador[0]; // Color gris para la fila 0
+      } else {
+        color = color = "transparent"; // Color del jugador para las otras filas
+      }
+      fila.push(<Boton key={c} color={color} />);
+    }
+    tablero.push(<div key={i}>{fila}</div>);
+  }
+  return (
+    <div>
+      {tablero}
+    </div>
+  );
 }
 
-const Boton=(props)=>{
-
-  return(
-    <>
-    <Button estado={props.vacio} color={props.jugador} ></Button>
-    </>
-  )
-}
 
 
 
@@ -42,7 +47,7 @@ const Boton=(props)=>{
       filas:7,
       columnas:7,
       vacio:true, //true vacio
-      jugador:["primary","warning"], // jugador 1 azul, jugador 2 amarillo
+      jugador:["secondary","primary","warning"], //  jugador 1 azul, jugador 2 amarillo
       ganador:true
 
     }
@@ -52,8 +57,8 @@ const Boton=(props)=>{
     return (
       <div className='juego'>
         <h1>4 EN RAYA</h1>
-       <Button color={this.state.jugador[0]}>Es el turno del jugador</Button>
-        <Tablero filas={this.state.filas} columnas={this.state.columnas}  vacio={this.state.vacio} jugador={this.state.jugador[1]}/>
+       <Button color={this.state.jugador[1]}>Es el turno del jugador</Button>
+        <Tablero filas={this.state.filas} columnas={this.state.columnas}  vacio={this.state.vacio} jugador={this.state.jugador}/>
       </div>
     )
   }
