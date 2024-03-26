@@ -4,29 +4,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'reactstrap';
 import React, { Component } from 'react'
 
-const Boton = (props) => {
-  const estilo={
-   border: '1px solid black' // Borde negro sólido
-  }
-   return (
-     <Button color={props.color} style={estilo}></Button>
-   );
- }
- 
+
 
 
 const Tablero = (props) => {
+  const estilo={
+    border: '1px solid black' // Borde negro sólido
+   }
   const tablero = [];
   for (let i = 0; i < props.filas; i++) {
     const fila = [];
     for (let c = 0; c < props.columnas; c++) {
       let color;
       if (i === 0) {
-        color = props.jugador[0]; // Color gris para la fila 0
+        color =color="secondary"; // Color gris para la fila 0
+        console.log("gris")
       } else {
+        console.log("trasparente")
         color = color = "transparent"; // Color del jugador para las otras filas
       }
-      fila.push(<Boton key={c} color={color} />);
+
+      fila.push( <Button color={props.color} style={estilo}></Button>);
     }
     tablero.push(<div key={i}>{fila}</div>);
   }
@@ -47,8 +45,9 @@ const Tablero = (props) => {
       filas:7,
       columnas:7,
       vacio:true, //true vacio
-      jugador:["secondary","primary","warning"], //  jugador 1 azul, jugador 2 amarillo
-      ganador:true
+      jugador:["primary","warning"], //  jugador 1 azul, jugador 2 amarillo
+      ganador:true,
+      turno:1
 
     }
   }
