@@ -13,27 +13,24 @@ const Tablero = (props) => {
   for (let i = 0; i < props.filas; i++) {
     const fila = [];
     for (let c = 0; c < props.columnas; c++) {
-   if(props.tabla[i][c])
-   {
-    fila.push(
-      <Button
-        outline
-        style={estilo}
-        onClick={() => props.pulsar(i, c)}
-      ></Button>
-    );
-   }else{
-    fila.push(
-      <Button
-        color={props.jugador}
-        estado={props.vacio}
-        style={estilo}
-        onClick={() => props.pulsar(i, c)}
-      ></Button>
-    );
-   }
-
-     
+      if (props.tabla[i][c]) {
+        fila.push(
+          <Button
+            outline
+            style={estilo}
+            onClick={() => props.pulsar(i, c)}
+          ></Button>
+        );
+      } else {
+        fila.push(
+          <Button
+            color={props.jugador}
+            estado={props.vacio}
+            style={estilo}
+            onClick={() => props.pulsar(i, c)}
+          ></Button>
+        );
+      }
     }
     tablero.push(<div key={i}>{fila}</div>);
   }
@@ -44,7 +41,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listaBotones: JSON.parse(JSON.stringify(Array(9).fill(Array(9).fill("x")))),
+      listaBotones: JSON.parse(
+        JSON.stringify(Array(9).fill(Array(9).fill("x")))
+      ),
       filas: 9,
       columnas: 9,
       jugador: ["secondary", "primary", "warning"], //  jugador 1 azul, jugador 2 amarillo
@@ -53,31 +52,31 @@ class App extends Component {
     };
   }
 
- 
-
   clicar(i, c) {
     console.log(i, c);
-    let listaAux=this.state.listaBotones;
+    let listaAux = this.state.listaBotones;
     if (i == 0) {
       if (this.state.turno == 1) {
         // si es turno del jugador uno
-        let posicion=this.encontrarVacio(c)
-        console.log(posicion);
-        if(posicion>0){
-            listaAux[posicion][c]="R";
-
+        let posicion = this.encontrarVacio(c);
+        if (posicion > 0) {
+          listaAux[posicion][c] = "R";
+          this.setState({ listaBotones: listaAux });
         }
         this.setState({ turno: 2 });
         //uso el metodo de encontrarrrrrrr
       } else {
+        let posicion = this.encontrarVacio(c);
+        if (posicion > 0) {
+          listaAux[posicion][c] = "R";
+          this.setState({ listaBotones: listaAux });
+        }
         // si es turno del jugador 2
         this.setState({ turno: 1 });
       }
     } else {
       console.log("nada");
     }
-    this.setState({listaBotones:listaAux});
-  
   }
   encontrarVacio(c) {
     let lista = this.state.listaBotones;
