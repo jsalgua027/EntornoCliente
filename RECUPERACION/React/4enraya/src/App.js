@@ -13,7 +13,7 @@ const Tablero = (props) => {
   for (let i = 0; i < props.filas; i++) {
     const fila = [];
     for (let c = 0; c < props.columnas; c++) {
-      if (props.tabla[i][c]) {
+      if (props.tabla[i][c]==="x") {
         fila.push(
           <Button
             outline
@@ -22,9 +22,10 @@ const Tablero = (props) => {
           ></Button>
         );
       } else {
+       
         fila.push(
           <Button
-            color={props.jugador}
+          color={props.colores[props.jugador - 1]}
             estado={props.vacio}
             style={estilo}
             onClick={() => props.pulsar(i, c)}
@@ -46,7 +47,7 @@ class App extends Component {
       ),
       filas: 9,
       columnas: 9,
-      jugador: ["secondary", "primary", "warning"], //  jugador 1 azul, jugador 2 amarillo
+      colores: [ "primary", "warning"], //  jugador 1 azul, jugador 2 amarillo
       ganador: true,
       turno: 1,
     };
@@ -60,24 +61,30 @@ class App extends Component {
         // si es turno del jugador uno
         let posicion = this.encontrarVacio(c);
         if (posicion > 0) {
-          listaAux[posicion][c] = "R";
-          this.setState({ listaBotones: listaAux });
-        }
-        this.setState({ turno: 2 });
-        //uso el metodo de encontrarrrrrrr
+          listaAux[posicion][c] = this.state.colores[1];
+         // this.setState({ listaBotones: listaAux });
+          }
+        this.setState({ turno: 2 });// cambio de turno al 2
+       
       } else {
         let posicion = this.encontrarVacio(c);
         if (posicion > 0) {
-          listaAux[posicion][c] = "R";
-          this.setState({ listaBotones: listaAux });
+          listaAux[posicion][c] = this.state.colores[2];
+        //  this.setState({ listaBotones: listaAux });
         }
-        // si es turno del jugador 2
+        // cambio de turno al 1
         this.setState({ turno: 1 });
       }
+      // actualizo el estado de la lista
+      this.setState({ listaBotones: listaAux });
     } else {
+      //si cliclo fiera de la fila 0
       console.log("nada");
     }
   }
+
+
+
   encontrarVacio(c) {
     let lista = this.state.listaBotones;
     for (let i = 0; i < 9; i++) {
@@ -90,15 +97,16 @@ class App extends Component {
     return (
       <div className="juego">
         <h1>4 EN RAYA</h1>
-        <Button color={this.state.jugador[1]}>
+        <Button  color={this.state.colores[this.state.turno -1]}>
           Es el turno del jugador {this.state.turno}
         </Button>
         <Tablero
           tabla={this.state.listaBotones}
           filas={this.state.filas}
           columnas={this.state.columnas}
-          jugador={this.state.jugador}
+          jugador={this.state.turno} // Pasamos el número de turno
           pulsar={(i, c) => this.clicar(i, c)}
+          colores={this.state.colores} //paso los colores
         />
       </div>
     );
