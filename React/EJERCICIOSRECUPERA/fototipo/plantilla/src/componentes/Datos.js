@@ -1,0 +1,1 @@
+export const PHPCONEXION = "http://localhost/Proyectos/DWE/fototipo/vsamgar940.php";
