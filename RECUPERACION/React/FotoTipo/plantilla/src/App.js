@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FOTOTIPO from './componentes/Fototipos';
 import PUNTUAJE from './componentes/Puntuacion';
+import { Component } from "react";
 import {
   Button,
   Card,
@@ -12,26 +13,45 @@ import {
   CardText,
 } from "reactstrap";
 
-function App() {
-  return (
-    <div className="App">
-    {FOTOTIPO.map(e=>{
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cambio: true,
+      contador: 0
+    };
+  }
 
-    return(
-      <>
-      <p>{e.texto}</p>
-      <p>{e.respuestas.map(p=>{
-        return(<Button>{p.valor}</Button>)
-      })}</p>
-      </>
-   
-   
-  
-  )  
+  clicar = () => {
+    let { contador } = this.state;
+    contador++;
+    if (contador ==7) {
+      this.setState({ cambio: false });
+    } else {
+      this.setState({ contador });
+    }
+  }
 
-    })}
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        {this.state.cambio ? (
+          FOTOTIPO.map(e => (
+            <>
+              <p>{e.texto}</p>
+              <p>
+                {e.respuestas.map(p => (
+                  <Button color="primary" onClick={()=>this.clicar()}>{p.valor}</Button>
+                ))}
+              </p>
+            </>
+          ))
+        ) : (
+          <h1>respuesta</h1>
+        )}
+      </div>
+    );
+  }
 }
 
 export default App;
