@@ -2,24 +2,34 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FOTOTIPO from './componentes/Fototipos';
+import PUNTUAJE from './componentes/Puntuacion';
+import {
+  Button,
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardText,
+} from "reactstrap";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    {FOTOTIPO.map(e=>{
+
+    return(
+      <>
+      <p>{e.texto}</p>
+      <p>{e.respuestas.map(p=>{
+        return(<Button>{p.valor}</Button>)
+      })}</p>
+      </>
+   
+   
+  
+  )  
+
+    })}
     </div>
   );
 }
