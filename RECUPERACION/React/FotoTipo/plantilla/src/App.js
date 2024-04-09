@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FOTOTIPO from './componentes/Fototipos';
 import PUNTUAJE from './componentes/Puntuacion';
+import ListaPreguntas from './componentes/ListaPreguntas';
 import { Component } from "react";
 import {
   Button,
@@ -18,36 +19,52 @@ class App extends Component {
     super(props);
     this.state = {
       cambio: true,
-      contador: 0
+      contador: 0,
+      puntos: 0,
+      indicesUnicos:[]
     };
   }
 
-  clicar = () => {
-    let { contador } = this.state;
-    contador++;
-    if (contador ==7) {
-      this.setState({ cambio: false });
-    } else {
-      this.setState({ contador });
+  clicar = (valor, indice) => {
+    let { contador, indicesUnicos,puntos } = this.state;
+  
+    // Verificar si el índice ya está en la lista de índices únicos
+    if (!indicesUnicos.includes(indice)) {
+      // Si el índice no está en la lista, lo añadimos
+      indicesUnicos.push(indice);
+  
+      // Actualizamos el estado con la lista actualizada de índices únicos
+      this.setState({ indicesUnicos });
+  
+      // Incrementar el contador solo si el índice no está repetido
+      contador++;
+      puntos += valor;
+  
+      if (contador === 7) {
+        this.setState({ cambio: false });
+      } else {
+        this.setState({ contador,puntos });
+      }
     }
-  }
+  
+    console.log(valor + "-" + indice);
+  };
+  
 
   render() {
     return (
       <div className="App">
         {this.state.cambio ? (
-          FOTOTIPO.map(e => (
-            <>
-              <p>{e.texto}</p>
-              <p>
-                {e.respuestas.map(p => (
-                  <Button color="primary" onClick={()=>this.clicar()}>{p.valor}</Button>
-                ))}
-              </p>
-            </>
-          ))
+                    
+       
+        <p>
+         <ListaPreguntas lista={FOTOTIPO} clicar={(e,v)=>this.clicar(e,v)}/>
+        </p>
+        
         ) : (
-          <h1>respuesta</h1>
+          <p> <h1>respuesta</h1>
+          <h2>{this.state.puntos}</h2></p>
+         
         )}
       </div>
     );
