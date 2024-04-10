@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import FOTOTIPO from './componentes/Fototipos';
 import PUNTUAJE from './componentes/Puntuacion';
 import ListaPreguntas from './componentes/ListaPreguntas';
+import Resultado from './componentes/Resultado';
 import { Component } from "react";
 import {
   Button,
@@ -21,7 +22,8 @@ class App extends Component {
       cambio: true,
       contador: 0,
       puntos: 0,
-      indicesUnicos:[]
+      indicesUnicos:[],
+      puntuacion:PUNTUAJE
     };
   }
 
@@ -63,7 +65,9 @@ class App extends Component {
         
         ) : (
           <p> <h1>respuesta</h1>
-          <h2>{this.state.puntos}</h2></p>
+          <h2>{this.state.puntos}</h2>
+          <Resultado lista={this.state.puntuacion} puntos={this.state.puntos}></Resultado>
+         </p>
          
         )}
       </div>

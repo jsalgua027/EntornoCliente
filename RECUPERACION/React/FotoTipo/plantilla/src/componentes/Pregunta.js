@@ -1,36 +1,12 @@
-import {
-  Button,
-  Card,
-  CardImg,
-  CardBody,
-  CardTitle,
-  CardText,
-} from "reactstrap";
 
-const Pregunta = (props) => {
-  return (
-    <>
-      <p>{props.texto}</p>
+import React, { useState } from 'react';
+import { Button } from 'reactstrap';
 
-      <p>
-        {props.respuestas.map((p) => (
-          <Button color="primary" onClick={()=>props.clicar(p.puntos, props.indice)}>
-           {p.valor}
-          </Button>
-        ))}
-      </p>
-    </>
-  );
-};
-export default Pregunta;
-
-/*
 const Pregunta = (props) => {
   const [botonSeleccionado, setBotonSeleccionado] = useState(null);
 
-  const handleButtonClick = (valor, indice) => {
-    setBotonSeleccionado(indice);
-    props.clicar(valor, indice);
+  const cambiarColorBoton = (indice) => {
+    setBotonSeleccionado(indice); // Cambia el color del botón
   };
 
   return (
@@ -40,7 +16,10 @@ const Pregunta = (props) => {
         {props.respuestas.map((respuesta, index) => (
           <Button
             color={botonSeleccionado === index ? "success" : "primary"}
-            onClick={() => handleButtonClick(respuesta.valor, index)}
+            onClick={() => {
+              props.clicar(respuesta.puntos, props.indice); // Ejecuta la función clicar
+              cambiarColorBoton(index); // Cambia el color del botón
+            }}
             key={index}
           >
             {respuesta.valor}
@@ -51,6 +30,13 @@ const Pregunta = (props) => {
   );
 };
 
-*/
+export default Pregunta;
+
+
+
+
+
+
+
 
 
