@@ -19,11 +19,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cambio: true,
-      contador: 0,
-      puntos: 0,
-      indicesUnicos:[],
-      puntuacion:PUNTUAJE
+      cambio: true, // variable para mostrar preguntas o la respuesta
+      contador: 0,//contador para la función cliclar
+      puntos: 0, // puntos totales obtenidos de la encuesta
+      indicesUnicos:[],//array para limitar el uso de los botones
+      puntuacion:PUNTUAJE // la uso para pasarle al componente Resultado toda la lista de puntos de Puntuacion.js
     };
   }
 
