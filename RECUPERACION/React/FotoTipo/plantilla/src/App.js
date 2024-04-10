@@ -49,7 +49,7 @@ class App extends Component {
       }
     }
   
-    console.log(valor + "-" + indice);
+  //  console.log(valor + "-" + indice);  comprobación de que valores recibo
   };
   
 
@@ -64,10 +64,10 @@ class App extends Component {
         </p>
         
         ) : (
-          <p> <h1>respuesta</h1>
-          <h2>{this.state.puntos}</h2>
-          <Resultado lista={this.state.puntuacion} puntos={this.state.puntos}></Resultado>
-         </p>
+          <div className='respuesta'>
+             <h1>Respuesta</h1>
+              <Resultado className="card" lista={this.state.puntuacion} puntos={this.state.puntos}></Resultado>
+         </div>
          
         )}
       </div>
