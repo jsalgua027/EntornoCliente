@@ -1,0 +1,1 @@
+export const PHPCONEXION="http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/fototipo/nachoFoto.php";

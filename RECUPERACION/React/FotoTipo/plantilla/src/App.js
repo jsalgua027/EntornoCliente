@@ -49,7 +49,7 @@ class App extends Component {
       }
     }
   
-  //  console.log(valor + "-" + indice);  comprobación de que valores recibo
+    console.log(valor + "-" + indice);  //comprobación de que valores recibo
   };
   
 
