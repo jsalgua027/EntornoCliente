@@ -30,7 +30,12 @@ function Grafico(props) {
     //llamada a la funcion para realizar la solicitud cuando el componente se monta
     fetchData();
   }, []);
+ 
+  return data; // Devuelve los datos obtenidos de la solicitud HTTP
+
 }
+
+
 
 const Resultado = (props) => {
   let resultado = props.lista; // todas la lista de puntuación la copio
@@ -41,14 +46,15 @@ const Resultado = (props) => {
       puntosAbuscar >= c.rangoInicio &&
       (puntosAbuscar < c.rangoFin || c.ranfoFin === null)
   );
-
+    //esto es el dato que tengo que sobreescribir en el txt
+    console.log(resultado.ID);
   //TEMA AXIOS
   //funcion para conectar con el archivo de PHP y enviar el resultado del cuestionario
   const conectar = () => {
     //const PHPCONEXION=PHPCONEXION;
     //Funcion que envia los datos
     const data = {
-      nachoFoto: resultado.ID,
+      nachoFoto: cardFinal.ID,
     };
 
     //Realizo la solicitud POST usando Axios
@@ -62,6 +68,7 @@ const Resultado = (props) => {
         // manejo los errores si la solicitud falla
         console.error("Error al conectar con el servidor:", error);
       });
+   
   };
 
   //llamo a la función conexion cuando se monte el componente
@@ -71,8 +78,20 @@ const Resultado = (props) => {
     //sirve para que se ejecute 1 sola vez al montar el componente
   }, []);
 
+
   if (cardFinal) {
-    return (
+    return ( 
+      <div>
+        {/*  <h2>Datos obtenidos:</h2>
+      
+        { dataPhp.map((item) => (
+          <li key={item.ID}>
+            {item.tipo_piel}: {item.descripcion}
+          </li>
+        ))}
+      
+*/ }
+   
       <Card
         className="card"
         body
@@ -91,6 +110,7 @@ const Resultado = (props) => {
           <CardText>{cardFinal.descripcion}</CardText>
         </CardBody>
       </Card>
+      </div>
     );
   } else {
     return <p>No se encontró ningún resultado para los puntos dados </p>;
