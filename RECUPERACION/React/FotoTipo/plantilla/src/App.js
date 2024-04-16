@@ -65,7 +65,7 @@ class App extends Component {
         
         ) : (
           <div className='respuesta'>
-             <h1>Respuesta</h1>
+           
               <Resultado className="card" lista={this.state.puntuacion} puntos={this.state.puntos}></Resultado>
          </div>
          
