@@ -72,10 +72,8 @@ const Resultado = (props) => {
   if (cardFinal) {
     return ( 
       <div>
-          <Grafica lectura={final}/>
-       <div>
-
-       </div>
+        
+      
       <Card
         className="card"
         body
@@ -94,6 +92,9 @@ const Resultado = (props) => {
           <CardText>{cardFinal.descripcion}</CardText>
         </CardBody>
       </Card>
+
+      <Grafica lectura={final}/>
+
       </div>
     );
   } else {
