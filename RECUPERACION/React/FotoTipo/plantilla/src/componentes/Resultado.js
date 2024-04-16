@@ -12,35 +12,19 @@ import {
 import { Component, useState, useEffect } from "react";
 import axios from "axios";
 import { PHPCONEXION } from "./Ruta";
+import Grafica from "./Grafica";
 //https://youtu.be/d_Ldw7z8kqc?si=1G4MkkjQA7pa4dGM --> enlace a un canal con una libreria interesante
 
-function Grafico(props) {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    //funcion para realizar la solicitud GET
-    const fetchData = async () => {
-      try {
-        const responde = await axios.get({ PHPCONEXION });
-        console.log(responde.data);
-        setData(responde.data);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-    //llamada a la funcion para realizar la solicitud cuando el componente se monta
-    fetchData();
-  }, []);
- 
-  return data; // Devuelve los datos obtenidos de la solicitud HTTP
-
-}
 
 
 
 const Resultado = (props) => {
+  const [final,setfinal]=useState();
   let resultado = props.lista; // todas la lista de puntuación la copio
   let puntosAbuscar = props.puntos; // puntos de la encuesta
+
   // encuentro los puntos resultado de la encuesta entre los rangos
+  
   let cardFinal = resultado.find(
     (c) =>
       puntosAbuscar >= c.rangoInicio &&
@@ -63,6 +47,7 @@ const Resultado = (props) => {
       .then((response) => {
         //manejo la respuesta en el servidor si es necesario,
         console.log("respuesta enviada: " + response.data);
+        setfinal(response.data);
       })
       .catch((error) => {
         // manejo los errores si la solicitud falla
@@ -78,20 +63,19 @@ const Resultado = (props) => {
     //sirve para que se ejecute 1 sola vez al montar el componente
   }, []);
 
+  
+  
+
+ console.log(final+"los datos del php")
+
 
   if (cardFinal) {
     return ( 
       <div>
-        {/*  <h2>Datos obtenidos:</h2>
-      
-        { dataPhp.map((item) => (
-          <li key={item.ID}>
-            {item.tipo_piel}: {item.descripcion}
-          </li>
-        ))}
-      
-*/ }
-   
+          <Grafica lectura={final}/>
+       <div>
+
+       </div>
       <Card
         className="card"
         body
