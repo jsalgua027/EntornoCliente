@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ProductosPorCategoria from './componentes/ProductosPorCategoria';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Productos por Categoría</h1>
+      <ProductosPorCategoria idCategoria={4} /> {/* Cambia el ID de la categoría según sea necesario */}
     </div>
   );
 }
 
 export default App;
+
