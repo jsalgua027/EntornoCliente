@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <h1>Productos por Categoría</h1>
-      <ProductosPorCategoria idCategoria={4} /> {/* Cambia el ID de la categoría según sea necesario */}
+      <ProductosPorCategoria idCategoria={5} /> {/* Cambia el ID de la categoría según sea necesario */}
     </div>
   );
 }
