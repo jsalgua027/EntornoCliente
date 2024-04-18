@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 function ProductosPorCategoria({ idCategoria }) {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ function ProductosPorCategoria({ idCategoria }) {
       try {
         const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Restaurante/productos.php?id_categoria=' + idCategoria);
 
-        console.log(response.data); 
+      //  console.log(response.data); 
         setProductos(response.data);
         setLoading(false);
       } catch (error) {
@@ -53,7 +53,7 @@ function ProductosPorCategoria({ idCategoria }) {
         {productos.map(producto => (
           <li key={producto.id_producto}>{producto.producto}
               <img src={`./images/${producto.id_categoria.toString()}/${producto.portadaFoto}`} alt={producto.producto}   style={{ width: '200px', height: 'auto' }}/>
-             {console.log(producto.id_categoria)}
+            <strong>{producto.precio}</strong>
           </li>
         ))}
       </ul>
