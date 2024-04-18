@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <h1>Productos por Categoría</h1>
-      <ProductosPorCategoria idCategoria={3} /> 
+      <ProductosPorCategoria idCategoria={5} /> 
       <h2>Aqui pruebas con la tabla</h2>
       <Tabla lista={productos}></Tabla>
     </div>
