@@ -8,7 +8,7 @@ function TablaProductos
 
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [nombreCategoria, setNombreCategoria] = useState("");
+   
     //solicitud
     useEffect(() => {
       const fetchData = async () => {
@@ -27,8 +27,7 @@ function TablaProductos
       fetchData();
     }, [idCategoria]);
 
-
-
+  
 
 
  // let productos = props.lista;
