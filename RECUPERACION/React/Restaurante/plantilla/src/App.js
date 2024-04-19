@@ -8,8 +8,8 @@ import "./App.css";
 function App() {
  
   return (
-    <div>
-      <h1>Productos por Categoría</h1>
+    <div className='App'>
+     
         <Inicio/>
      {/*<TablaConectada idCategoria={4}/>*/} 
     </div>
