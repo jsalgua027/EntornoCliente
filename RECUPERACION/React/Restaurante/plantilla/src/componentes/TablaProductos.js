@@ -45,16 +45,16 @@ function TablaProductos
   const productosChunked = chunkArray(productos, 3);
 
   return (
-    <Container>
+    <Container  className="tProd">
       {productosChunked.map((rowProductos, index) => (
         <Row key={index}>
           {rowProductos.map((producto) => (
             <Col key={producto.id_producto} md={4}>
               <Card>
-                <CardImg top width="50%"src={`./images/${producto.id_categoria.toString()}/${producto.portadaFoto}`}alt={producto.producto} />
+                <CardImg top width="20%"src={`./images/${producto.id_categoria.toString()}/${producto.portadaFoto}`}alt={producto.producto} />
                 <CardBody>
                   <CardTitle>{producto.producto}</CardTitle>
-                  <CardSubtitle>Precio: {producto.precio}</CardSubtitle>
+                  <CardSubtitle><strong>Precio: {producto.precio}</strong></CardSubtitle>
                   {/* Agrega más información del producto si es necesario */}
                 </CardBody>
               </Card>

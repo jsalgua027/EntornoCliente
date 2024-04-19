@@ -12,9 +12,12 @@ function App() {
     <div className='App'>
      
        {/*<Inicio/>*/} 
-     {/*<TablaProductos idCategoria={4}/>*/} 
+     <div className='contenedor'> 
+      <TablaCategorias />
+     <TablaProductos   idCategoria={1}/>
+     </div>
      
-     <TablaCategorias/>
+    
     </div>
   );
 }

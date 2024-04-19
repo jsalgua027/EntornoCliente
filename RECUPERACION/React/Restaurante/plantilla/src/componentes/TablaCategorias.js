@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Container, Row, Col, Card, CardImg, CardBody, CardTitle, CardSubtitle,CardHeader, CardText } from 'reactstrap';
 import axios from "axios";
-import { Container, Row, Col } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function TablaCategorias() {
@@ -15,7 +15,7 @@ function TablaCategorias() {
           "http://localhost/Proyectos/Curso23_24PHP/Restaurante/categorias.php"
         );
         setCategorias(response.data);
-        console.log(response)
+        console.log(response);
         setLoading(false);
       } catch (error) {
         console.error("Error al obtener categorías:", error);
@@ -24,19 +24,23 @@ function TablaCategorias() {
 
     fetchData();
   }, []);
-  console.log(categorias)
+  console.log(categorias);
   return (
-    <Container>
-      <Row>
-        {/* Mapear sobre las categorías y renderizar cada una en un Col */}
-        {categorias.map((categoria) => (
-          <Col key={categoria.id_categoria} xs={12} sm={6} md={4} lg={3}>
-            {categoria.categoria}
-          </Col>
-        ))}
-      </Row>
-    </Container>
-  );
+    <Container className="tCat">
+    <Row>
+      {/* Mapear sobre las categorías y renderizar cada una en un Col */}
+      {categorias.map((categoria) => (
+        <Col key={categoria.id_categoria}>
+          <Card className="my-2" color="primary" inverse>
+            <CardBody>
+              <CardTitle tag="h5">{categoria.categoria}</CardTitle>
+            </CardBody>
+          </Card>
+        </Col>
+      ))}
+    </Row>
+  </Container>
+);
 }
 
 export default TablaCategorias;
