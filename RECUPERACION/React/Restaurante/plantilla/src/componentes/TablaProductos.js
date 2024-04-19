@@ -3,7 +3,8 @@ import { Container, Row, Col, Card, CardImg, CardBody, CardTitle, CardSubtitle }
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-function TablaConectada({idCategoria}) {
+function TablaProductos
+({idCategoria}) {
 
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -12,8 +13,8 @@ function TablaConectada({idCategoria}) {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          //const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Restaurante/productos.php?id_categoria=' + idCategoria);// casa
-          const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/productos.php?id_categoria=' + idCategoria);
+          const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Restaurante/productos.php?id_categoria=' + idCategoria);// casa
+        //  const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/productos.php?id_categoria=' + idCategoria);//clase
   
         //  console.log(response.data); 
           setProductos(response.data);
@@ -66,4 +67,5 @@ function TablaConectada({idCategoria}) {
   );
 }
 
-export default TablaConectada;
+export default TablaProductos
+;
