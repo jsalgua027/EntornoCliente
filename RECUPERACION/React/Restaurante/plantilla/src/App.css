@@ -27,7 +27,27 @@
 .App-link {
   color: #61dafb;
 }
+/******* Añadidos para mi inicio*****/
+.inicio{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 1px solid black;
+  height: 500px;
 
+  
+}
+.izq{
+  margin-top: 100px;
+  flex-basis: 1 50%;
+  height: 50%;
+}
+.der{
+  margin-top: 100px;
+  flex-basis: 1 50%;
+  height: 50%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
