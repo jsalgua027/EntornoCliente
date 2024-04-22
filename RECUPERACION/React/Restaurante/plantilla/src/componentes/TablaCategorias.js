@@ -12,7 +12,8 @@ function TablaCategorias() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost/Proyectos/Curso23_24PHP/Restaurante/categorias.php"
+          //"http://localhost/Proyectos/Curso23_24PHP/Restaurante/categorias.php"
+          "http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/categorias.php"
         );
         setCategorias(response.data);
         console.log(response);
