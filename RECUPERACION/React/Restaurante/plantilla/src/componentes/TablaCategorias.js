@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function TablaCategorias({ onCategoriaSelect }) {
   const [categorias, setCategorias] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedCategoria, setSelectedCategoria] = useState(null);
+  const [selectedCategoria, setSelectedCategoria] = useState(1);
 
   //solicitud
   useEffect(() => {
