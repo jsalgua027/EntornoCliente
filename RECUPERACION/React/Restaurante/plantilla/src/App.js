@@ -7,14 +7,21 @@ import TablaCategorias from './componentes/TablaCategorias';
 import "./App.css";
 
 function App() {
- 
+
+  const [idCategoriaSeleccionada, setIdCategoriaSeleccionada] = useState(1);
+
+  const handleCategoriaSelect = (id_categoria) => {
+    setIdCategoriaSeleccionada(id_categoria);
+  };
+
+  console.log("la categoria seleccionada es:" + idCategoriaSeleccionada)
   return (
     <div className='App'>
      
-       {/*<Inicio/>*/} 
+     
      <div className='contenedor'> 
-      <TablaCategorias />
-     <TablaProductos   idCategoria={1}/>
+     <TablaCategorias  onCategoriaSelect={handleCategoriaSelect}/>
+     <TablaProductos idCategoria={idCategoriaSeleccionada} />
      </div>
      
     

@@ -3,9 +3,10 @@ import { Container, Row, Col, Card, CardImg, CardBody, CardTitle, CardSubtitle,C
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function TablaCategorias() {
+function TablaCategorias({ onCategoriaSelect }) {
   const [categorias, setCategorias] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedCategoria, setSelectedCategoria] = useState(null);
 
   //solicitud
   useEffect(() => {
@@ -25,14 +26,25 @@ function TablaCategorias() {
 
     fetchData();
   }, []);
-  console.log(categorias);
+
+   // Función para manejar el clic en el Card
+   const handleCardClick = (id) => {
+    setSelectedCategoria(id);
+    onCategoriaSelect(id); // Llamamos a la función de devolución de llamada con la categoría seleccionada
+  };
+
+
+  console.log("en la tabla categorias estoy enviando: " + selectedCategoria);
   return (
     <Container className="tCat">
     <Row>
       {/* Mapear sobre las categorías y renderizar cada una en un Col */}
       {categorias.map((categoria) => (
         <Col key={categoria.id_categoria}>
-          <Card className="my-2" color="primary" inverse>
+          <Card   className="my-2"
+              style={{ backgroundColor: selectedCategoria === categoria.id_categoria ? 'blue' : 'white' ,
+               color: selectedCategoria === categoria.id_categoria ? 'white' : 'black'}}
+              onClick={() => handleCardClick(categoria.id_categoria)}>
             <CardBody>
               <CardTitle tag="h5">{categoria.categoria}</CardTitle>
             </CardBody>
