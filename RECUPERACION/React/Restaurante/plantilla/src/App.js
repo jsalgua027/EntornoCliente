@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     // Función para obtener los productos por categoría desde PHP
     const obtenerProductosPorCategoria = async () => {
-      try {
+      try {                             //"http://localhost/Proyectos/Curso23_24PHP/Restaurante/API2.php"//casa
         const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/API2.php');
         setProductosPorCategoria(response.data);
       } catch (error) {
