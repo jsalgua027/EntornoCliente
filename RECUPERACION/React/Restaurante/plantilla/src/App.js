@@ -14,9 +14,12 @@ function App() {
   useEffect(() => {
     // Función para obtener los productos por categoría desde PHP
     const obtenerProductosPorCategoria = async () => {
-      try {                             //"http://localhost/Proyectos/Curso23_24PHP/Restaurante/API2.php"//casa
-        const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/API2.php');
+      try {                            
+        const response = await axios.get(//'http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/API2.php'
+         "http://localhost/Proyectos/Curso23_24PHP/Restaurante/API2.php"//casa
+      );
         setProductosPorCategoria(response.data);
+        console.log("JSON recibido:", response.data);
       } catch (error) {
         console.error('Error al obtener productos por categoría:', error);
       }
@@ -26,13 +29,12 @@ function App() {
     obtenerProductosPorCategoria();
   }, []); // Se ejecuta solo una vez al montar el componente
 
-console.log(productosPorCategoria);
 
   const handleCategoriaSelect = (id_categoria) => {
     setIdCategoriaSeleccionada(id_categoria);
   };
 
-  console.log("la categoria seleccionada es:" + idCategoriaSeleccionada)
+ // console.log("la categoria seleccionada es:" + idCategoriaSeleccionada)
   return (
     <div className='App'>
      

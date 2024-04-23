@@ -13,11 +13,11 @@ function TablaCategorias({ onCategoriaSelect }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          //"http://localhost/Proyectos/Curso23_24PHP/Restaurante/categorias.php"
-          "http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/categorias.php"
+          "http://localhost/Proyectos/Curso23_24PHP/Restaurante/categorias.php"
+        //  "http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/categorias.php"
         );
         setCategorias(response.data);
-        console.log(response);
+        //console.log(response);
         setLoading(false);
       } catch (error) {
         console.error("Error al obtener categorías:", error);
@@ -34,7 +34,7 @@ function TablaCategorias({ onCategoriaSelect }) {
   };
 
 
-  console.log("en la tabla categorias estoy enviando: " + selectedCategoria);
+ // console.log("en la tabla categorias estoy enviando: " + selectedCategoria);
   return (
     <Container className="tCat">
     <Row>

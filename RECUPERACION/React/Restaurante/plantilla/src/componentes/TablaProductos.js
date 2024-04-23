@@ -13,8 +13,8 @@ function TablaProductos
     useEffect(() => {
       const fetchData = async () => {
         try {
-        //  const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Restaurante/productos.php?id_categoria=' + idCategoria);// casa
-         const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/productos.php?id_categoria=' + idCategoria);//clase
+          const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Restaurante/productos.php?id_categoria=' + idCategoria);// casa
+        // const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/productos.php?id_categoria=' + idCategoria);//clase
   
         //  console.log(response.data); 
           setProductos(response.data);
