@@ -12,7 +12,7 @@ import React, { useState, useEffect } from "react";
 import TablaCategorias from "./TablaCategorias";
 
 function TablaProductos(props) {
-    const [productos, setProductos] = useState(1);
+    const [productos, setProductos] = useState([]);
 
     useEffect(() => {
       // Cuando los productos seleccionados cambian, actualiza el estado
@@ -48,11 +48,10 @@ function TablaProductos(props) {
                 <CardImg
                   top
                   width="20%"
-         
                   src={`/images/${props.categoria}/${producto.portadaFoto}`}
                   alt={producto.producto}
                 />
-                 {console.log("++++++++++++++++++++++"+props.categoria+producto.portadaFoto)}
+                 {console.log("++++++++++++++++++++++"+producto.precio)}
                 <CardBody>
                   <CardTitle>{producto.producto}</CardTitle>
                   <CardSubtitle>
