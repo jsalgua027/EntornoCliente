@@ -13,7 +13,9 @@ function App() {
     // Función para obtener los productos por categoría desde PHP
     const obtenerProductosPorCategoria = async () => {
       try {
-        const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/API2.php');
+        const response = await axios.get(//'http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/API2.php'// clase
+        'http://localhost/Proyectos/Curso23_24PHP/Restaurante/API2.php'//casa
+      );
         setProductosPorCategoria(response.data);
         console.log("JSON recibido:", response.data);
       } catch (error) {

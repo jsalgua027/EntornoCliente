@@ -13,6 +13,7 @@ import TablaCategorias from "./TablaCategorias";
 
 function TablaProductos(props) {
     const [productos, setProductos] = useState([]);
+    const [contadorClicks, setContadorClicks] = useState(1);
 
     useEffect(() => {
       // Cuando los productos seleccionados cambian, actualiza el estado
@@ -36,14 +37,19 @@ function TablaProductos(props) {
 
   // Dividir los productos en grupos de tres
   const productosChunked = chunkArray(productos, 3);
-   
+
+   const handeclick =()=>{
+       
+    setContadorClicks(contadorClicks + 1); // Incrementar el contador de clics
+    console.log("se hace clic en un producto: "+contadorClicks);
+   }
   return (
     <Container className="tProd">
       {productosChunked.map((rowProductos, index) => (
         <Row key={index}>
           {rowProductos.map((producto,indice) => (
             <Col key={producto.id_producto} md={4}>
-              <Card>
+              <Card onClick={()=>handeclick()}>
              
                 <CardImg
                   top
@@ -51,7 +57,7 @@ function TablaProductos(props) {
                   src={`/images/${props.categoria}/${producto.portadaFoto}`}
                   alt={producto.producto}
                 />
-                 {console.log("++++++++++++++++++++++"+producto.precio)}
+           
                 <CardBody>
                   <CardTitle>{producto.producto}</CardTitle>
                   <CardSubtitle>
