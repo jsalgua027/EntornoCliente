@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+/* Establece la imagen como fondo de pantalla */
+background-image: url('../public/images/iconos/fondo2.jpg');
+/* Centra el fondo en la ventana del navegador */
+background-position: center;
+/* Evita que la imagen se repita */
+background-repeat: repeat;
+height: auto;
+
 }
 
 .App-logo {
@@ -66,12 +74,13 @@ h1.centro{
   font-weight: bold;
 }
 
-
+/* gestión de las tablas*/
 
 .contenedor{
   
   display: flex;
   width: 80%;
+ height: auto;
 
 }
 
@@ -82,8 +91,29 @@ h1.centro{
 
 .tProd{
   flex:1 80%;
+ 
 }
 
+/*gestión de las cards*/
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  border: 1px solid rgba(111, 77, 27, 0.659); /* Borde */
+ 
+}
+.cardPro:hover {
+  transform: translateY(-50px); /* Elevación al pasar el ratón */
+ /* Aumenta el tamaño en un 10%   transform: scale(1.1);*/
+  transition: transform 0.3s ease;
+ 
+}
+.card {
+  border-radius: 10px; /* Bordes redondeados */
+}
+.card-img-top {
+  width: 90%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  height: auto; /* Establece una altura fija */
+  object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

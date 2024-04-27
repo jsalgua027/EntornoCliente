@@ -49,13 +49,14 @@ function TablaProductos(props) {
         <Row key={index}>
           {rowProductos.map((producto,indice) => (
             <Col key={producto.id_producto} md={4}>
-              <Card onClick={()=>handeclick()}>
+              <Card className="cardPro" onClick={()=>handeclick()}>
              
                 <CardImg
                   top
                   width="20%"
                   src={`/images/${props.categoria}/${producto.portadaFoto}`}
                   alt={producto.producto}
+                  class="card-img-top"
                 />
            
                 <CardBody>
