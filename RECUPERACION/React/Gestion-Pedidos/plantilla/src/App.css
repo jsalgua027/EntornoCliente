@@ -91,17 +91,23 @@ h1.centro{
 
 .tProd{
   flex:1 80%;
- 
+
+}
+.boton{
+  flex: 1 100%;
 }
 
 /*gestión de las cards*/
+.cardPro{
+  margin: 0.5rem;
+}
 .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
   border: 1px solid rgba(111, 77, 27, 0.659); /* Borde */
  
 }
 .cardPro:hover {
-  transform: translateY(-50px); /* Elevación al pasar el ratón */
+  transform: translateY(-8px); /* Elevación al pasar el ratón */
  /* Aumenta el tamaño en un 10%   transform: scale(1.1);*/
   transition: transform 0.3s ease;
  
@@ -113,6 +119,17 @@ h1.centro{
   width: 90%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
   height: auto; /* Establece una altura fija */
   object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+}
+
+
+.icono-container {
+  width: 25px; /* Ancho deseado del icono */
+  height: 25px; /* Alto deseado del icono */
+}
+
+.icono-svg {
+  width: 16%; /* Ajusta el ancho del SVG al 100% del contenedor */
+  height: 16%; /* Ajusta la altura del SVG al 100% del contenedor */
 }
 @keyframes App-logo-spin {
   from {

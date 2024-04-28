@@ -65,6 +65,7 @@ function TablaCategorias(props) {
         </Row>
       </Container>
       <TablaProductos  productosSeleccionados={productosCategoria} categoria={selectedCategoria}/>
+      
   </div>
    
   );
