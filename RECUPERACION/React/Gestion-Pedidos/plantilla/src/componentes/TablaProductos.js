@@ -47,8 +47,9 @@ function TablaProductos(props) {
     listaux.push(producto); // Agregar el nuevo producto a la lista
     setListaPedidos(listaux); // Actualizar el estado con la nueva lista
     setContPedidos(contPedidos + 1); // contador de pedidos
-    console.log("se hace clic en un producto: " + listaPedidos);
+    
   };
+  console.log("se hace clic en un producto: " + listaPedidos);
   return (
     <Container className="tProd">
       {productosChunked.map((rowProductos, index) => (
