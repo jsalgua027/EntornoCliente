@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 import TablaProductos from "./TablaProductos";
 
 function TablaCategorias(props) {
-  const [selectedCategoria, setSelectedCategoria] = useState();
+  const [selectedCategoria, setSelectedCategoria] = useState(1);
   const [productosCategoria, setProductosCategoria] = useState([]);
 
   // me traigo todo el JSON
