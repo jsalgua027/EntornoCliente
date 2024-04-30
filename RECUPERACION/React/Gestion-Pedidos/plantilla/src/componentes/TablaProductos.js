@@ -10,12 +10,14 @@ import {
   Button
 } from "reactstrap";
 import React, { useState, useEffect } from "react";
+import VentanaPedidos from "./VentanaPedidos";
 
 
 function TablaProductos(props) {
   const [productos, setProductos] = useState([]);
   const [contPedidos, setContPedidos] = useState(1);
-  const [listaPedidos, setListaPedidos]=useState([])
+  const [listaPedidos, setListaPedidos]=useState([]);
+  const [mostrarModal, setMostrarModal] = useState(false);// para mostar la modal
 
   useEffect(() => {
     // Cuando los productos seleccionados cambian, actualiza el estado
@@ -49,6 +51,21 @@ function TablaProductos(props) {
     setContPedidos(contPedidos + 1); // contador de pedidos
     
   };
+  // Función para abrir la ventana modal
+  const abrirModal = () => {
+    setMostrarModal(true);
+  };
+
+  // Función para cerrar la ventana modal
+  const cerrarModal = () => {
+    let aux=0;
+    setMostrarModal(false);
+    setContPedidos(aux);// si cierro el contador a cero
+    setListaPedidos([])// lista de productos seleccionado a cero
+  };
+
+
+
   console.log("se hace clic en un producto: " + listaPedidos);
   return (
     <Container className="tProd">
@@ -77,7 +94,7 @@ function TablaProductos(props) {
         </Row>
       ))}
       <div className="boton">
-      <Button color="success" size='mg'>
+      <Button color="success" size='mg' onClick={abrirModal}>
         Pulse para confirmar pedido<br/>
         <span style={{ marginRight: '10px' }}> {/* Espacio adicional a la derecha del icono */}
           <img src="/images/iconos/carro.svg" alt="Icono" className="icono-svg" /> 
@@ -85,10 +102,14 @@ function TablaProductos(props) {
         : {contPedidos-1}
       </Button>
       </div>
+      <VentanaPedidos 
+      listaProductos={listaPedidos}
+    mostrar={mostrarModal}
+    cerrarModal={cerrarModal}/>
     </Container>
+   
   );
+  
 }
-{
-  /* <img src="/images/iconos/carro.svg" alt="Icono" /> Pulsar para Pedido:{contPedidos-1}*/
-}
+
 export default TablaProductos;
