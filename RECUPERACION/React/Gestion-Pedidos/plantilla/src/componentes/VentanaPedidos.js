@@ -15,7 +15,7 @@ function VentanaPedidos(props) {
           {/* Mapea los productos y muestra cada uno en una lista */}
           {listaProductos.map((producto, index) => (
             <ol key={index}>
-              <img src={`/images/2/${producto.portadaFoto}`} alt={producto.producto} style={{ marginRight: '5px', width: '50px', height: '50px' }} />
+              <img src={`/images/${producto.categoria}/${producto.portadaFoto}`} alt={producto.producto} style={{ marginRight: '5px', width: '50px', height: '50px' }} />
               {producto.producto} 
             </ol>
           ))}

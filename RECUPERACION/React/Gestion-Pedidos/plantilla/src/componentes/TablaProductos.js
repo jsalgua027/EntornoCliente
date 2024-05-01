@@ -44,10 +44,15 @@ function TablaProductos(props) {
   const productosChunked = chunkArray(productos, 3);
 
   const handeclick = (producto) => {
-    let listaux = [...listaPedidos]; // Creo una copia de la lista de pedidos existente
-    listaux.push(producto); // Agregar el nuevo producto a la lista
-    setListaPedidos(listaux); // Actualizar el estado con la nueva lista
-    setContPedidos(contPedidos + 1); // contador de pedidos
+    let listaux = [...listaPedidos];
+  // Crear un nuevo objeto que contenga el producto y su categoría
+  let productoConCategoria = {
+    ...producto,
+    categoria: props.categoria // le añado la categoria usando  props.categoria contiene la categoría actual
+  };
+  listaux.push(productoConCategoria); // Agregar el nuevo objeto a la lista
+  setListaPedidos(listaux); // Actualizar el estado con la nueva lista
+  setContPedidos(contPedidos + 1); // contador de pedidos
   };
   // Función para abrir la ventana modal
   const abrirModal = () => {
@@ -58,7 +63,7 @@ function TablaProductos(props) {
   const cerrarModal = () => {
     let aux = 1;
     setMostrarModal(false);
-    /*esta comentado es si quiero que el cliente al dar cerrar se reinicie el pedido*/
+    /***esta comentado es si quiero que el cliente al dar cerrar se reinicie el pedido****/
     // setContPedidos(aux);
     // setListaPedidos([]);
   };
