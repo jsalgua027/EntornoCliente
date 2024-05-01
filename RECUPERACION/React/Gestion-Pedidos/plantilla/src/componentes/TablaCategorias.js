@@ -36,6 +36,7 @@ function TablaCategorias(props) {
   console.log("La categoria seleccionada es: " + selectedCategoria);
   return (
     <div className='contenedor'>
+      
           <Container className="tCat">
         <Row>
           {Object.keys(listaProductos).map((key) => (

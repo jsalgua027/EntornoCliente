@@ -131,6 +131,19 @@ h1.centro{
   width: 16%; /* Ajusta el ancho del SVG al 100% del contenedor */
   height: 16%; /* Ajusta la altura del SVG al 100% del contenedor */
 }
+
+.spanCantidad{
+  background-color: #98afe7;
+  color:black;
+  min-width: 35px; /* O el ancho mínimo deseado */
+  display: inline-block; /* Esto permite definir un ancho mínimo */
+  padding: 1px; /* Añade espacio alrededor del texto */
+  text-align: center; /* Centra el texto horizontalmente */
+  height: 30px;
+  border-radius: 6px;
+  
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
