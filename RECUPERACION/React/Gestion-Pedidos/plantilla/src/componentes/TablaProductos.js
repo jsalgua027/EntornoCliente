@@ -64,8 +64,8 @@ function TablaProductos(props) {
     let aux = 1;
     setMostrarModal(false);
     /***esta comentado es si quiero que el cliente al dar cerrar se reinicie el pedido****/
-    // setContPedidos(aux);
-    // setListaPedidos([]);
+     setContPedidos(aux);
+     setListaPedidos([]);
   };
 
   console.log("se hace clic en un producto: " + listaPedidos);

@@ -10,19 +10,20 @@ function VentanaPedidos(props) {
     if (props.listaProductos) {
       setListaProductos(props.listaProductos);
     }
-  }, [props.listaProductos])
+  }, [props.listaProductos]);
 
   // Función para calcular la cantidad de cada producto en la lista
   const calcularCantidad = (producto) => {
     return listaProductos.filter((p) => p.producto === producto).length;
   };
-console.log("las lista de productos en la ventana es: "+ listaProductos)
+  console.log("las lista de productos en la ventana es: " + listaProductos);
   // Función para obtener una lista de productos únicos con su cantidad
   const obtenerListaUnica = () => {
     const productosUnicos = [];
     listaProductos.forEach((producto) => {
       const cantidad = calcularCantidad(producto.producto);
-      if (!productosUnicos.some((p) => p.producto === producto.producto)) { //some me devulve true si cumple la condición
+      if (!productosUnicos.some((p) => p.producto === producto.producto)) {
+        //some me devulve true si cumple la condición
         productosUnicos.push({ ...producto, cantidad });
       }
     });
@@ -41,36 +42,68 @@ console.log("las lista de productos en la ventana es: "+ listaProductos)
   // Función para disminuir la cantidad de un producto en la lista
 
   const restarCantidad = (producto) => {
-     // Encuento  el índice del primer producto que coincida con producto.producto
-  const index = listaProductos.findIndex((p) => p.producto === producto.producto);
-  // Si se encontró un producto con el mismo nombre
-  if (index !== -1) {
-    // Creo una nueva lista de productos excluyendo el producto en el índice encontrado
-    const nuevosProductos = [...listaProductos.slice(0, index), ...listaProductos.slice(index + 1)];
-    // Actualizar el estado con la nueva lista de productos
-    setListaProductos(nuevosProductos);
-  }
+    // Encuento  el índice del primer producto que coincida con producto.producto
+    const index = listaProductos.findIndex(
+      (p) => p.producto === producto.producto
+    );
+    // Si se encontró un producto con el mismo nombre
+    if (index !== -1) {
+      // Creo una nueva lista de productos excluyendo el producto en el índice encontrado
+      const nuevosProductos = [
+        ...listaProductos.slice(0, index),
+        ...listaProductos.slice(index + 1),
+      ];
+      // Actualizar el estado con la nueva lista de productos
+      setListaProductos(nuevosProductos);
+    }
   };
 
   return (
     <Modal isOpen={ver} toggle={cerrarModal} size="lg">
-      <ModalHeader toggle={cerrarModal} style={{ textAlign: "center" }}>Estos es su selección de productos:</ModalHeader>
+      <ModalHeader toggle={cerrarModal} style={{ textAlign: "center" }}>
+        Estos es su selección de productos:
+      </ModalHeader>
       <ModalBody>
         <ul>
           {obtenerListaUnica().map((producto, index) => (
             <ol key={index}>
-              <img src={`/images/${producto.categoria}/${producto.portadaFoto}`} alt={producto.producto} style={{ marginRight: '5px', width: '50px', height: '50px' }} />
-              {producto.producto} 
-              <Button color="primary" size="sm" outline onClick={() => sumarCantidad(producto)}>+</Button>
+              <img
+                src={`/images/${producto.categoria}/${producto.portadaFoto}`}
+                alt={producto.producto}
+                style={{ marginRight: "5px", width: "50px", height: "50px" }}
+              />
+              <sapn>{producto.producto} </sapn>
+              <Button
+                color="primary"
+                size="sm"
+                outline
+                onClick={() => restarCantidad(producto)}
+              >
+                -
+              </Button>
               <span className="spanCantidad">{producto.cantidad}</span>
-              <Button color="primary" size="sm" outline onClick={() => restarCantidad(producto)}>-</Button>
+              <Button
+                color="primary"
+                style={{ marginleft: "10px" }}
+                size="sm"
+                outline
+                onClick={() => sumarCantidad(producto)}
+              >
+                +
+              </Button>
+              <span style={{ marginLeft: "10px" }}>
+                <strong>Total PVP:</strong>{" "}
+                {(producto.cantidad * producto.precio).toFixed(2)}€
+              </span>
             </ol>
           ))}
         </ul>
       </ModalBody>
       <ModalFooter>
         <Button color="success">Hacer le pedido</Button>
-        <Button color="danger" onClick={cerrarModal}>Cerrar</Button>
+        <Button color="danger" onClick={cerrarModal}>
+          Cerrar
+        </Button>
       </ModalFooter>
     </Modal>
   );
