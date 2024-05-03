@@ -75,7 +75,7 @@ function VentanaPedidos(props) {
                 alt={producto.producto}
                 style={{ marginRight: "5px", width: "50px", height: "50px" }}
               />
-              <sapn>{producto.producto} </sapn>
+              <span>{producto.producto} </span>
               <Button
                 color="primary"
                 size="sm"
