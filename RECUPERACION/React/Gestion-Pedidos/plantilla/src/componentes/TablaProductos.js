@@ -14,9 +14,14 @@ import VentanaPedidos from "./VentanaPedidos";
 
 function TablaProductos(props) {
   const [productos, setProductos] = useState([]);
-  const [contPedidos, setContPedidos] = useState(1);
+  const [contPedidos, setContPedidos] = useState(0);
   const [listaPedidos, setListaPedidos] = useState([]);
   const [mostrarModal, setMostrarModal] = useState(false); // para mostar la modal
+  
+  useEffect(() => {
+    console.log(listaPedidos +"---" +contPedidos)
+    setContPedidos(listaPedidos.length);
+  },[listaPedidos]);
 
   useEffect(() => {
     // Cuando los productos seleccionados cambian, actualiza el estado
@@ -39,6 +44,8 @@ function TablaProductos(props) {
     }
     return chunkedArray;
   };
+
+  
 
   // Dividir los productos en grupos de tres
   const productosChunked = chunkArray(productos, 3);
@@ -64,11 +71,17 @@ function TablaProductos(props) {
     let aux = 1;
     setMostrarModal(false);
     /***esta comentado es si quiero que el cliente al dar cerrar se reinicie el pedido****/
-     setContPedidos(aux);
-     setListaPedidos([]);
+     //setContPedidos(aux);
+     //setListaPedidos([]);
   };
 
-  console.log("se hace clic en un producto: " + listaPedidos);
+  const actualizarProductos = (_listaPedidos,_contPedidos)=>{
+    setContPedidos(_contPedidos);
+    setListaPedidos(_listaPedidos);
+    console.log(listaPedidos+"-------"+contPedidos)
+  }
+
+  //console.log("se hace clic en un producto: " + listaPedidos);
   return (
     <Container className="tProd">
       {productosChunked.map((rowProductos, index) => (
@@ -108,14 +121,14 @@ function TablaProductos(props) {
               className="icono-svg"
             />
           </span>
-          : {contPedidos - 1}
+          : {contPedidos}
         </Button>
       </div>
       <VentanaPedidos
         listaProductos={listaPedidos}
         ver={mostrarModal}
         cerrarModal={cerrarModal}
-      
+        actualizarProductos={actualizarProductos}
       />
     </Container>
   );

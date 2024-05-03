@@ -16,7 +16,7 @@ function VentanaPedidos(props) {
   const calcularCantidad = (producto) => {
     return listaProductos.filter((p) => p.producto === producto).length;
   };
-  console.log("las lista de productos en la ventana es: " + listaProductos);
+  //console.log("las lista de productos en la ventana es: " + listaProductos);
   // Función para obtener una lista de productos únicos con su cantidad
   const obtenerListaUnica = () => {
     const productosUnicos = [];
@@ -37,6 +37,8 @@ function VentanaPedidos(props) {
     const nuevosProductos = [...listaProductos, producto];
     // Actualizo estado
     setListaProductos(nuevosProductos);
+    props.actualizarProductos(nuevosProductos,nuevosProductos.length);
+    //console.log(nuevosProductos+""+nuevosProductos.length)
   };
 
   // Función para disminuir la cantidad de un producto en la lista
@@ -55,6 +57,7 @@ function VentanaPedidos(props) {
       ];
       // Actualizar el estado con la nueva lista de productos
       setListaProductos(nuevosProductos);
+      props.actualizarProductos(nuevosProductos,nuevosProductos.length);
     }
   };
 
@@ -100,7 +103,7 @@ function VentanaPedidos(props) {
         </ul>
       </ModalBody>
       <ModalFooter>
-        <Button color="success">Hacer le pedido</Button>
+        <Button color="success">Confirmar Pedido</Button>
         <Button color="danger" onClick={cerrarModal}>
           Cerrar
         </Button>
