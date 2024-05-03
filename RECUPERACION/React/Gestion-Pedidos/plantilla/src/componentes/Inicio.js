@@ -4,7 +4,7 @@ import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 function Inicio({ onCardClick }) {
   return (
     <div className="inicio">
-      <h1 className="centro">¿QUÉ DESEA?</h1>
+      <h1 className="centro">BIENVENIDO A HAMBURGUESAS URANGA</h1>
       <Card inverse className="izq" onClick={onCardClick}>
         <CardImg
           alt="Comer Aquí"
