@@ -11,13 +11,14 @@ import {
 } from "reactstrap";
 import React, { useState, useEffect } from "react";
 import VentanaPedidos from "./VentanaPedidos";
+import VentanaConfirmacion from "./VentanaConfirmacion";
 
 function TablaProductos(props) {
   const [productos, setProductos] = useState([]);
   const [contPedidos, setContPedidos] = useState(0);
   const [listaPedidos, setListaPedidos] = useState([]);
   const [mostrarModal, setMostrarModal] = useState(false); // para mostar la modal
-  
+  const [mostrarModalConfirmacion, setMostrarModalConfirmacion] = useState(false);//ventana confirmacion mostar modal
   useEffect(() => {
     console.log(listaPedidos +"---" +contPedidos)
     setContPedidos(listaPedidos.length);
@@ -81,6 +82,18 @@ function TablaProductos(props) {
     console.log(listaPedidos+"-------"+contPedidos)
   }
 
+  // cerrar Ventana confimacion
+  const cerrarModalConfirmacion = () => {
+    setMostrarModalConfirmacion(false);
+  };
+
+  const confirmarPedido = () => {
+    setMostrarModal(false);
+    setMostrarModalConfirmacion(true);
+   
+  };
+
+
   //console.log("se hace clic en un producto: " + listaPedidos);
   return (
     <Container className="tProd">
@@ -129,6 +142,11 @@ function TablaProductos(props) {
         ver={mostrarModal}
         cerrarModal={cerrarModal}
         actualizarProductos={actualizarProductos}
+        confirmarPedido={confirmarPedido}
+      />
+      <VentanaConfirmacion
+        ver={mostrarModalConfirmacion}
+        cerrarModal={cerrarModalConfirmacion}
       />
     </Container>
   );

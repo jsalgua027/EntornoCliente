@@ -103,7 +103,7 @@ function VentanaPedidos(props) {
         </ul>
       </ModalBody>
       <ModalFooter>
-        <Button color="success">Confirmar Pedido</Button>
+        <Button color="success" onClick={props.confirmarPedido}>Confirmar Pedido</Button>
         <Button color="danger" onClick={cerrarModal}>
           Cerrar
         </Button>
