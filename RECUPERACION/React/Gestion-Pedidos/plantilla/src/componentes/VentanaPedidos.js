@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import VentanaConfirmacion from "./VentanaConfirmacion";
 
 function VentanaPedidos(props) {
   const { ver, cerrarModal } = props;
@@ -16,7 +17,7 @@ function VentanaPedidos(props) {
   const calcularCantidad = (producto) => {
     return listaProductos.filter((p) => p.producto === producto).length;
   };
-  //console.log("las lista de productos en la ventana es: " + listaProductos);
+
   // Función para obtener una lista de productos únicos con su cantidad
   const obtenerListaUnica = () => {
     const productosUnicos = [];
@@ -28,8 +29,9 @@ function VentanaPedidos(props) {
       }
     });
     return productosUnicos;
-  };
 
+  };
+    
   // Función para aumentar la cantidad de un producto en la lista
 
   const sumarCantidad = (producto) => {
@@ -61,6 +63,26 @@ function VentanaPedidos(props) {
     }
   };
 
+
+  // Función para calcular el importe total de los pedidos
+  const calcularTotalPedido = () => {
+    let total = 0;
+    obtenerListaUnica().forEach((producto) => {
+      total += producto.cantidad * producto.precio;
+    });
+    console.log("el total es:"+total)
+    return total.toFixed(2); // Redondear el total a dos decimales
+   
+  };
+
+ // Función para confirmar el pedido y abrir la ventana de confirmación
+ const confirmarPedido = () => {
+  const totalPedido = calcularTotalPedido();
+  props.confirmarPedido(totalPedido);
+
+};
+
+
   return (
     <Modal isOpen={ver} toggle={cerrarModal} size="lg">
       <ModalHeader toggle={cerrarModal} style={{ textAlign: "center" }}>
@@ -74,7 +96,9 @@ function VentanaPedidos(props) {
                 src={`/images/${producto.categoria}/${producto.portadaFoto}`}
                 alt={producto.producto}
                 style={{ marginRight: "5px", width: "50px", height: "50px" }}
+               
               />
+        
               <span>{producto.producto} </span>
               <Button
                 color="primary"
@@ -101,14 +125,16 @@ function VentanaPedidos(props) {
             </ol>
           ))}
         </ul>
+     
       </ModalBody>
       <ModalFooter>
-        <Button color="success" onClick={props.confirmarPedido}>Confirmar Pedido</Button>
+        <Button color="success" onClick={confirmarPedido} >Confirmar Pedido</Button>
         <Button color="danger" onClick={cerrarModal}>
           Cerrar
         </Button>
-      </ModalFooter>
+                </ModalFooter>
     </Modal>
+  
   );
 }
 

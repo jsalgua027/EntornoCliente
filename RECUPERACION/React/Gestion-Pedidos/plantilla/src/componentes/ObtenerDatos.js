@@ -6,9 +6,9 @@ const ObtenerDatos = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/API2.php'//clase
+      try { const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/API2.php'//clase
     //'http://localhost/Proyectos/Curso23_24PHP/Restaurante/API2.php'//casa
+       
     );
         setData(response.data);
       } catch (error) {

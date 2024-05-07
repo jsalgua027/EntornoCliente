@@ -12,6 +12,7 @@ function VentanaConfirmacion(props) {
       <ModalBody>
         <p>¡Su pedido ha sido confirmado con éxito!</p>
         <p>¡Gracias por su compra!</p>
+        <p>El total es:{props.total}</p>
       </ModalBody>
       <ModalFooter>
         <Button color="success" onClick={cerrarModal}>
