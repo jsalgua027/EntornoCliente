@@ -75,11 +75,45 @@ function VentanaPedidos(props) {
    
   };
 
+  // Función para realizar una solicitud a la API para enviar los datos del pedido
+const realizarPedidoAPI = (datosPedido) => {
+  // Aquí puedes realizar tu solicitud a la API utilizando fetch u otra librería como axios
+  // Por ejemplo:
+  fetch('http://localhost/Proyectos/Curso23_24PHP/Restaurante/API3.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(datosPedido),
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Error al enviar el pedido a la API');
+    }
+  })
+  .then(data => {
+    // Manejar la respuesta de la API si es necesario
+    console.log(data);
+  })
+  .catch(error => {
+    // Manejar errores de la solicitud
+    console.error('Error:', error);
+  });
+};
+
+
  // Función para confirmar el pedido y abrir la ventana de confirmación
+ // tambien voy a gestionar la solictuda de la api y para ello obtengo los valores de la funcion lista unica
  const confirmarPedido = () => {
   const totalPedido = calcularTotalPedido();
   props.confirmarPedido(totalPedido);
-
+  const datosPedido = obtenerListaUnica(); 
+  // intento trabajar el json para el envio de datos
+  const datosPedidoJSON = JSON.stringify({ pedidos: datosPedido });
+  realizarPedidoAPI(datosPedidoJSON);
+  console.log("los datos pedidos:" +datosPedidoJSON)
 };
 
 
