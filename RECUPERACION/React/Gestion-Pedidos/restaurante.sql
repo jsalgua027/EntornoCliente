@@ -53,8 +53,9 @@ INSERT INTO `nacho_categorias` (`id_categoria`, `categoria`, `foto`) VALUES
 --
 
 CREATE TABLE `nacho_pedidos` (
-  `id_pedido` int(11) NOT NULL AUTO_INCREMENT,
-  
+  `id_pedido` int(11)  AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  `hora` time NOT NULL,
   PRIMARY KEY (`id_pedido`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -67,8 +68,7 @@ CREATE TABLE `nacho_pedidos` (
 CREATE TABLE `nacho_pedido_producto` (
   `id_pedido` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `hora` time NOT NULL,
+  
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
