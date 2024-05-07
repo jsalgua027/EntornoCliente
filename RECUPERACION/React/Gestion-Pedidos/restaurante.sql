@@ -56,6 +56,7 @@ CREATE TABLE `nacho_pedidos` (
   `id_pedido` int(11)  AUTO_INCREMENT,
   `fecha` date NOT NULL,
   `hora` time NOT NULL,
+  `entregado` INT(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_pedido`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

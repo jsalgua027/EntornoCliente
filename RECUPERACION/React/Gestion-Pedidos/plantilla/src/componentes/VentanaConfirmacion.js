@@ -7,7 +7,7 @@ function VentanaConfirmacion(props) {
   return (
     <Modal isOpen={ver} toggle={cerrarModal} size="lg">
       <ModalHeader toggle={cerrarModal} style={{ textAlign: "center" }}>
-        Confirmación de Pedido
+        Confirmado  Pedido
       </ModalHeader>
       <ModalBody>
         <p>¡Su pedido ha sido confirmado con éxito!</p>
