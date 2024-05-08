@@ -10,7 +10,7 @@ function Pedidos({ pedidos, onButtonAction }) {
 
   return (
     <div>
-      <h2>Pedidos</h2>
+      <h1>Pedidos</h1>
       {gruposDeTresPedidos.map((grupo, index) => (
         <div key={index} className="d-flex justify-content-between flex-wrap">
           {grupo.map((pedido, innerIndex) => (
