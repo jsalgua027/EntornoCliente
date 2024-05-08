@@ -8,10 +8,17 @@ background-position: center;
 background-repeat: repeat;
 height: auto;
 display: flex;
+flex-direction: column;
 justify-content: center;
+align-items: center;
 
 }
-
+.btnPedidos{
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  height: 60px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

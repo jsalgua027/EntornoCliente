@@ -1,7 +1,11 @@
-import React from 'react';
-import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
+
+import { Card, CardImg, CardImgOverlay, CardTitle, Button } from 'reactstrap';
+import ObtenerPedidos from './ObtenerPedidos.js';
+import React, { useState } from 'react';
+import Pedidos from './Pedidos.js'
 
 function Inicio({ onCardClick }) {
+ 
   return (
     <div className="inicio">
       <h1 className="centro">BIENVENIDO A HAMBURGUESAS URANGA</h1>
@@ -32,6 +36,7 @@ function Inicio({ onCardClick }) {
           </CardTitle>
         </CardImgOverlay>
       </Card>
+     
     </div>
   );
 }
