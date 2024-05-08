@@ -29,9 +29,8 @@ function VentanaPedidos(props) {
       }
     });
     return productosUnicos;
-
   };
-    
+
   // Función para aumentar la cantidad de un producto en la lista
 
   const sumarCantidad = (producto) => {
@@ -39,7 +38,7 @@ function VentanaPedidos(props) {
     const nuevosProductos = [...listaProductos, producto];
     // Actualizo estado
     setListaProductos(nuevosProductos);
-    props.actualizarProductos(nuevosProductos,nuevosProductos.length);
+    props.actualizarProductos(nuevosProductos, nuevosProductos.length);
     //console.log(nuevosProductos+""+nuevosProductos.length)
   };
 
@@ -59,10 +58,9 @@ function VentanaPedidos(props) {
       ];
       // Actualizar el estado con la nueva lista de productos
       setListaProductos(nuevosProductos);
-      props.actualizarProductos(nuevosProductos,nuevosProductos.length);
+      props.actualizarProductos(nuevosProductos, nuevosProductos.length);
     }
   };
-
 
   // Función para calcular el importe total de los pedidos
   const calcularTotalPedido = () => {
@@ -70,52 +68,49 @@ function VentanaPedidos(props) {
     obtenerListaUnica().forEach((producto) => {
       total += producto.cantidad * producto.precio;
     });
-    console.log("el total es:"+total)
+    console.log("el total es:" + total);
     return total.toFixed(2); // Redondear el total a dos decimales
-   
   };
 
   // Función para realizar una solicitud a la API para enviar los datos del pedido
-const realizarPedidoAPI = (datosPedido) => {
-  // Aquí puedes realizar tu solicitud a la API utilizando fetch u otra librería como axios
-  // Por ejemplo:
-  fetch('http://localhost/Proyectos/Curso23_24PHP/Restaurante/API3.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(datosPedido),
-  })
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error('Error al enviar el pedido a la API');
-    }
-  })
-  .then(data => {
-    // Manejar la respuesta de la API si es necesario
-    console.log(data);
-  })
-  .catch(error => {
-    // Manejar errores de la solicitud
-    console.error('Error:', error);
-  });
-};
+  const realizarPedidoAPI = (datosPedido) => {
+       
+    fetch(
+      //'http://localhost/Proyectos/Curso23_24PHP/Restaurante/API3.php'//casa
+      "http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/API3.php", //clase
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: datosPedido,
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Error al enviar el pedido a la API");
+        }
+      })
+      .then((data) => {
+        // Manejar la respuesta de la API si es necesario
+        console.log(data);
+      });
+  };
 
-
- // Función para confirmar el pedido y abrir la ventana de confirmación
- // tambien voy a gestionar la solictuda de la api y para ello obtengo los valores de la funcion lista unica
- const confirmarPedido = () => {
-  const totalPedido = calcularTotalPedido();
-  props.confirmarPedido(totalPedido);
-  const datosPedido = obtenerListaUnica(); 
-  // intento trabajar el json para el envio de datos
-  const datosPedidoJSON = JSON.stringify({ pedidos: datosPedido });
-  realizarPedidoAPI(datosPedidoJSON);
-  console.log("los datos pedidos:" +datosPedidoJSON)
-};
-
+  // Función para confirmar el pedido y abrir la ventana de confirmación
+  // tambien voy a gestionar la solictuda de la api y para ello obtengo los valores de la funcion lista unica
+  const confirmarPedido = () => {
+    console.log("******************LLAMADA")
+    const totalPedido = calcularTotalPedido();
+    props.confirmarPedido(totalPedido);
+    const datosPedido = obtenerListaUnica();
+    // intento trabajar el json para el envio de datos
+    const datosPedidoJSON = JSON.stringify({ datosPedido });
+    realizarPedidoAPI(datosPedidoJSON)
+    console.log("los datos enviados son : " + datosPedido);
+  };
 
   return (
     <Modal isOpen={ver} toggle={cerrarModal} size="lg">
@@ -130,9 +125,8 @@ const realizarPedidoAPI = (datosPedido) => {
                 src={`/images/${producto.categoria}/${producto.portadaFoto}`}
                 alt={producto.producto}
                 style={{ marginRight: "5px", width: "50px", height: "50px" }}
-               
               />
-        
+
               <span>{producto.producto} </span>
               <Button
                 color="primary"
@@ -159,16 +153,16 @@ const realizarPedidoAPI = (datosPedido) => {
             </ol>
           ))}
         </ul>
-     
       </ModalBody>
       <ModalFooter>
-        <Button color="success" onClick={confirmarPedido} >Confirmar Pedido</Button>
+        <Button color="success" onClick={()=>confirmarPedido()}>
+          Confirmar Pedido
+        </Button>
         <Button color="danger" onClick={cerrarModal}>
           Cerrar
         </Button>
-                </ModalFooter>
+      </ModalFooter>
     </Modal>
-  
   );
 }
 
