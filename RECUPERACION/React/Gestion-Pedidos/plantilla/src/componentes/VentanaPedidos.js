@@ -76,8 +76,8 @@ function VentanaPedidos(props) {
   const realizarPedidoAPI = (datosPedido) => {
        
     fetch(
-       'http://localhost/Proyectos/Curso23_24PHP/Restaurante/API3.php'//casa
-      //"http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/API3.php" //clase
+       'http://localhost/Proyectos/Curso23_24PHP/Restaurante/confirmaPedidosAPI.php'//casa
+      //"http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/confirmaPedidosAPI.php" //clase
      , {
         method: "POST",
         headers: {

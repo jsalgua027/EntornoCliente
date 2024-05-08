@@ -11,13 +11,16 @@ function VentanaConfirmacion(props) {
   return (
     <Modal isOpen={ver} toggle={cerrarModal} size="lg">
       <ModalHeader toggle={cerrarModal} style={{ textAlign: "center" }}>
-        Confirmado  Pedido
+      <h3>¡Su pedido ha sido confirmado con éxito!</h3>
       </ModalHeader>
       <ModalBody>
-        <p>¡Su pedido ha sido confirmado con éxito!</p>
-        <p>¡Gracias por su compra!</p>
-      
-      </ModalBody>
+      <img
+                src={`/images/iconos/buenProvecho4.jpg`}
+                alt="logo"
+                style={{ marginLeft: "25%", width: "400px", height: "400px" }}
+              />
+        <h3  style={{ marginLeft: "25%"}}>¡Gracias por su compra!</h3>
+        </ModalBody>
       <ModalFooter>
         <Button color="success" onClick={() => { cerrarModal(); reiniciarApp(); }}>
           Cerrar
