@@ -4,6 +4,10 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 function VentanaConfirmacion(props) {
   const { ver, cerrarModal } = props;
 
+  const reiniciarApp = () => {
+    window.location.reload(); // Esto recarga la página
+  };
+
   return (
     <Modal isOpen={ver} toggle={cerrarModal} size="lg">
       <ModalHeader toggle={cerrarModal} style={{ textAlign: "center" }}>
@@ -15,7 +19,7 @@ function VentanaConfirmacion(props) {
       
       </ModalBody>
       <ModalFooter>
-        <Button color="success" onClick={cerrarModal}>
+        <Button color="success" onClick={() => { cerrarModal(); reiniciarApp(); }}>
           Cerrar
         </Button>
       </ModalFooter>

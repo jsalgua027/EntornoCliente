@@ -76,9 +76,9 @@ function VentanaPedidos(props) {
   const realizarPedidoAPI = (datosPedido) => {
        
     fetch(
-      //'http://localhost/Proyectos/Curso23_24PHP/Restaurante/API3.php'//casa
-      "http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/API3.php", //clase
-      {
+       'http://localhost/Proyectos/Curso23_24PHP/Restaurante/API3.php'//casa
+      //"http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/API3.php" //clase
+     , {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,16 +102,18 @@ function VentanaPedidos(props) {
   // Función para confirmar el pedido y abrir la ventana de confirmación
   // tambien voy a gestionar la solictuda de la api y para ello obtengo los valores de la funcion lista unica
   const confirmarPedido = () => {
-    console.log("******************LLAMADA")
+   
     const totalPedido = calcularTotalPedido();
     props.confirmarPedido(totalPedido);
     const datosPedido = obtenerListaUnica();
     // intento trabajar el json para el envio de datos
     const datosPedidoJSON = JSON.stringify({ datosPedido });
     realizarPedidoAPI(datosPedidoJSON)
-    console.log("los datos enviados son : " + datosPedido);
+   
   };
 
+   // Calcular el total del pedido
+   const totalPedido = calcularTotalPedido();
   return (
     <Modal isOpen={ver} toggle={cerrarModal} size="lg">
       <ModalHeader toggle={cerrarModal} style={{ textAlign: "center" }}>
@@ -153,6 +155,7 @@ function VentanaPedidos(props) {
             </ol>
           ))}
         </ul>
+        <p className="totalPedido"><strong>El importe total del pedido es:</strong> {totalPedido}€</p>
       </ModalBody>
       <ModalFooter>
         <Button color="success" onClick={()=>confirmarPedido()}>

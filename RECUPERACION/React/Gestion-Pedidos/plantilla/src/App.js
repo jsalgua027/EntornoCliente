@@ -6,6 +6,7 @@ import axios from 'axios';
 import Inicio from './componentes/Inicio';
 import TablaCategorias from './componentes/TablaCategorias';
 import ObtenerDatos from './componentes/ObtenerDatos';
+
 //https://react-slick.neostack.com/docs/get-started slider basico para react
 
 function App() {
