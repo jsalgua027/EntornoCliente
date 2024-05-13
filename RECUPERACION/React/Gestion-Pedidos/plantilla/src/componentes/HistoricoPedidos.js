@@ -6,7 +6,7 @@ function HistoricoPedidos({ pedidos }) {
  
     
   return (
-    <div  style={{ background: 'red' }}>
+    <div className='historicoPedidos'>
       <h1>Historial de Pedidos Entregados</h1>
       <ul>
         {pedidos.map(pedido => (

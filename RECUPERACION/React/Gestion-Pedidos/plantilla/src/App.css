@@ -61,6 +61,8 @@ h1.centro{
   font-size: xx-large;
   font-family: "Roboto Slab", serif;
   font-weight: bold;
+  background-color: rgba(91, 155, 110, 0.7); /* Aquí el último valor (0.5) representa la transparencia */
+  border-radius: 6px;
 }
 .izq{
  
@@ -154,6 +156,17 @@ h1.centro{
 .totalPedido{
   margin-left: 50%;
 }
+
+.h1pedidos
+{
+  background-color: rgba(91, 155, 110, 0.7); /* Aquí el último valor (0.5) representa la transparencia */
+    border-radius: 6px;
+}
+  .historicoPedidos {
+    background-color: rgba(91, 140, 155, 0.7); /* Aquí el último valor (0.5) representa la transparencia */
+    border-radius: 6px;
+  }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

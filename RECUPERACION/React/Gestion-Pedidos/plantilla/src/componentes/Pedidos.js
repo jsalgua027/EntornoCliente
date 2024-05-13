@@ -38,10 +38,13 @@ function Pedidos({ pedidos }) {
   return groupedPedidos;
 };
 
+const reiniciarApp = () => {
+  window.location.reload(); // Esto recarga la página
+};
 
 return (
   <div>
-    <h1>Pedidos</h1>
+    <h1 className='h1pedidos'>PEDIDOS</h1>
     {groupPedidosInPairs(pedidosList).map((fila, filaIndex) => (
       <Row key={filaIndex} className="mb-3">
         {fila.map((pedido, colIndex) => (
@@ -73,6 +76,7 @@ return (
       </Row>
     ))}
     <HistoricoPedidos pedidos={pedidosList} />
+    <Button color="danger" onClick={()=>reiniciarApp ()}>SALIR</Button>
   </div>
 );
 }
