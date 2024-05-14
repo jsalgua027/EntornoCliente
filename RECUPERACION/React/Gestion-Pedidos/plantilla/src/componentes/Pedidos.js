@@ -17,7 +17,9 @@ function Pedidos({ pedidos }) {
     };
 
     // Realizar la llamada a la API para actualizar el estado de entrega del pedido
-    fetch('http://localhost/Proyectos/Curso23_24PHP/Restaurante/estadoPedidoAPI.php', requestOptions)
+    fetch(//'http://localhost/Proyectos/Curso23_24PHP/Restaurante/estadoPedidoAPI.php'//casa
+    'http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/estadoPedidoAPI.php'//clase
+    , requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log("Respuesta de la API:", data);

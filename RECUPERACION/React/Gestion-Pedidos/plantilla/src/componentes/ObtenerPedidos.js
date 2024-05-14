@@ -6,8 +6,8 @@ const ObtenerPedidos = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try { const response = await axios.get(//'http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/obtenerPedidosAPI.php'//clase
-    'http://localhost/Proyectos/Curso23_24PHP/Restaurante/obtenerPedidosAPI.php'//casa
+      try { const response = await axios.get('http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/obtenerPedidosAPI.php'//clase
+   // 'http://localhost/Proyectos/Curso23_24PHP/Restaurante/obtenerPedidosAPI.php'//casa
        
     );
         setData(response.data);
