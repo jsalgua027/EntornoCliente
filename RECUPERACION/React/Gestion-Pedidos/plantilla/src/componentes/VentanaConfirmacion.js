@@ -15,7 +15,7 @@ function VentanaConfirmacion(props) {
       </ModalHeader>
       <ModalBody>
       <img
-                src={`/images/iconos/buenProvecho4.jpg`}
+                src={`./images/iconos/buenProvecho4.jpg`}
                 alt="logo"
                 style={{ marginLeft: "25%", width: "400px", height: "400px" }}
               />

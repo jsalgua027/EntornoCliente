@@ -77,7 +77,8 @@ function VentanaPedidos(props) {
        
     fetch(
       // 'http://localhost/Proyectos/Curso23_24PHP/Restaurante/confirmaPedidosAPI.php'//casa
-      "http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/confirmaPedidosAPI.php" //clase
+     // "http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/confirmaPedidosAPI.php" //clase
+      "https://thematic-learning.com/2DAW2024/JOSEIGNACIO/Restaurante/confirmaPedidosAPI.php"// despliegue
      , {
         method: "POST",
         headers: {
@@ -124,7 +125,7 @@ function VentanaPedidos(props) {
           {obtenerListaUnica().map((producto, index) => (
             <ol key={index}>
               <img
-                src={`/images/${producto.categoria}/${producto.portadaFoto}`}
+                src={`./images/${producto.categoria}/${producto.portadaFoto}`}
                 alt={producto.producto}
                 style={{ marginRight: "5px", width: "50px", height: "50px" }}
               />

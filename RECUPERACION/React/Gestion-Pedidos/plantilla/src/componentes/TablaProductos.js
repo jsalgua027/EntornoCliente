@@ -105,7 +105,7 @@ function TablaProductos(props) {
                 <CardImg
                   top
                   width="20%"
-                  src={`/images/${props.categoria}/${producto.portadaFoto}`}
+                  src={`./images/${props.categoria}/${producto.portadaFoto}`}
                   alt={producto.producto}
                   className="card-img-top"
                 />
@@ -129,7 +129,7 @@ function TablaProductos(props) {
             {" "}
             {/* Espacio adicional a la derecha del icono */}
             <img
-              src="/images/iconos/carro.svg"
+              src="./images/iconos/carro.svg"
               alt="Icono"
               className="icono-svg"
             />
