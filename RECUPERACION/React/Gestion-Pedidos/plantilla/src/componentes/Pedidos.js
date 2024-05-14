@@ -17,9 +17,9 @@ function Pedidos({ pedidos }) {
     };
 
     // Realizar la llamada a la API para actualizar el estado de entrega del pedido
-    fetch(//'http://localhost/Proyectos/Curso23_24PHP/Restaurante/estadoPedidoAPI.php'//casa
+    fetch('http://localhost/Proyectos/Curso23_24PHP/Restaurante/estadoPedidoAPI.php'//casa
     //'http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/estadoPedidoAPI.php'//clase
-    "https://thematic-learning.com/2DAW2024/JOSEIGNACIO/Restaurante/estadoPedidoAPI.php"// despliegue
+   // "https://thematic-learning.com/2DAW2024/JOSEIGNACIO/Restaurante/estadoPedidoAPI.php"// despliegue
     , requestOptions)
       .then(response => response.json())
       .then(data => {

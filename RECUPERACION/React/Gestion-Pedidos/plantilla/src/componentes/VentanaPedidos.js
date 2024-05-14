@@ -77,8 +77,8 @@ function VentanaPedidos(props) {
        
     fetch(
       // 'http://localhost/Proyectos/Curso23_24PHP/Restaurante/confirmaPedidosAPI.php'//casa
-     // "http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/confirmaPedidosAPI.php" //clase
-      "https://thematic-learning.com/2DAW2024/JOSEIGNACIO/Restaurante/confirmaPedidosAPI.php"// despliegue
+      "http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/confirmaPedidosAPI.php" //clase
+     // "https://thematic-learning.com/2DAW2024/JOSEIGNACIO/Restaurante/confirmaPedidosAPI.php"// despliegue
      , {
         method: "POST",
         headers: {
