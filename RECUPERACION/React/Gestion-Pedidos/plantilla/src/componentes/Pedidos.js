@@ -6,6 +6,8 @@ import HistoricoPedidos from './HistoricoPedidos';
 function Pedidos({ pedidos }) {
   const [pedidosList, setPedidosList] = useState(pedidos);
 
+  console.log("ESTAMOS EN EL COMPONENTE PEDIDOS:" +pedidosList)
+
   const handleButtonAction = (idPedido) => {
     // Configuración de la solicitud POST
     const requestOptions = {
@@ -78,7 +80,7 @@ return (
         ))}
       </Row>
     ))}
-    <HistoricoPedidos pedidos={pedidosList} />
+    <HistoricoPedidos lista={pedidosList} />
     <Button color="danger" onClick={()=>reiniciarApp ()}>SALIR</Button>
   </div>
 );

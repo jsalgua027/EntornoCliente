@@ -26,7 +26,7 @@ function App() {
   const handleVolver = () => {
     setMostrarPedidos(false);
   };
-  console.log("LOS PEDIODS: " + pedidos);
+ // console.log("LOS PEDIODS: " + pedidos);
   //----------------------------------------------
 
   const handleClickInicio = () => {
