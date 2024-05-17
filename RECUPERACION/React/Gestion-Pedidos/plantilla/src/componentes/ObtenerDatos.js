@@ -9,9 +9,9 @@ const ObtenerDatos = () => {
       try {
         const response = await axios.get(
           //'http://localhost/Proyectos/Curso23_24PHP/Curso23_24PHP/Restaurante/obtenerProductosAPI.php'//clase
-          'http://localhost/Proyectos/Curso23_24PHP/Restaurante/obtenerProductosAPI.php'//casa
+          //'http://localhost/Proyectos/Curso23_24PHP/Restaurante/obtenerProductosAPI.php'//casa
 
-         // "https://thematic-learning.com/2DAW2024/JOSEIGNACIO/Restaurante/obtenerProductosAPI.php" // despliegue
+          "https://thematic-learning.com/2DAW2024/JOSEIGNACIO/Restaurante/obtenerProductosAPI.php" // despliegue
         );
         setData(response.data);
       } catch (error) {
