@@ -167,6 +167,10 @@ h1.centro{
     border-radius: 6px;
   }
 
+  .pedidos-container {
+    min-height: 100vh; /* Establece la altura mínima del contenedor al 100% de la altura de la ventana */
+  }
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

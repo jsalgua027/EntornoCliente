@@ -8,26 +8,18 @@ import Pedidos from "./componentes/Pedidos";
 import ObtenerDatos from "./componentes/ObtenerDatos";
 import ObtenerPedidos from "./componentes/ObtenerPedidos";
 
-//https://react-slick.neostack.com/docs/get-started slider basico para react
-
 function App() {
   const productosPorCategoria = ObtenerDatos();
   const [mostrarTabla, setMostrarTabla] = useState(false);
-  //-------------------------------------------
   const [mostrarPedidos, setMostrarPedidos] = useState(false);
   const pedidos = ObtenerPedidos();
 
   const handleMostrarPedidos = () => {
-    // Hacer la función async para esperar la obtención de los pedidos
-    // Esperar a que se obtengan los pedidos
-
     setMostrarPedidos(true);
   };
   const handleVolver = () => {
     setMostrarPedidos(false);
   };
- // console.log("LOS PEDIODS: " + pedidos);
-  //----------------------------------------------
 
   const handleClickInicio = () => {
     setMostrarTabla(true);
@@ -35,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* Renderizar el componente de Pedidos solo si mostrarPedidos es true */}
+      {/* Renderizo el componente de Pedidos solo si mostrarPedidos es true */}
       {mostrarPedidos ? (
         <Pedidos pedidos={pedidos} onVolver={handleVolver} />
       ) : mostrarTabla ? (

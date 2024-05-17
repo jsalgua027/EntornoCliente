@@ -18,11 +18,12 @@ function TablaProductos(props) {
   const [contPedidos, setContPedidos] = useState(0);
   const [listaPedidos, setListaPedidos] = useState([]);
   const [mostrarModal, setMostrarModal] = useState(false); // para mostar la modal
-  const [mostrarModalConfirmacion, setMostrarModalConfirmacion] = useState(false);//ventana confirmacion mostar modal
+  const [mostrarModalConfirmacion, setMostrarModalConfirmacion] =
+    useState(false); //ventana confirmacion mostar modal
   useEffect(() => {
-    console.log(listaPedidos +"---" +contPedidos)
+    console.log(listaPedidos + "---" + contPedidos);
     setContPedidos(listaPedidos.length);
-  },[listaPedidos]);
+  }, [listaPedidos]);
 
   useEffect(() => {
     // Cuando los productos seleccionados cambian, actualiza el estado
@@ -46,21 +47,19 @@ function TablaProductos(props) {
     return chunkedArray;
   };
 
-  
-
   // Dividir los productos en grupos de tres
   const productosChunked = chunkArray(productos, 3);
 
   const handeclick = (producto) => {
     let listaux = [...listaPedidos];
-  // Crear un nuevo objeto que contenga el producto y su categoría
-  let productoConCategoria = {
-    ...producto,
-    categoria: props.categoria // le añado la categoria usando  props.categoria contiene la categoría actual
-  };
-  listaux.push(productoConCategoria); // Agregar el nuevo objeto a la lista
-  setListaPedidos(listaux); // Actualizar el estado con la nueva lista
-  setContPedidos(contPedidos + 1); // contador de pedidos
+    // Crear un nuevo objeto que contenga el producto y su categoría
+    let productoConCategoria = {
+      ...producto,
+      categoria: props.categoria, // le añado la categoria usando  props.categoria contiene la categoría actual
+    };
+    listaux.push(productoConCategoria); // Agrego el nuevo objeto a la lista
+    setListaPedidos(listaux); // Actualizo el estado con la nueva lista
+    setContPedidos(contPedidos + 1); // contador de pedidos
   };
   // Función para abrir la ventana modal
   const abrirModal = () => {
@@ -72,15 +71,15 @@ function TablaProductos(props) {
     let aux = 1;
     setMostrarModal(false);
     /***esta comentado es si quiero que el cliente al dar cerrar se reinicie el pedido****/
-     //setContPedidos(aux);
-     //setListaPedidos([]);
+    //setContPedidos(aux);
+    //setListaPedidos([]);
   };
 
-  const actualizarProductos = (_listaPedidos,_contPedidos)=>{
+  const actualizarProductos = (_listaPedidos, _contPedidos) => {
     setContPedidos(_contPedidos);
     setListaPedidos(_listaPedidos);
-    console.log(listaPedidos+"-------"+contPedidos)
-  }
+    console.log(listaPedidos + "-------" + contPedidos);
+  };
 
   // cerrar Ventana confimacion
   const cerrarModalConfirmacion = () => {
@@ -90,9 +89,7 @@ function TablaProductos(props) {
   const confirmarPedido = () => {
     setMostrarModal(false);
     setMostrarModalConfirmacion(true);
-   
   };
-
 
   //console.log("se hace clic en un producto: " + listaPedidos);
   return (

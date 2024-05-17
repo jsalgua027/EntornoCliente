@@ -35,9 +35,8 @@ function TablaCategorias(props) {
 
   console.log("La categoria seleccionada es: " + selectedCategoria);
   return (
-    <div className='contenedor'>
-      
-          <Container className="tCat">
+    <div className="contenedor">
+      <Container className="tCat">
         <Row>
           {Object.keys(listaProductos).map((key) => (
             <Col key={key}>
@@ -58,17 +57,20 @@ function TablaCategorias(props) {
                 }
               >
                 <CardBody>
-                  <CardTitle tag="h5">{listaProductos[key].categoria}</CardTitle>
+                  <CardTitle tag="h5">
+                    {listaProductos[key].categoria}
+                  </CardTitle>
                 </CardBody>
               </Card>
             </Col>
           ))}
         </Row>
       </Container>
-      <TablaProductos  productosSeleccionados={productosCategoria} categoria={selectedCategoria}/>
-      
-  </div>
-   
+      <TablaProductos
+        productosSeleccionados={productosCategoria}
+        categoria={selectedCategoria}
+      />
+    </div>
   );
 }
 
